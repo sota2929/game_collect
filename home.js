@@ -26,12 +26,35 @@ const games = [
     description: "3個以上つながった紋章を消して連鎖を狙う盤面パズル。スマホでも遊びやすい設計。",
     meta: ["3個消し", "コンボ", "詰み判定"],
   },
+  {
+    title: "Neon Courier",
+    href: "neon_courier/index.html",
+    genre: "Action",
+    popularity: 4,
+    released: 4,
+    description: "雨のネオン街で荷物を拾いながら走る4レーン配達ラン。短時間でスコア更新を狙えます。",
+    meta: ["レーン移動", "Boost", "コンボ"],
+  },
+  {
+    title: "Tide Forge",
+    href: "tide_forge/index.html",
+    genre: "Timing",
+    popularity: 5,
+    released: 5,
+    description: "潮汐炉で刃を鍛えるタイミングゲーム。針とゾーンを合わせてPerfectを重ねます。",
+    meta: ["タイミング", "Perfect判定", "連鎖"],
+  },
 ];
 
 const list = document.querySelector("#gameList");
 const tabs = document.querySelectorAll(".tab");
 const search = document.querySelector("#search");
 let sort = "popular";
+
+const initialQuery = new URLSearchParams(window.location.search).get("q");
+if (initialQuery) {
+  search.value = initialQuery;
+}
 
 function render() {
   const query = search.value.trim().toLowerCase();

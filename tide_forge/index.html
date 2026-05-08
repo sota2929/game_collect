@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tide Forge | 無料タイミングゲーム | Collect Arcade</title>
+    <meta name="description" content="Tide Forgeは、針と鍛造ゾーンを合わせてPerfectを狙う無料ブラウザタイミングゲームです。Good、Great、Perfectを重ねて刃を鍛えます。" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#081721" />
+    <link rel="canonical" href="https://game-collect.online/tide_forge/" />
+    <meta property="og:site_name" content="Collect Arcade" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content="Tide Forge | 無料タイミングゲーム" />
+    <meta property="og:description" content="針とゾーンを合わせてPerfectを狙う短時間ブラウザタイミングゲーム。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://game-collect.online/tide_forge/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Tide Forge | Collect Arcade" />
+    <meta name="twitter:description" content="Good、Great、Perfectで刃を鍛える無料ブラウザタイミングゲーム。" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "VideoGame",
+            "name": "Tide Forge",
+            "url": "https://game-collect.online/tide_forge/",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Web browser",
+            "genre": ["Timing", "Arcade"],
+            "inLanguage": "ja",
+            "isAccessibleForFree": true,
+            "description": "針と鍛造ゾーンを合わせてPerfectを狙う無料ブラウザタイミングゲームです。"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ゲーム一覧", "item": "https://game-collect.online/" },
+              { "@type": "ListItem", "position": 2, "name": "Tide Forge", "item": "https://game-collect.online/tide_forge/" }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <a class="back-link" href="../index.html">← ゲーム一覧へ戻る</a>
+      <section class="hud" aria-label="Game status">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <h1>Tide Forge</h1>
+            <p>潮汐炉で刃を鍛えるタイミングゲーム</p>
+          </div>
+        </div>
+        <div class="stats">
+          <span><b id="score">0</b> Score</span>
+          <span><b id="chain">x1</b> Chain</span>
+          <span><b id="best">0</b> Best</span>
+          <a class="home-link" href="../index.html">一覧</a>
+        </div>
+      </section>
+
+      <section class="forge-wrap">
+        <canvas id="game" width="900" height="900" aria-label="Tide Forge timing board"></canvas>
+        <div class="overlay" id="overlay">
+          <div class="overlay-panel">
+            <h2 id="overlayTitle">Tide Forge</h2>
+            <p id="overlayText">針が光る鍛造ゾーンに入った瞬間にStrike。青=Good、緑=Great、黄=Perfect。</p>
+            <button id="start">Start</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel" aria-label="Controls">
+        <div class="meter-card">
+          <div class="meter-head">
+            <span>Heat</span>
+            <b id="heatText">100%</b>
+          </div>
+          <div class="meter heat"><span id="heatBar"></span></div>
+        </div>
+        <div class="actions">
+          <button id="strike">Strike</button>
+          <button id="pause">Pause</button>
+          <button id="sound">Sound On</button>
+        </div>
+        <div class="ledger">
+          <span id="rank">Rank -</span>
+          <span id="blades">Blades 0</span>
+          <span id="tempo">Tempo 1.0</span>
+          <span id="state">Ready</span>
+        </div>
+      </aside>
+
+      <section class="game-info" aria-label="Tide Forge guide">
+        <article>
+          <h2>遊び方</h2>
+          <p>回転する針が光るゾーンに重なった瞬間にStrikeします。青はGood、緑はGreat、黄はPerfectです。</p>
+        </article>
+        <article>
+          <h2>ルール</h2>
+          <p>PerfectやGreatでHeatが保たれ、MissでHeatが減ります。Heatが0になると鍛造終了です。</p>
+        </article>
+        <article>
+          <h2>操作方法</h2>
+          <p>PCは Space / Enter / クリックでStrike。スマホはStrikeボタンまたは盤面タップで操作できます。</p>
+        </article>
+        <article>
+          <h2>攻略のコツ</h2>
+          <p>ゾーンは少しずつ狭くなります。音ではなく針の先端とゾーン中央の距離を見ると安定します。</p>
+        </article>
+      </section>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>

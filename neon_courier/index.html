@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Courier | 無料4レーン配達ランゲーム | Collect Arcade</title>
+    <meta name="description" content="Neon Courierは、雨のネオン街で荷物を拾い障害物を避ける無料ブラウザランゲームです。4レーン移動とBoostでスコア更新を狙えます。" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#090d18" />
+    <link rel="canonical" href="https://game-collect.online/neon_courier/" />
+    <meta property="og:site_name" content="Collect Arcade" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content="Neon Courier | 無料4レーン配達ランゲーム" />
+    <meta property="og:description" content="雨のネオン街で荷物を拾い、障害物を避ける短時間ブラウザランゲーム。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://game-collect.online/neon_courier/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Neon Courier | Collect Arcade" />
+    <meta name="twitter:description" content="4レーン移動とBoostで走り抜ける無料ブラウザランゲーム。" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "VideoGame",
+            "name": "Neon Courier",
+            "url": "https://game-collect.online/neon_courier/",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Web browser",
+            "genre": ["Action", "Runner"],
+            "inLanguage": "ja",
+            "isAccessibleForFree": true,
+            "description": "雨のネオン街で荷物を拾い障害物を避ける無料ブラウザランゲームです。"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ゲーム一覧", "item": "https://game-collect.online/" },
+              { "@type": "ListItem", "position": 2, "name": "Neon Courier", "item": "https://game-collect.online/neon_courier/" }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <a class="back-link" href="../index.html">← ゲーム一覧へ戻る</a>
+      <section class="hud" aria-label="Game status">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <h1>Neon Courier</h1>
+            <p>雨のネオン街を走る配達ラン</p>
+          </div>
+        </div>
+        <div class="stats">
+          <span><b id="score">0</b> Score</span>
+          <span><b id="combo">x1</b> Combo</span>
+          <span><b id="best">0</b> Best</span>
+          <a class="home-link" href="../index.html">一覧</a>
+        </div>
+      </section>
+
+      <section class="play-frame">
+        <canvas id="game" width="720" height="960" aria-label="Neon Courier game field"></canvas>
+        <div class="overlay" id="overlay">
+          <div class="overlay-panel">
+            <h2 id="overlayTitle">Neon Courier</h2>
+            <p id="overlayText">← → / A Dで4つのレーンを移動。Space / ShiftでBoost。荷物を拾って障害物を避ける。</p>
+            <button id="start">Start</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel" aria-label="Controls">
+        <div class="meter-card">
+          <div class="meter-head">
+            <span>Battery</span>
+            <b id="batteryText">100%</b>
+          </div>
+          <div class="meter"><span id="batteryBar"></span></div>
+        </div>
+        <div class="meter-card">
+          <div class="meter-head">
+            <span>Boost</span>
+            <b id="boostText">Ready</b>
+          </div>
+          <div class="meter boost"><span id="boostBar"></span></div>
+        </div>
+        <div class="actions">
+          <button id="left">Left</button>
+          <button id="right">Right</button>
+          <button id="boost">Boost</button>
+          <button id="pause">Pause</button>
+          <button id="sound">Sound On</button>
+        </div>
+        <div class="ledger">
+          <span id="speed">Speed 1.0</span>
+          <span id="packages">Packages 0</span>
+          <span id="time">00:00</span>
+          <span id="state">Ready</span>
+        </div>
+      </aside>
+
+      <section class="game-info" aria-label="Neon Courier guide">
+        <article>
+          <h2>遊び方</h2>
+          <p>4つのレーンを切り替えながら荷物を集め、工事バリアやドローンを避けて走り続けます。</p>
+        </article>
+        <article>
+          <h2>ルール</h2>
+          <p>荷物を連続で拾うとコンボが上がります。障害物に当たるとBatteryが減り、0になると配達終了です。</p>
+        </article>
+        <article>
+          <h2>操作方法</h2>
+          <p>PCは ← → / A D で移動、Space / ShiftでBoost。スマホは左右ボタンとBoostボタンで操作します。</p>
+        </article>
+        <article>
+          <h2>攻略のコツ</h2>
+          <p>Boost中は少しだけ接触に強くなります。荷物を取りに行くより、次の障害物のレーンを先に読むとスコアが伸びます。</p>
+        </article>
+      </section>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>

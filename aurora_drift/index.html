@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurora Drift</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <a class="back-link" href="../index.html">← ゲーム一覧へ戻る</a>
+      <section class="topbar" aria-label="Game status">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <h1>Aurora Drift</h1>
+            <p>光の航路をすり抜けて、星粒を集める</p>
+          </div>
+        </div>
+        <div class="stats">
+          <span><b id="score">0</b> Score</span>
+          <span><b id="combo">x1</b> Combo</span>
+          <span><b id="best">0</b> Best</span>
+          <a class="home-link" href="../index.html">一覧</a>
+        </div>
+      </section>
+
+      <section class="play-frame">
+        <canvas id="game" width="720" height="960" aria-label="Aurora Drift game field"></canvas>
+        <div class="overlay" id="overlay">
+          <div class="overlay-panel">
+            <h2 id="overlayTitle">Aurora Drift</h2>
+            <p id="overlayText">← → / A Dで移動。Space / Shift / XでDashして星粒を集め、流星を避ける。</p>
+            <button id="start">Start</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel" aria-label="Controls">
+        <div class="meter-card">
+          <div class="meter-head">
+            <span>Hull</span>
+            <b id="hullText">100%</b>
+          </div>
+          <div class="meter"><span id="hullBar"></span></div>
+        </div>
+        <div class="meter-card">
+          <div class="meter-head">
+            <span>Dash</span>
+            <b id="dashText">Ready</b>
+          </div>
+          <div class="meter dash"><span id="dashBar"></span></div>
+        </div>
+        <div class="actions">
+          <button id="dashButton">Dash</button>
+          <button id="pause">Pause</button>
+          <button id="sound">Sound On</button>
+        </div>
+        <p class="control-help">Keyboard: ← → / A D move, Space / Shift / X / J / K dash</p>
+        <div class="ledger">
+          <span id="speed">Drift 1.0</span>
+          <span id="chain">Chain 0</span>
+          <span id="time">00:00</span>
+          <span id="state">Ready</span>
+        </div>
+      </aside>
+
+      <section class="game-info" aria-label="Aurora Drift guide">
+        <article>
+          <h2>遊び方</h2>
+          <p>機体を左右に動かして星粒を集め、流れてくる流星を避けます。Hullが0になるとゲーム終了です。</p>
+        </article>
+        <article>
+          <h2>ルール</h2>
+          <p>星粒を連続で取るとコンボが上がり、得点が伸びます。流星に当たるとHullが減り、コンボはリセットされます。</p>
+        </article>
+        <article>
+          <h2>操作方法</h2>
+          <p>キーボードは ← → / A D で移動、Space / Shift / X / J / K でDash。スマホでは画面をドラッグして移動、Dashボタンで加速できます。</p>
+        </article>
+        <article>
+          <h2>攻略のコツ</h2>
+          <p>Dashは回避だけでなく星粒を取りに行く攻めにも使えます。危険な流星が近い時は、進行方向を決めてからDashすると安定します。</p>
+        </article>
+      </section>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>

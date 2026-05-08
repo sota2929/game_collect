@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crystal Descent Defense</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <a class="back-link" href="../index.html">← ゲーム一覧へ戻る</a>
+      <section class="hud" aria-label="Game status">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <div>
+            <h1>Crystal Descent Defense</h1>
+            <p>Wave <span id="wave">1</span></p>
+          </div>
+        </div>
+        <div class="stats">
+          <span><b id="gold">220</b> Gold</span>
+          <span><b id="core">10</b> Core</span>
+          <span><b id="kills">0</b> Kills</span>
+          <a class="home-link" href="../index.html">一覧</a>
+        </div>
+      </section>
+
+      <section class="game-wrap">
+        <canvas id="game" width="720" height="960" aria-label="Tower defense game board"></canvas>
+        <div class="overlay hidden" id="overlay">
+          <h2 id="overlayTitle">Game Over</h2>
+          <p id="overlayText">The crystal line was breached.</p>
+          <button id="restart">Restart</button>
+        </div>
+      </section>
+
+      <aside class="panel" aria-label="Tower controls">
+        <div class="tower-list" id="towerList"></div>
+        <div class="actions">
+          <button id="startWave">Start Wave</button>
+          <button id="pause">Pause</button>
+          <button id="sound">Sound On</button>
+        </div>
+        <div class="speed-controls" aria-label="Wave speed">
+          <button class="speed-button selected" data-speed="1">1x</button>
+          <button class="speed-button" data-speed="2">2x</button>
+          <button class="speed-button" data-speed="4">4x</button>
+          <button class="speed-button" data-speed="10">10x</button>
+        </div>
+        <p class="merge-help">
+          同じ種類・同じLvのタワー同士をドラッグで重ねると合成。最大Lv5、Lvが上がるたびDmgが2倍。合成費: Aster 1500G / Frost 1700G / Ember 2000G。
+        </p>
+        <div class="ledger">
+          <span id="waveState">Ready</span>
+          <span id="selection">Aster selected</span>
+          <span id="routeInfo">Route 0</span>
+          <span id="speedInfo">Speed 1x</span>
+        </div>
+      </aside>
+
+      <section class="game-info" aria-label="Crystal Descent Defense guide">
+        <article>
+          <h2>遊び方</h2>
+          <p>タワーを配置して敵の進行ルートを作り、クリスタルコアを守ります。Waveを開始して敵を倒すとGoldを獲得できます。</p>
+        </article>
+        <article>
+          <h2>ルール</h2>
+          <p>敵がコアへ到達するとCoreが減ります。Coreが0になる前に、タワーの配置と合成でWaveをしのぎましょう。</p>
+        </article>
+        <article>
+          <h2>操作方法</h2>
+          <p>タワーを選んで盤面をクリックまたはタップすると配置できます。同じ種類・同じLvのタワー同士はドラッグで合成できます。</p>
+        </article>
+        <article>
+          <h2>攻略のコツ</h2>
+          <p>曲がり角付近に範囲攻撃や鈍足タワーを置くと効率的です。Wave速度は余裕がある時だけ上げると安定します。</p>
+        </article>
+      </section>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>

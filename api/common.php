@@ -11,6 +11,14 @@ const GAME_KEYS = [
     'tide-forge',
 ];
 
+const GAME_CATALOG = [
+    'crystal-descent-defense' => ['title' => 'クリスタル防衛線', 'slug' => 'crystal-descent-defense', 'genre' => 'Strategy'],
+    'aurora-drift' => ['title' => 'オーロラ航路', 'slug' => 'aurora-drift', 'genre' => 'Action'],
+    'glyph-garden' => ['title' => '紋章の庭', 'slug' => 'glyph-garden', 'genre' => 'Puzzle'],
+    'neon-courier' => ['title' => 'ネオン配達便', 'slug' => 'neon-courier', 'genre' => 'Action'],
+    'tide-forge' => ['title' => '潮汐の鍛冶場', 'slug' => 'tide-forge', 'genre' => 'Timing'],
+];
+
 function json_response(array $payload, int $status = 200): never
 {
     http_response_code($status);
@@ -90,9 +98,39 @@ function require_method(string $method): void
     }
 }
 
+function ensure_games_seeded(PDO $pdo): void
+{
+    static $seeded = false;
+    if ($seeded) {
+        return;
+    }
+
+    $stmt = $pdo->prepare("
+        INSERT INTO games (game_key, title, slug, genre, is_active)
+        VALUES (:game_key, :title, :slug, :genre, 1)
+        ON DUPLICATE KEY UPDATE
+            title = VALUES(title),
+            slug = VALUES(slug),
+            genre = VALUES(genre),
+            is_active = 1
+    ");
+
+    foreach (GAME_CATALOG as $gameKey => $game) {
+        $stmt->execute([
+            ':game_key' => $gameKey,
+            ':title' => $game['title'],
+            ':slug' => $game['slug'],
+            ':genre' => $game['genre'],
+        ]);
+    }
+
+    $seeded = true;
+}
+
 function summarize_games(?string $gameKey = null): array
 {
     $pdo = db();
+    ensure_games_seeded($pdo);
     $visitorHash = visitor_hash();
     $params = [];
     $where = '';
@@ -145,4 +183,3 @@ function summarize_games(?string $gameKey = null): array
 
     return $summaries;
 }
-

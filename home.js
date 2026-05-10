@@ -1,5 +1,6 @@
 const games = [
   {
+    "id": "crystal-descent-defense",
     "title": "クリスタル防衛線",
     "href": "games/crystal-descent-defense/index.html",
     "thumb": "assets/thumbs/crystal-descent-defense.png",
@@ -15,6 +16,7 @@ const games = [
     ]
   },
   {
+    "id": "aurora-drift",
     "title": "オーロラ航路",
     "href": "games/aurora-drift/index.html",
     "thumb": "assets/thumbs/aurora-drift.png",
@@ -30,6 +32,7 @@ const games = [
     ]
   },
   {
+    "id": "glyph-garden",
     "title": "紋章の庭",
     "href": "games/glyph-garden/index.html",
     "thumb": "assets/thumbs/glyph-garden.png",
@@ -45,6 +48,7 @@ const games = [
     ]
   },
   {
+    "id": "neon-courier",
     "title": "ネオン配達便",
     "href": "games/neon-courier/index.html",
     "thumb": "assets/thumbs/neon-courier.png",
@@ -60,6 +64,7 @@ const games = [
     ]
   },
   {
+    "id": "tide-forge",
     "title": "潮汐の鍛冶場",
     "href": "games/tide-forge/index.html",
     "thumb": "assets/thumbs/tide-forge.png",
@@ -77,6 +82,7 @@ const games = [
 ];
 
 const list = document.querySelector("#gameList");
+const personalLibrary = document.querySelector("#personalLibrary");
 const tabs = document.querySelectorAll(".tab");
 const search = document.querySelector("#search");
 let sort = "popular";
@@ -86,7 +92,45 @@ if (initialQuery) {
   search.value = initialQuery;
 }
 
+function renderPersonalLibrary() {
+  const store = window.CollectUGC.readStore();
+  const favorites = games.filter((game) => window.CollectUGC.summaryFor(game.id).favorite);
+  const played = games
+    .map((game) => ({ game, summary: window.CollectUGC.summaryFor(game.id) }))
+    .filter((item) => item.summary.lastPlayed)
+    .sort((a, b) => {
+      const aTime = store.games[a.game.id]?.plays?.[0]?.time || 0;
+      const bTime = store.games[b.game.id]?.plays?.[0]?.time || 0;
+      return bTime - aTime;
+    })
+    .slice(0, 5)
+    .map((item) => item.game);
+
+  const sections = [
+    ["お気に入り", favorites],
+    ["最近遊んだ", played],
+  ];
+
+  personalLibrary.innerHTML = sections
+    .map(
+      ([title, items]) => `
+        <article class="library-card">
+          <h3>${title}</h3>
+          ${
+            items.length
+              ? `<div class="library-links">${items
+                  .map((game) => `<a href="${game.href}">${game.title}</a>`)
+                  .join("")}</div>`
+              : `<p>まだありません。</p>`
+          }
+        </article>
+      `,
+    )
+    .join("");
+}
+
 function render() {
+  renderPersonalLibrary();
   const query = search.value.trim().toLowerCase();
   const sorted = [...games]
     .filter((game) => {
@@ -96,12 +140,19 @@ function render() {
     .sort((a, b) => {
       if (sort === "new") return b.released - a.released;
       if (sort === "title") return a.title.localeCompare(b.title);
-      return a.popularity - b.popularity;
+      return window.CollectUGC.popularityScoreFor(b) - window.CollectUGC.popularityScoreFor(a);
     });
 
   list.innerHTML = sorted
     .map(
-      (game, index) => `
+      (game, index) => {
+        const summary = window.CollectUGC.summaryFor(game.id);
+        const rating = summary.ratingCount ? `${summary.averageRating.toFixed(1)} / 5` : "未評価";
+        const rankLabel = sort === "popular" ? `人気ランキング ${index + 1}位` : `表示順 ${index + 1}番目`;
+        const saved = [
+          summary.favorite ? "お気に入り" : "",
+        ].filter(Boolean);
+        return `
         <article class="game-card game-card-with-thumb">
           <a class="game-thumb" href="${game.href}" aria-label="${game.title}の詳細を見る">
             <img src="${game.thumb}" alt="${game.title}のプレイ中サムネイル" loading="lazy" width="360" height="210" />
@@ -114,13 +165,21 @@ function render() {
             </div>
             <p class="game-description">${game.description}</p>
             <div class="game-meta">${game.meta.map((item) => `<span>${item}</span>`).join("")}</div>
+            <div class="ugc-mini" aria-label="${game.title}のローカル評価">
+              <span>全体評価 ${rating}</span>
+              <span>${rankLabel}</span>
+              <span>レビュー ${summary.reviewCount}件</span>
+              <span>プレイ ${summary.playCount}回</span>
+              ${saved.map((item) => `<span class="saved">${item}</span>`).join("")}
+            </div>
           </div>
           <div class="game-actions compact">
             <a class="secondary-link" href="${game.href}">詳細</a>
-            <a class="play-link" href="${game.playHref}">遊ぶ</a>
+            <a class="play-link" href="${game.playHref}" data-play-game-id="${game.id}" data-play-game-title="${game.title}">遊ぶ</a>
           </div>
         </article>
-      `,
+      `;
+      },
     )
     .join("");
 }
@@ -134,4 +193,5 @@ tabs.forEach((tab) => {
 });
 
 search.addEventListener("input", render);
+window.addEventListener("collect:ugc-updated", render);
 render();

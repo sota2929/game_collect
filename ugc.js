@@ -10,6 +10,7 @@
     "glyph-garden": "紋章の庭",
     "neon-courier": "ネオン配達便",
     "tide-forge": "潮汐の鍛冶場",
+    "aijingi": "合陣戯",
   };
 
   const remote = {

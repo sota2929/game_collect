@@ -9,6 +9,7 @@ const GAME_KEYS = [
     'glyph-garden',
     'neon-courier',
     'tide-forge',
+    'aijingi',
 ];
 
 const GAME_CATALOG = [
@@ -17,6 +18,7 @@ const GAME_CATALOG = [
     'glyph-garden' => ['title' => '紋章の庭', 'slug' => 'glyph-garden', 'genre' => 'Puzzle'],
     'neon-courier' => ['title' => 'ネオン配達便', 'slug' => 'neon-courier', 'genre' => 'Action'],
     'tide-forge' => ['title' => '潮汐の鍛冶場', 'slug' => 'tide-forge', 'genre' => 'Timing'],
+    'aijingi' => ['title' => '合陣戯', 'slug' => 'aijingi', 'genre' => 'Strategy'],
 ];
 
 function json_response(array $payload, int $status = 200): never

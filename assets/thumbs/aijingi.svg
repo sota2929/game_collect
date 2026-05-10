@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="210" viewBox="0 0 360 210" role="img" aria-label="合陣戯サムネイル">
+  <rect width="360" height="210" fill="#0c100d"/>
+  <rect x="14" y="12" width="332" height="186" rx="10" fill="#151b16" stroke="#2b352b"/>
+  <text x="28" y="42" fill="#f4f4ec" font-family="system-ui, sans-serif" font-size="24" font-weight="850">合陣戯</text>
+  <text x="30" y="64" fill="#aeb9aa" font-family="system-ui, sans-serif" font-size="11">Red vs Formation AI</text>
+  <g transform="translate(32 78)">
+    <rect width="116" height="116" fill="#1a2119" stroke="#e8cf73" stroke-opacity=".55"/>
+    <g stroke="#3d4b3b" stroke-width=".5">
+      <path d="M5.8 0v116M11.6 0v116M17.4 0v116M23.2 0v116M29 0v116M34.8 0v116M40.6 0v116M46.4 0v116M52.2 0v116M58 0v116M63.8 0v116M69.6 0v116M75.4 0v116M81.2 0v116M87 0v116M92.8 0v116M98.6 0v116M104.4 0v116M110.2 0v116"/>
+      <path d="M0 5.8h116M0 11.6h116M0 17.4h116M0 23.2h116M0 29h116M0 34.8h116M0 40.6h116M0 46.4h116M0 52.2h116M0 58h116M0 63.8h116M0 69.6h116M0 75.4h116M0 81.2h116M0 87h116M0 92.8h116M0 98.6h116M0 104.4h116M0 110.2h116"/>
+    </g>
+    <rect width="17.4" height="116" fill="#5aa7e8" opacity=".14"/>
+    <rect width="116" height="17.4" fill="#5aa7e8" opacity=".14"/>
+    <rect x="98.6" width="17.4" height="116" fill="#e7564a" opacity=".14"/>
+    <rect y="98.6" width="116" height="17.4" fill="#e7564a" opacity=".14"/>
+    <g fill="#e7564a"><circle cx="92" cy="92" r="5"/><circle cx="98" cy="92" r="5"/><circle cx="98" cy="86" r="5"/><circle cx="104" cy="92" r="5"/></g>
+    <g fill="#5aa7e8"><circle cx="24" cy="24" r="5"/><circle cx="30" cy="24" r="5"/><circle cx="24" cy="30" r="5"/><circle cx="36" cy="30" r="5"/></g>
+  </g>
+  <g transform="translate(174 80)" font-family="system-ui, sans-serif">
+    <rect width="150" height="28" rx="6" fill="#101510" stroke="#2b352b"/>
+    <text x="12" y="19" fill="#e8cf73" font-size="12" font-weight="800">20×20 tactical board</text>
+    <rect y="40" width="150" height="28" rx="6" fill="#101510" stroke="#2b352b"/>
+    <text x="12" y="59" fill="#8fd694" font-size="12" font-weight="800">Connection = health</text>
+    <rect y="80" width="150" height="28" rx="6" fill="#101510" stroke="#2b352b"/>
+    <text x="12" y="99" fill="#5aa7e8" font-size="12" font-weight="800">Formation AI battle</text>
+  </g>
+</svg>

@@ -78,6 +78,23 @@ const games = [
       "Perfect判定",
       "連鎖"
     ]
+  },
+  {
+    "id": "aijingi",
+    "title": "合陣戯",
+    "href": "games/aijingi/index.html",
+    "thumb": "assets/thumbs/aijingi.svg",
+    "playHref": "aijingi/index.html",
+    "genre": "Strategy",
+    "popularity": 6,
+    "released": 6,
+    "description": "PC専用。20×20盤面で陣形を組み、結合値と攻撃線を読み合う戦略ボードゲーム。陣形AIと対戦できます。",
+    "meta": [
+      "20×20盤面",
+      "PC専用",
+      "陣形AI",
+      "5行動制"
+    ]
   }
 ];
 

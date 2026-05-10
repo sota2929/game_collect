@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="合陣戯の20×20盤面イメージ">
+  <rect width="960" height="540" fill="#0c100d"/>
+  <rect x="40" y="36" width="880" height="468" rx="18" fill="#151b16" stroke="#2b352b"/>
+  <text x="74" y="88" fill="#f4f4ec" font-family="system-ui, sans-serif" font-size="42" font-weight="800">合陣戯</text>
+  <text x="76" y="122" fill="#aeb9aa" font-family="system-ui, sans-serif" font-size="18">20×20 formation strategy / Red vs Formation AI</text>
+  <g transform="translate(90 150)">
+    <rect width="360" height="360" fill="#1a2119" stroke="#e8cf73" stroke-opacity=".55"/>
+    <g stroke="#3d4b3b" stroke-width="1">
+      <path d="M18 0v360M36 0v360M54 0v360M72 0v360M90 0v360M108 0v360M126 0v360M144 0v360M162 0v360M180 0v360M198 0v360M216 0v360M234 0v360M252 0v360M270 0v360M288 0v360M306 0v360M324 0v360M342 0v360"/>
+      <path d="M0 18h360M0 36h360M0 54h360M0 72h360M0 90h360M0 108h360M0 126h360M0 144h360M0 162h360M0 180h360M0 198h360M0 216h360M0 234h360M0 252h360M0 270h360M0 288h360M0 306h360M0 324h360M0 342h360"/>
+    </g>
+    <rect x="0" y="0" width="54" height="360" fill="#5aa7e8" opacity=".13"/>
+    <rect x="0" y="0" width="360" height="54" fill="#5aa7e8" opacity=".13"/>
+    <rect x="306" y="0" width="54" height="360" fill="#e7564a" opacity=".13"/>
+    <rect x="0" y="306" width="360" height="54" fill="#e7564a" opacity=".13"/>
+    <g fill="none" stroke="#8fd694" stroke-opacity=".6" stroke-width="4">
+      <path d="M288 288L306 288L324 288"/>
+      <path d="M288 288L306 270"/>
+      <path d="M72 72L90 72L108 90"/>
+      <path d="M72 72L72 90"/>
+    </g>
+    <g font-family="system-ui, sans-serif" font-size="11" font-weight="900" text-anchor="middle" dominant-baseline="central">
+      <circle cx="288" cy="288" r="12" fill="#e7564a"/><text x="288" y="288" fill="#fff">3</text>
+      <circle cx="306" cy="288" r="12" fill="#e7564a"/><text x="306" y="288" fill="#fff">5</text>
+      <circle cx="324" cy="288" r="12" fill="#e7564a"/><text x="324" y="288" fill="#fff">2</text>
+      <circle cx="306" cy="270" r="12" fill="#e7564a"/><text x="306" y="270" fill="#fff">3</text>
+      <circle cx="72" cy="72" r="12" fill="#5aa7e8"/><text x="72" y="72" fill="#fff">4</text>
+      <circle cx="90" cy="72" r="12" fill="#5aa7e8"/><text x="90" y="72" fill="#fff">3</text>
+      <circle cx="108" cy="90" r="12" fill="#5aa7e8"/><text x="108" y="90" fill="#fff">2</text>
+      <circle cx="72" cy="90" r="12" fill="#5aa7e8"/><text x="72" y="90" fill="#fff">3</text>
+    </g>
+  </g>
+  <g transform="translate(515 166)">
+    <rect width="350" height="72" rx="10" fill="#101510" stroke="#2b352b"/>
+    <text x="24" y="31" fill="#e8cf73" font-family="system-ui, sans-serif" font-size="18" font-weight="800">5 actions per turn</text>
+    <text x="24" y="55" fill="#aeb9aa" font-family="system-ui, sans-serif" font-size="14">Place, move pieces, move 2-4 piece formations.</text>
+    <rect y="96" width="350" height="72" rx="10" fill="#101510" stroke="#2b352b"/>
+    <text x="24" y="127" fill="#8fd694" font-family="system-ui, sans-serif" font-size="18" font-weight="800">Connection = health</text>
+    <text x="24" y="151" fill="#aeb9aa" font-family="system-ui, sans-serif" font-size="14">Orthogonal +2, diagonal +1. Overstack halves health.</text>
+    <rect y="192" width="350" height="72" rx="10" fill="#101510" stroke="#2b352b"/>
+    <text x="24" y="223" fill="#5aa7e8" font-family="system-ui, sans-serif" font-size="18" font-weight="800">Formation AI</text>
+    <text x="24" y="247" fill="#aeb9aa" font-family="system-ui, sans-serif" font-size="14">Blue builds attack lines and avoids overstacking.</text>
+  </g>
+</svg>

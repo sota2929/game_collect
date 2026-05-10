@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>合陣戯 | PC専用の陣形AI戦略ボードゲーム | Collect Arcade</title>
+    <meta name="description" content="合陣戯は、PC専用の無料ブラウザ戦略ボードゲームです。20×20の盤面で陣形を組み、結合値と攻撃線を読み合いながらBlueの陣形AIと対戦できます。" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#101712" />
+    <link rel="canonical" href="https://game-collect.online/aijingi/" />
+    <meta property="og:site_name" content="Collect Arcade" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content="合陣戯 | PC専用の陣形AI戦略ボードゲーム" />
+    <meta property="og:description" content="PCで20×20盤面を見渡し、陣形・結合値・攻撃線でBlueの陣形AIを崩す戦略ボードゲーム。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://game-collect.online/aijingi/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="合陣戯 | PC専用 | Collect Arcade" />
+    <meta name="twitter:description" content="PCで20×20盤面を見渡して陣形AIと戦う無料ブラウザ戦略ボードゲーム。" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "VideoGame",
+            "name": "合陣戯",
+            "url": "https://game-collect.online/aijingi/",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Desktop web browser",
+            "genre": ["Strategy", "Board game"],
+            "inLanguage": "ja",
+            "isAccessibleForFree": true,
+            "description": "PC専用の20×20盤面戦略ボードゲームです。陣形を組み、結合値と攻撃線を読み合います。"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ゲーム一覧", "item": "https://game-collect.online/" },
+              { "@type": "ListItem", "position": 2, "name": "合陣戯", "item": "https://game-collect.online/aijingi/" }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="style.css?v=20260510-8" />
+  </head>
+  <body>
+    <main class="shell">
+      <a class="back-link" href="../index.html">← ゲーム一覧へ戻る</a>
+
+      <section class="hud" aria-label="Game status">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <h1>合陣戯</h1>
+            <p>PCでRedを指揮し、Blueの陣形AIを崩す</p>
+          </div>
+        </div>
+        <div class="stats">
+          <span class="pc-tag">PC専用</span>
+          <span><b id="turnText">Red</b> Turn</span>
+          <span><b id="actionsLeft">5</b> Actions</span>
+          <span><b id="resultText">Ready</b></span>
+          <a class="home-link" href="../index.html">一覧</a>
+        </div>
+      </section>
+
+      <section class="pc-only-notice" aria-label="PC専用のお知らせ">
+        <h2>このゲームはPC専用です</h2>
+        <p>20×20盤面を見渡しながら陣形を操作するため、横幅のあるPCブラウザでのプレイに限定しています。スマホでは他のCollect Arcadeゲームをお楽しみください。</p>
+        <a class="notice-link" href="../index.html">ゲーム一覧へ戻る</a>
+      </section>
+
+      <section class="battle-layout">
+        <section class="board-shell" aria-label="合陣戯 board">
+          <div class="edge-label edge-a">a</div>
+          <div class="edge-label edge-b">b</div>
+          <div class="edge-label edge-c">c</div>
+          <div class="edge-label edge-d">d</div>
+          <div class="board-frame">
+            <div class="coordinates top" id="topCoordinates" aria-hidden="true"></div>
+            <div class="board-scroll">
+              <div id="board" class="board" aria-label="20×20 board"></div>
+            </div>
+            <div class="coordinates right" id="rightCoordinates" aria-hidden="true"></div>
+          </div>
+        </section>
+
+        <aside class="panel" aria-label="Controls">
+          <section class="score-grid" aria-label="Army status">
+            <div>
+              <span>Red reserve</span>
+              <b id="redReserve">30</b>
+              <small>盤面 <strong id="redBoardCount">0</strong></small>
+            </div>
+            <div>
+              <span>Blue reserve</span>
+              <b id="blueReserve">30</b>
+              <small>盤面 <strong id="blueBoardCount">0</strong></small>
+            </div>
+          </section>
+
+          <section class="mode-panel" aria-label="Action mode">
+            <h2>Mode</h2>
+            <div class="mode-buttons">
+              <button class="mode-button selected" type="button" data-mode="place">配置</button>
+              <button class="mode-button" type="button" data-mode="piece">コマ移動</button>
+              <button class="mode-button" type="button" data-mode="formation">陣移動</button>
+            </div>
+            <div class="direction-pad" aria-label="Move direction">
+              <button type="button" data-dir="up">↑</button>
+              <button type="button" data-dir="left">←</button>
+              <button type="button" data-dir="right">→</button>
+              <button type="button" data-dir="down">↓</button>
+            </div>
+          </section>
+
+          <section class="info-card" aria-label="Selected piece">
+            <h2>Selected</h2>
+            <div id="selectionInfo">None</div>
+          </section>
+
+          <section class="actions">
+            <button id="endTurn">End Turn</button>
+            <button id="reset">Reset</button>
+            <button id="sound">Sound On</button>
+          </section>
+
+          <section class="ledger" aria-label="Game ledger">
+            <span id="aiState">Blue AI: 陣形AI</span>
+            <span id="phaseText">配置ゾーンを選択</span>
+            <span id="lastBattle">Battle -</span>
+          </section>
+        </aside>
+      </section>
+
+      <section class="log-panel" aria-label="Battle log">
+        <h2>Log</h2>
+        <ol id="logList"></ol>
+      </section>
+
+      <section class="game-info" aria-label="合陣戯 guide">
+        <article>
+          <h2>遊び方</h2>
+          <p>Redのコマを配置し、単体移動や2〜4個の陣移動でBlueの盤面コマを0にします。Blueは陣形AIが自動で5行動します。</p>
+        </article>
+        <article>
+          <h2>ルール</h2>
+          <p>上下左右の味方は結合+2、斜めの味方は結合+1。結合値が体力です。5個以上の塊は過密になり、体力が半減して陣移動できません。</p>
+        </article>
+        <article>
+          <h2>操作方法</h2>
+          <p>PCブラウザで盤面をクリックします。移動はモードを選び、コマまたは陣を選択して方向ボタンで動かします。1ターン最大5行動です。</p>
+        </article>
+        <article>
+          <h2>攻略のコツ</h2>
+          <p>2〜4個の細い陣を複数作り、攻撃方向の背後に味方を並べると攻撃力が伸びます。5個以上の密集は避けましょう。</p>
+        </article>
+      </section>
+    </main>
+    <script src="../ugc.js?v=20260510-1" data-current-game="aijingi"></script>
+    <script src="game.js?v=20260510-5"></script>
+  </body>
+</html>

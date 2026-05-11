@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# URLを https://game-collect.online/ に統一
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\.game-collect\.online$ [NC]
+RewriteRule ^(.*)$ https://game-collect.online%{REQUEST_URI} [R=301,L]

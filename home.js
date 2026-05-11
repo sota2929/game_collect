@@ -95,6 +95,23 @@ const games = [
       "陣形AI",
       "5行動制"
     ]
+  },
+  {
+    "id": "arcane-duel",
+    "title": "Arcane Duel",
+    "href": "games/arcane-duel/index.html",
+    "thumb": "assets/thumbs/arcane-duel.png",
+    "playHref": "arcane_duel/index.html",
+    "genre": "Strategy",
+    "popularity": 7,
+    "released": 7,
+    "description": "PC専用。敵の魔法陣を解析し、属性と特殊線で迎撃する5レーン魔法バトル。",
+    "meta": [
+      "PC専用",
+      "魔法陣解析",
+      "5レーン",
+      "CPU対戦"
+    ]
   }
 ];
 

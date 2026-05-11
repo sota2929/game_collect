@@ -1,0 +1,543 @@
+:root {
+  color-scheme: dark;
+  --gold: #f1d487;
+  --gold-deep: #a97627;
+  --blue: #72c8ff;
+  --red: #ff6075;
+  --ink: #070914;
+  --panel: rgba(8, 12, 25, 0.78);
+  --panel-strong: rgba(10, 14, 30, 0.92);
+  --line: rgba(241, 212, 135, 0.34);
+  --soft: rgba(255, 255, 255, 0.72);
+  --shadow: 0 22px 60px rgba(0, 0, 0, 0.42);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(5, 7, 15, 0.12), rgba(5, 7, 15, 0.88)),
+    url("../assets/battlefield.png") center / cover fixed,
+    #070914;
+  color: white;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(123, 184, 255, 0.2), transparent 26%),
+    radial-gradient(circle at 15% 80%, rgba(241, 212, 135, 0.12), transparent 30%),
+    linear-gradient(90deg, rgba(5, 7, 15, 0.9), rgba(5, 7, 15, 0.24) 28%, rgba(5, 7, 15, 0.24) 72%, rgba(5, 7, 15, 0.9));
+}
+
+.collect-return {
+  position: fixed;
+  z-index: 30;
+  left: 22px;
+  top: 104px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 13px;
+  border: 1px solid rgba(241, 212, 135, 0.46);
+  border-radius: 999px;
+  background: rgba(6, 9, 20, 0.72);
+  color: #fff6d8;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 900;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+}
+
+.pc-lock {
+  display: none;
+}
+
+.duel-app {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 76px minmax(0, 1fr) 200px;
+  gap: 8px;
+}
+
+.topbar,
+.command-deck {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) auto minmax(280px, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.duelist,
+.crest,
+.arena-frame,
+.spell-preview,
+.forge,
+.battle-scroll,
+.inspection-card {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(10, 15, 32, 0.88), rgba(6, 8, 18, 0.78));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.duelist,
+.crest {
+  min-height: 0;
+  border-radius: 8px;
+}
+
+.duelist {
+  padding: 8px 10px;
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.duelist.enemy {
+  grid-template-columns: 1fr 58px;
+  text-align: right;
+}
+
+.sigil {
+  width: 52px;
+  height: 52px;
+  aspect-ratio: 1;
+  flex: 0 0 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 900;
+  color: #0a0d18;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.42), inset 0 0 16px rgba(255,255,255,0.18), 0 0 24px rgba(241, 212, 135, 0.35);
+}
+
+.player-sigil {
+  background: radial-gradient(circle, #fff7c7, #d9a83d 68%, #6d4412);
+}
+
+.enemy-sigil {
+  background: radial-gradient(circle, #f0d9ff, #9b66f5 68%, #402074);
+}
+
+.duelist-name,
+.crest span,
+.preview-title span,
+.scroll-head span,
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.meter-row {
+  display: grid;
+  grid-template-columns: 28px 1fr 34px;
+  gap: 8px;
+  align-items: center;
+  margin-top: 4px;
+  color: var(--soft);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.enemy .meter-row {
+  grid-template-columns: 34px 1fr 28px;
+}
+
+.meter {
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.13);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.meter i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  transition: width 160ms ease;
+}
+
+.hp i {
+  background: linear-gradient(90deg, #8b2335, #ff6075);
+}
+
+.mp i {
+  background: linear-gradient(90deg, #2476a5, #7fe6ff);
+}
+
+.crest {
+  min-width: 330px;
+  padding: 8px 24px;
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
+
+.crest h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(25px, 2.6vw, 38px);
+  line-height: 0.95;
+  color: #fff6d8;
+  text-shadow: 0 0 22px rgba(241, 212, 135, 0.44);
+}
+
+.crest p {
+  margin: 6px 0 0;
+  color: rgba(255,255,255,0.72);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.arena-frame {
+  position: relative;
+  min-height: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#game {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: block;
+  cursor: crosshair;
+}
+
+.arena-help {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  pointer-events: none;
+}
+
+.arena-help span {
+  padding: 6px 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  background: rgba(4, 7, 16, 0.58);
+  color: rgba(255,255,255,0.7);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.command-deck {
+  grid-template-columns: 160px minmax(420px, 1fr) 230px;
+  min-height: 0;
+}
+
+.spell-preview,
+.forge,
+.battle-scroll {
+  border-radius: 8px;
+  padding: 9px;
+  min-height: 0;
+}
+
+.preview-title,
+.scroll-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.preview-title b {
+  color: #fff1bb;
+  font-size: 13px;
+}
+
+#circlePreview {
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
+}
+
+.forge {
+  display: grid;
+  gap: 8px;
+}
+
+.forge-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.forge-row.sliders {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+select,
+button {
+  width: 100%;
+  height: 32px;
+  border: 1px solid rgba(241, 212, 135, 0.28);
+  border-radius: 6px;
+  font: inherit;
+}
+
+select {
+  padding: 0 10px;
+  color: white;
+  background: rgba(255,255,255,0.09);
+  outline: none;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--gold);
+}
+
+output {
+  color: #fff1bb;
+}
+
+button {
+  cursor: pointer;
+  color: #111018;
+  font-weight: 950;
+  background: linear-gradient(180deg, #fff4c9, #dbb75b 48%, #91611f);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.22), inset 0 1px rgba(255,255,255,0.8);
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.42;
+  filter: grayscale(0.3);
+}
+
+.cast-button {
+  align-self: end;
+  height: 48px;
+  font-size: 16px;
+}
+
+.battle-scroll {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.scroll-head button {
+  width: 78px;
+  height: 30px;
+  font-size: 12px;
+}
+
+#log {
+  margin: 6px 0 0;
+  padding: 0 0 0 20px;
+  color: rgba(255,255,255,0.76);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.start-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(114, 200, 255, 0.22), transparent 32%),
+    rgba(3, 5, 12, 0.86);
+  backdrop-filter: blur(10px);
+}
+
+.start-screen.is-hidden {
+  display: none;
+}
+
+.rule-panel {
+  width: min(720px, calc(100vw - 32px));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 28px;
+  background: linear-gradient(180deg, rgba(10, 15, 32, 0.96), rgba(5, 7, 16, 0.92));
+  box-shadow: var(--shadow);
+}
+
+.rule-panel h2 {
+  margin: 0 0 16px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 44px;
+  color: #fff6d8;
+}
+
+.rule-panel ul {
+  margin: 0 0 22px;
+  padding-left: 22px;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.75;
+  font-weight: 700;
+}
+
+#startBattle {
+  max-width: 220px;
+  height: 46px;
+}
+
+dialog {
+  width: min(780px, calc(100vw - 28px));
+  border: 0;
+  padding: 0;
+  color: white;
+  background: transparent;
+}
+
+dialog::backdrop {
+  background: rgba(2, 4, 10, 0.78);
+  backdrop-filter: blur(8px);
+}
+
+.inspection-card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+#inspectionCircle {
+  width: 300px;
+  height: 300px;
+}
+
+.close-inspection {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 96px;
+  height: 32px;
+  font-size: 12px;
+}
+
+@media (max-width: 860px) {
+  body {
+    overflow: auto;
+    min-height: 100vh;
+  }
+
+  .duel-app,
+  .start-screen,
+  dialog {
+    display: none !important;
+  }
+
+  .pc-lock {
+    position: relative;
+    z-index: 5;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+  }
+
+  .pc-lock > div {
+    width: min(520px, 100%);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel-strong);
+    padding: 24px;
+    box-shadow: var(--shadow);
+  }
+
+  .pc-lock h1 {
+    margin: 6px 0 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #fff6d8;
+    font-size: 28px;
+  }
+
+  .pc-lock p {
+    color: rgba(255, 255, 255, 0.76);
+    line-height: 1.75;
+  }
+
+  .pc-lock a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    margin-top: 12px;
+    padding: 0 16px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #f4d47b, #cf9130);
+    color: #171006;
+    text-decoration: none;
+    font-weight: 900;
+  }
+}
+
+@media (max-width: 980px) {
+  .duel-app {
+    padding: 10px;
+    grid-template-rows: auto auto auto;
+  }
+
+  .topbar,
+  .command-deck,
+  .forge-row,
+  .forge-row.sliders,
+  .inspection-card {
+    grid-template-columns: 1fr;
+  }
+
+  .crest {
+    min-width: 0;
+    order: -1;
+  }
+
+  .command-deck {
+    grid-template-columns: 1fr;
+  }
+
+  .spell-preview {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .arena-help {
+    display: none;
+  }
+}

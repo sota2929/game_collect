@@ -10,6 +10,7 @@ const GAME_KEYS = [
     'neon-courier',
     'tide-forge',
     'aijingi',
+    'arcane-duel',
 ];
 
 const GAME_CATALOG = [
@@ -19,6 +20,7 @@ const GAME_CATALOG = [
     'neon-courier' => ['title' => 'ネオン配達便', 'slug' => 'neon-courier', 'genre' => 'Action'],
     'tide-forge' => ['title' => '潮汐の鍛冶場', 'slug' => 'tide-forge', 'genre' => 'Timing'],
     'aijingi' => ['title' => '合陣戯', 'slug' => 'aijingi', 'genre' => 'Strategy'],
+    'arcane-duel' => ['title' => 'Arcane Duel', 'slug' => 'arcane-duel', 'genre' => 'Strategy'],
 ];
 
 function json_response(array $payload, int $status = 200): never

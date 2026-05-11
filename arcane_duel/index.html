@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arcane Duel | PC専用の魔法陣解析バトル | Collect Arcade</title>
+    <meta name="description" content="Arcane Duelは、5つのレーンで魔法陣を読み合うPC専用の無料ブラウザ対戦ゲームです。敵の魔法球を解析し、属性と特殊線で迎撃します。" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#070914" />
+    <link rel="canonical" href="https://game-collect.online/arcane_duel/" />
+    <meta property="og:site_name" content="Collect Arcade" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content="Arcane Duel | PC専用の魔法陣解析バトル" />
+    <meta property="og:description" content="白い魔法球をクリックして魔法陣を解析し、属性・攻撃力・移動を読み切ってCPUを制圧するPC専用ブラウザゲーム。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://game-collect.online/arcane_duel/" />
+    <meta property="og:image" content="https://game-collect.online/assets/seo/arcane-duel.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Arcane Duel | Collect Arcade" />
+    <meta name="twitter:description" content="魔法陣を解析して迎撃するPC専用の5レーン魔法バトル。" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "VideoGame",
+            "name": "Arcane Duel",
+            "url": "https://game-collect.online/arcane_duel/",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Desktop web browser",
+            "genre": ["Strategy", "Action", "Magic duel"],
+            "inLanguage": "ja",
+            "isAccessibleForFree": true,
+            "description": "5つのレーンで魔法陣を読み合うPC専用の無料ブラウザ対戦ゲームです。",
+            "image": "https://game-collect.online/assets/seo/arcane-duel.png"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ゲーム一覧", "item": "https://game-collect.online/" },
+              { "@type": "ListItem", "position": 2, "name": "Arcane Duel", "item": "https://game-collect.online/arcane_duel/" }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="./src/styles.css?v=20260511-1" />
+  </head>
+  <body>
+    <a class="collect-return" href="../index.html">ゲーム一覧へ戻る</a>
+    <section class="pc-lock" aria-label="PC専用のお知らせ">
+      <div>
+        <p class="eyebrow">Desktop only</p>
+        <h1>Arcane DuelはPC専用です</h1>
+        <p>魔法陣の解析と5レーンの読み合いを同時に行うため、横幅のあるPCブラウザでプレイしてください。</p>
+        <a href="../index.html">ゲーム一覧へ戻る</a>
+      </div>
+    </section>
+    <main class="duel-app">
+      <header class="topbar">
+        <section class="duelist">
+          <div class="sigil player-sigil">P</div>
+          <div>
+            <p class="duelist-name">プレイヤー</p>
+            <div class="meter-row">
+              <span>HP</span>
+              <div class="meter hp"><i id="playerHp"></i></div>
+              <b id="playerHpText">10</b>
+            </div>
+            <div class="meter-row">
+              <span>MP</span>
+              <div class="meter mp"><i id="playerMp"></i></div>
+              <b id="playerMpText">100</b>
+            </div>
+          </div>
+        </section>
+
+        <section class="crest">
+          <span>Royal Thaumaturgy Arena</span>
+          <h1>Arcane Duel</h1>
+          <p id="battleState">敵弾を解析し、有効な魔法陣で迎撃せよ</p>
+        </section>
+
+        <section class="duelist enemy">
+          <div>
+            <p class="duelist-name">コンピュータ</p>
+            <div class="meter-row">
+              <b id="enemyHpText">10</b>
+              <div class="meter hp"><i id="enemyHp"></i></div>
+              <span>HP</span>
+            </div>
+            <div class="meter-row">
+              <b id="enemyMpText">100</b>
+              <div class="meter mp"><i id="enemyMp"></i></div>
+              <span>MP</span>
+            </div>
+          </div>
+          <div class="sigil enemy-sigil">C</div>
+        </section>
+      </header>
+
+      <section class="arena-frame">
+        <canvas id="game" width="1600" height="900" aria-label="魔法決闘場"></canvas>
+        <div class="arena-help">
+          <span>白い魔法球をクリックして魔法陣を解析</span>
+          <span>25% / 50% / 75% の印で上下移動</span>
+          <span>PC専用: マウス操作</span>
+        </div>
+      </section>
+
+      <section class="command-deck">
+        <aside class="spell-preview">
+          <div class="preview-title">
+            <span>Current Circle</span>
+            <b id="cost">MP 27</b>
+          </div>
+          <canvas id="circlePreview" width="360" height="360"></canvas>
+        </aside>
+
+        <section class="forge">
+          <div class="forge-row">
+            <label>レーン
+              <select id="lane">
+                <option value="0">第1ルート</option>
+                <option value="1">第2ルート</option>
+                <option value="2" selected>第3ルート</option>
+                <option value="3">第4ルート</option>
+                <option value="4">第5ルート</option>
+              </select>
+            </label>
+            <label>属性
+              <select id="attribute">
+                <option value="fire">火 丸</option>
+                <option value="water">水 三角</option>
+                <option value="wood">木 四角</option>
+                <option value="neutral">無 外模様なし</option>
+              </select>
+            </label>
+            <label>特殊線
+              <select id="special">
+                <option value="none">なし</option>
+                <option value="doubleAttack">攻撃力倍化</option>
+                <option value="lockedLane">上下移動なし</option>
+                <option value="invertedAffinity">属性反転</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="forge-row sliders">
+            <label>攻撃力 <output id="attackValue">1</output>
+              <input id="attack" type="range" min="1" max="3" value="1">
+            </label>
+            <label>速度 <output id="speedValue">5</output>
+              <input id="speed" type="range" min="1" max="10" value="5">
+            </label>
+          </div>
+
+          <div class="forge-row">
+            <label>移動ポイント
+              <select id="movePoint">
+                <option value="0">移動なし</option>
+                <option value="1">1つ目 25%</option>
+                <option value="2">2つ目 50%</option>
+                <option value="3">3つ目 75%</option>
+              </select>
+            </label>
+            <label>移動方向
+              <select id="moveDirection">
+                <option value="none">なし</option>
+                <option value="up">上へ</option>
+                <option value="down">下へ</option>
+              </select>
+            </label>
+            <button id="cast" class="cast-button">詠唱する</button>
+          </div>
+        </section>
+
+        <aside class="battle-scroll">
+          <div class="scroll-head">
+            <span>Battle Log</span>
+            <button id="reset">再戦</button>
+          </div>
+          <ol id="log"></ol>
+        </aside>
+      </section>
+    </main>
+
+    <dialog id="inspection">
+      <section class="inspection-card">
+        <canvas id="inspectionCircle" width="520" height="520"></canvas>
+        <button id="closeInspection" class="close-inspection">閉じる</button>
+      </section>
+    </dialog>
+
+    <section id="startScreen" class="start-screen">
+      <div class="rule-panel">
+        <p class="eyebrow">Before the duel</p>
+        <h2>Arcane Duel</h2>
+        <ul>
+          <li>飛んでくる白い魔法球をクリックして、相手の魔法陣を確認します。</li>
+          <li>魔法陣の形から攻撃力・速度・属性・移動・特殊線を読み取ります。</li>
+          <li>火・水・木は三すくみ、無属性は三属性に勝ちます。</li>
+          <li>25% / 50% / 75% の印で、魔法が上下のルートへ移動することがあります。</li>
+          <li>HPが0になった側が敗北です。MPはゆっくり回復します。</li>
+        </ul>
+        <button id="startBattle">戦闘開始</button>
+      </div>
+    </section>
+
+    <script src="../ugc.js?v=20260511-1" data-current-game="arcane-duel"></script>
+    <script defer src="./src/main.js?v=20260511-1"></script>
+  </body>
+</html>

@@ -112,6 +112,23 @@ const games = [
       "5レーン",
       "CPU対戦"
     ]
+  },
+  {
+    "id": "ten-link-campus",
+    "title": "10リンク・キャンパス",
+    "href": "games/ten-link-campus/index.html",
+    "thumb": "assets/thumbs/ten-link-campus.png",
+    "playHref": "ten_link_campus/index.html",
+    "genre": "Puzzle",
+    "popularity": 8,
+    "released": 8,
+    "description": "数字カードをクリックして合計10を作る1分脳トレパズル。授業の合間や通学中の暇つぶしにおすすめ。",
+    "meta": [
+      "数字パズル",
+      "脳トレ",
+      "1分プレイ",
+      "スマホ対応"
+    ]
   }
 ];
 

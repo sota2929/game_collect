@@ -12,6 +12,7 @@
     "tide-forge": "潮汐の鍛冶場",
     "aijingi": "合陣戯",
     "arcane-duel": "Arcane Duel",
+    "ten-link-campus": "10リンク・キャンパス",
   };
 
   const remote = {

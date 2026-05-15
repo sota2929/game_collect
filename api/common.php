@@ -12,6 +12,7 @@ const GAME_KEYS = [
     'aijingi',
     'arcane-duel',
     'ten-link-campus',
+    'parity-sort-lab',
 ];
 
 const GAME_CATALOG = [
@@ -23,6 +24,7 @@ const GAME_CATALOG = [
     'aijingi' => ['title' => '合陣戯', 'slug' => 'aijingi', 'genre' => 'Strategy'],
     'arcane-duel' => ['title' => 'Arcane Duel', 'slug' => 'arcane-duel', 'genre' => 'Strategy'],
     'ten-link-campus' => ['title' => '10リンク・キャンパス', 'slug' => 'ten-link-campus', 'genre' => 'Puzzle'],
+    'parity-sort-lab' => ['title' => '奇偶ソートラボ', 'slug' => 'parity-sort-lab', 'genre' => 'Puzzle'],
 ];
 
 function json_response(array $payload, int $status = 200): never

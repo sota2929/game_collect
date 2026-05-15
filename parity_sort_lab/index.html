@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>奇偶ソートラボ | 無料数字パズル・脳トレゲーム | 無料ブラウザゲーム広場</title>
+    <meta name="description" content="奇偶ソートラボは、奇数と偶数を見分けて数字カードを正しい順番に並べる無料ブラウザ脳トレゲームです。スマホでもPCでも短時間で遊べます。" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#101923" />
+    <link rel="canonical" href="https://game-collect.online/parity_sort_lab/" />
+    <meta property="og:site_name" content="無料ブラウザゲーム広場" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content="奇偶ソートラボ | 無料数字パズル・脳トレゲーム" />
+    <meta property="og:description" content="奇数と偶数を瞬時に見分け、数字カードを正しい順番にクリックする短時間脳トレパズル。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://game-collect.online/parity_sort_lab/" />
+    <meta property="og:image" content="https://game-collect.online/assets/seo/parity-sort-lab.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="奇偶ソートラボ | 無料ブラウザゲーム広場" />
+    <meta name="twitter:description" content="奇数・偶数の判断力でタイムを縮める無料数字パズル。" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "VideoGame",
+            "name": "奇偶ソートラボ",
+            "url": "https://game-collect.online/parity_sort_lab/",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Web browser",
+            "genre": ["パズル", "数字パズル", "脳トレ"],
+            "inLanguage": "ja",
+            "isAccessibleForFree": true,
+            "description": "奇数と偶数を見分けて数字カードを正しい順番に並べる無料ブラウザ脳トレゲームです。",
+            "image": "https://game-collect.online/assets/seo/parity-sort-lab.png"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ゲーム一覧", "item": "https://game-collect.online/" },
+              { "@type": "ListItem", "position": 2, "name": "奇偶ソートラボ", "item": "https://game-collect.online/parity_sort_lab/" }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="style.css?v=20260515-1" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <main class="lab-shell">
+      <header class="topbar">
+        <a class="back-link" href="../index.html">ゲーム一覧へ戻る</a>
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">±</span>
+          <div>
+            <p>数字仕分けタイムアタック</p>
+            <h1>奇偶ソートラボ</h1>
+          </div>
+        </div>
+        <button id="soundToggle" class="tool-button" type="button" aria-pressed="true">Sound On</button>
+      </header>
+
+      <section class="hud" aria-label="ゲーム状況">
+        <div><span>Stage</span><strong id="stageText">1 / 8</strong></div>
+        <div><span>Time</span><strong id="timeText">00.00</strong></div>
+        <div><span>Combo</span><strong id="comboText">0</strong></div>
+        <div><span>Best</span><strong id="bestText">--.--</strong></div>
+      </section>
+
+      <section class="lab-card">
+        <div class="mission">
+          <div>
+            <span>Rule</span>
+            <strong id="ruleText">少ない方を先に、昇順</strong>
+          </div>
+          <div>
+            <span>Next</span>
+            <strong id="nextText">Start</strong>
+          </div>
+          <div>
+            <span>Miss</span>
+            <strong id="missText">0</strong>
+          </div>
+        </div>
+
+        <div id="numberRow" class="number-row" aria-label="問題の数字カード"></div>
+        <div id="answerRow" class="answer-row" aria-label="選んだ数字の並び"></div>
+        <p id="message" class="message">Startを押すと、奇数と偶数の仕分け実験が始まります。</p>
+      </section>
+
+      <section class="controls" aria-label="操作">
+        <button id="startButton" type="button">Start</button>
+        <button id="undoButton" type="button">Undo</button>
+        <button id="hintButton" type="button">Hint</button>
+      </section>
+
+      <section class="guide">
+        <article>
+          <h2>遊び方</h2>
+          <p>表示された数字カードを、ルール通りの順番でクリックします。正しいカードを最後まで選べば次のステージへ進みます。</p>
+        </article>
+        <article>
+          <h2>ルール</h2>
+          <p>奇数と偶数を比べ、少ない方を先に昇順で選びます。同数なら奇数が先。全部奇数なら昇順、全部偶数なら降順です。</p>
+        </article>
+      </section>
+    </main>
+
+    <section id="resultModal" class="modal" hidden>
+      <div class="result-card">
+        <p>Result</p>
+        <h2 id="resultTitle">Clear</h2>
+        <dl>
+          <div><dt>Time</dt><dd id="resultTime">0.00</dd></div>
+          <div><dt>Miss</dt><dd id="resultMiss">0</dd></div>
+        </dl>
+        <button id="retryButton" type="button">もう一度</button>
+        <a href="../games/parity-sort-lab/index.html">詳細を見る</a>
+      </div>
+    </section>
+
+    <script src="../ugc.js?v=20260514-1" data-current-game="parity-sort-lab"></script>
+    <script src="game.js?v=20260515-1"></script>
+  </body>
+</html>

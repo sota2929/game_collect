@@ -129,6 +129,23 @@ const games = [
       "1分プレイ",
       "スマホ対応"
     ]
+  },
+  {
+    "id": "parity-sort-lab",
+    "title": "奇偶ソートラボ",
+    "href": "games/parity-sort-lab/index.html",
+    "thumb": "assets/thumbs/parity-sort-lab.png",
+    "playHref": "parity_sort_lab/index.html",
+    "genre": "Puzzle",
+    "popularity": 9,
+    "released": 9,
+    "description": "奇数と偶数を見分けて数字カードを正しい順番に並べる短時間脳トレパズル。",
+    "meta": [
+      "数字パズル",
+      "脳トレ",
+      "タイムアタック",
+      "スマホ対応"
+    ]
   }
 ];
 

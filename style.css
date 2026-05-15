@@ -809,3 +809,71 @@ code {
     grid-template-columns: 1fr;
   }
 }
+
+
+.seo-landing {
+  display: grid;
+  gap: 12px;
+}
+
+.seo-landing ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.seo-detail-grid {
+  margin-top: 0;
+}
+
+.spec-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.spec-list div {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 10px;
+  align-items: baseline;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.spec-list dt {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.spec-list dd {
+  margin: 0;
+  font-weight: 800;
+}
+
+.faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+.faq-list details {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+  padding: 12px 14px;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  font-weight: 850;
+}
+
+.faq-list p {
+  margin: 8px 0 0;
+}
+
+@media (max-width: 640px) {
+  .spec-list div {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+}

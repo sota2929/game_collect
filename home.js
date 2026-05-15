@@ -146,6 +146,24 @@ const games = [
       "タイムアタック",
       "スマホ対応"
     ]
+  },
+  {
+    "id": "after-school-beatline",
+    "title": "放課後ビートライン",
+    "href": "games/after-school-beatline/index.html",
+    "thumb": "assets/thumbs/after-school-beatline.png",
+    "playHref": "after_school_beatline/index.html",
+    "genre": "Timing",
+    "popularity": 10,
+    "released": 10,
+    "description": "8レーンのノーツを叩くライフ制リズムゲーム。Level 1〜5の速度で遊べます。",
+    "meta": [
+      "リズムゲーム",
+      "音ゲー",
+      "8レーン",
+      "ライフ制",
+      "スマホ対応"
+    ]
   }
 ];
 

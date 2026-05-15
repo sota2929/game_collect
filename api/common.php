@@ -13,6 +13,7 @@ const GAME_KEYS = [
     'arcane-duel',
     'ten-link-campus',
     'parity-sort-lab',
+    'after-school-beatline',
 ];
 
 const GAME_CATALOG = [
@@ -25,6 +26,7 @@ const GAME_CATALOG = [
     'arcane-duel' => ['title' => 'Arcane Duel', 'slug' => 'arcane-duel', 'genre' => 'Strategy'],
     'ten-link-campus' => ['title' => '10リンク・キャンパス', 'slug' => 'ten-link-campus', 'genre' => 'Puzzle'],
     'parity-sort-lab' => ['title' => '奇偶ソートラボ', 'slug' => 'parity-sort-lab', 'genre' => 'Puzzle'],
+    'after-school-beatline' => ['title' => '放課後ビートライン', 'slug' => 'after-school-beatline', 'genre' => 'Timing'],
 ];
 
 function json_response(array $payload, int $status = 200): never

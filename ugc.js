@@ -14,6 +14,7 @@
     "arcane-duel": "Arcane Duel",
     "ten-link-campus": "10リンク・キャンパス",
     "parity-sort-lab": "奇偶ソートラボ",
+    "after-school-beatline": "放課後ビートライン",
   };
 
   const remote = {

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>放課後ビートライン | 無料リズムゲーム・音ゲー | 無料ブラウザゲーム広場</title>
+    <meta name="description" content="放課後ビートラインは、8レーンに流れるノーツをタイミングよく叩く無料ブラウザリズムゲームです。スマホでもPCでも短時間で遊べます。" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#111625" />
+    <link rel="canonical" href="https://game-collect.online/after_school_beatline/" />
+    <meta property="og:site_name" content="無料ブラウザゲーム広場" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content="放課後ビートライン | 無料リズムゲーム・音ゲー" />
+    <meta property="og:description" content="8レーンのノーツをタイミングよく叩く、短時間プレイ向けの無料ブラウザ音ゲー。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://game-collect.online/after_school_beatline/" />
+    <meta property="og:image" content="https://game-collect.online/assets/seo/after-school-beatline.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="放課後ビートライン | 無料ブラウザゲーム広場" />
+    <meta name="twitter:description" content="スマホでもPCでも遊べる8レーン無料リズムゲーム。" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "VideoGame",
+            "name": "放課後ビートライン",
+            "url": "https://game-collect.online/after_school_beatline/",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Web browser",
+            "genre": ["リズムゲーム", "音ゲー", "タイミング"],
+            "inLanguage": "ja",
+            "isAccessibleForFree": true,
+            "description": "8レーンに流れるノーツをタイミングよく叩く無料ブラウザリズムゲームです。",
+            "image": "https://game-collect.online/assets/seo/after-school-beatline.png"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ゲーム一覧", "item": "https://game-collect.online/" },
+              { "@type": "ListItem", "position": 2, "name": "放課後ビートライン", "item": "https://game-collect.online/after_school_beatline/" }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="style.css?v=20260515-2" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <main class="beat-shell">
+      <header class="topbar">
+        <a class="back-link" href="../index.html">ゲーム一覧へ戻る</a>
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">♪</span>
+          <div>
+            <p>8レーン放課後音ゲー</p>
+            <h1>放課後ビートライン</h1>
+          </div>
+        </div>
+        <button id="soundToggle" class="tool-button" type="button" aria-pressed="true">Sound On</button>
+      </header>
+
+      <section class="hud" aria-label="ゲーム状況">
+        <div><span>Score</span><strong id="scoreText">0</strong></div>
+        <div><span>Combo</span><strong id="comboText">0</strong></div>
+        <div><span>Time</span><strong id="timeText">45</strong></div>
+        <div><span>Best</span><strong id="bestText">0</strong></div>
+      </section>
+
+      <section class="stage-card">
+        <div class="status-row">
+          <div><span>Judge</span><strong id="judgeText">Ready</strong></div>
+          <div><span>Level</span><strong id="levelText">Lv.1</strong></div>
+          <div><span>Life</span><strong id="lifeText">3</strong></div>
+        </div>
+        <div id="lanes" class="lanes" aria-label="リズムゲームレーン">
+          <div class="lane" data-lane="0"><span>A</span></div>
+          <div class="lane" data-lane="1"><span>S</span></div>
+          <div class="lane" data-lane="2"><span>D</span></div>
+          <div class="lane" data-lane="3"><span>F</span></div>
+          <div class="lane" data-lane="4"><span>J</span></div>
+          <div class="lane" data-lane="5"><span>K</span></div>
+          <div class="lane" data-lane="6"><span>L</span></div>
+          <div class="lane" data-lane="7"><span>;</span></div>
+          <div class="judge-line" aria-hidden="true"></div>
+        </div>
+        <p id="message" class="message">EnterまたはStartで演奏開始。毎回変わる譜面をLife 3で完走しよう。</p>
+      </section>
+
+      <section class="pad-row" aria-label="タップ操作">
+        <button type="button" data-pad="0">A</button>
+        <button type="button" data-pad="1">S</button>
+        <button type="button" data-pad="2">D</button>
+        <button type="button" data-pad="3">F</button>
+        <button type="button" data-pad="4">J</button>
+        <button type="button" data-pad="5">K</button>
+        <button type="button" data-pad="6">L</button>
+        <button type="button" data-pad="7">;</button>
+      </section>
+
+      <section class="level-panel" aria-label="難易度選択">
+        <span>Level</span>
+        <div class="level-buttons">
+          <button class="selected" type="button" data-level="1">1</button>
+          <button type="button" data-level="2">2</button>
+          <button type="button" data-level="3">3</button>
+          <button type="button" data-level="4">4</button>
+          <button type="button" data-level="5">5</button>
+        </div>
+      </section>
+
+      <section class="controls">
+        <button id="startButton" type="button">Start</button>
+        <button id="practiceButton" type="button">Practice</button>
+      </section>
+
+      <section class="guide">
+        <article>
+          <h2>遊び方</h2>
+          <p>ノーツが判定ラインに重なった瞬間に、対応するレーンをタップします。PCではA/S/D/F/J/K/L/;キー、Enterで開始できます。</p>
+        </article>
+        <article>
+          <h2>攻略のコツ</h2>
+          <p>同時押しは最大2つまでです。ノーツそのものより判定ラインを見て、レベルを上げる前にPracticeで速度に慣れましょう。</p>
+        </article>
+      </section>
+    </main>
+
+    <section id="resultModal" class="modal" hidden>
+      <div class="result-card">
+        <p>Result</p>
+        <h2 id="resultTitle">Live Clear</h2>
+        <dl>
+          <div><dt>Score</dt><dd id="resultScore">0</dd></div>
+          <div><dt>Level</dt><dd id="resultAccuracy">Lv.1</dd></div>
+        </dl>
+        <button id="retryButton" type="button">もう一度</button>
+        <a href="../games/after-school-beatline/index.html">詳細を見る</a>
+      </div>
+    </section>
+
+    <script src="../ugc.js?v=20260514-1" data-current-game="after-school-beatline"></script>
+    <script src="game.js?v=20260515-3"></script>
+  </body>
+</html>

@@ -2,211 +2,247 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://game-collect.online/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://game-collect.online/games/crystal-descent-defense/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://game-collect.online/games/aurora-drift/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://game-collect.online/games/glyph-garden/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://game-collect.online/games/neon-courier/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://game-collect.online/games/tide-forge/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://game-collect.online/games/aijingi/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://game-collect.online/games/arcane-duel/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://game-collect.online/games/ten-link-campus/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://game-collect.online/games/parity-sort-lab/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://game-collect.online/games/after-school-beatline/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://game-collect.online/category/action/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.82</priority>
-  </url>
-  <url>
-    <loc>https://game-collect.online/category/puzzle/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.82</priority>
-  </url>
-  <url>
-    <loc>https://game-collect.online/category/tower-defense/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.82</priority>
-  </url>
-  <url>
-    <loc>https://game-collect.online/category/strategy/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.82</priority>
-  </url>
-  <url>
-    <loc>https://game-collect.online/category/timing/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://game-collect.online/category/one-minute-games/</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
     <loc>https://game-collect.online/category/casual/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
     <loc>https://game-collect.online/category/mobile-games/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.82</priority>
-  </url>
-  <url>
-    <loc>https://game-collect.online/category/pc-browser-games/</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.82</priority>
-  </url>
-  <url>
-    <loc>https://game-collect.online/category/one-minute-games/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
     <loc>https://game-collect.online/category/rhythm-games/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
     <loc>https://game-collect.online/category/brain-training/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/category/no-install-games/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/category/short-minigames/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/category/new-games/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/category/recommended-games/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/category/pc-smartphone-games/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/category/break-time-games/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/category/action/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/category/puzzle/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/category/strategy/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/category/tower-defense/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/category/timing/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/category/pc-browser-games/</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
     <loc>https://game-collect.online/tower_defense/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.72</priority>
   </url>
   <url>
     <loc>https://game-collect.online/aurora_drift/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.72</priority>
   </url>
   <url>
     <loc>https://game-collect.online/glyph_garden/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.72</priority>
   </url>
   <url>
     <loc>https://game-collect.online/neon_courier/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.72</priority>
   </url>
   <url>
     <loc>https://game-collect.online/tide_forge/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.72</priority>
   </url>
   <url>
     <loc>https://game-collect.online/aijingi/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.72</priority>
   </url>
   <url>
     <loc>https://game-collect.online/arcane_duel/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.72</priority>
   </url>
   <url>
     <loc>https://game-collect.online/ten_link_campus/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.72</priority>
   </url>
   <url>
     <loc>https://game-collect.online/parity_sort_lab/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.72</priority>
   </url>
   <url>
     <loc>https://game-collect.online/after_school_beatline/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.72</priority>
   </url>
   <url>
     <loc>https://game-collect.online/privacy.html</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://game-collect.online/terms.html</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://game-collect.online/contact.html</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

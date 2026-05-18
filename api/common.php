@@ -14,6 +14,7 @@ const GAME_KEYS = [
     'ten-link-campus',
     'parity-sort-lab',
     'after-school-beatline',
+    'stardust-merge-cafe',
 ];
 
 const GAME_CATALOG = [
@@ -27,6 +28,7 @@ const GAME_CATALOG = [
     'ten-link-campus' => ['title' => '10リンク・キャンパス', 'slug' => 'ten-link-campus', 'genre' => 'Puzzle'],
     'parity-sort-lab' => ['title' => '奇偶ソートラボ', 'slug' => 'parity-sort-lab', 'genre' => 'Puzzle'],
     'after-school-beatline' => ['title' => '放課後ビートライン', 'slug' => 'after-school-beatline', 'genre' => 'Timing'],
+    'stardust-merge-cafe' => ['title' => '星屑マージカフェ', 'slug' => 'stardust-merge-cafe', 'genre' => 'Puzzle'],
 ];
 
 function json_response(array $payload, int $status = 200): never

@@ -164,6 +164,23 @@ const games = [
       "ライフ制",
       "スマホ対応"
     ]
+  },
+  {
+    "id": "stardust-merge-cafe",
+    "title": "星屑マージカフェ",
+    "href": "games/stardust-merge-cafe/index.html",
+    "thumb": "assets/thumbs/stardust-merge-cafe.png",
+    "playHref": "stardust_merge_cafe/index.html",
+    "genre": "Puzzle",
+    "popularity": 11,
+    "released": 11,
+    "description": "3つ以上つながった同じスイーツを選んで合成する75秒マージパズル。2048風の合成と注文ボーナスが楽しい短時間ゲーム。",
+    "meta": [
+      "マージパズル",
+      "2048風",
+      "75秒",
+      "スマホ対応"
+    ]
   }
 ];
 

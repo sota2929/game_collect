@@ -2,7 +2,7 @@ const games = [
   {
     "id": "crystal-descent-defense",
     "title": "クリスタル防衛線",
-    "href": "games/crystal-descent-defense/index.html",
+    "href": "games/crystal-descent-defense/",
     "thumb": "assets/thumbs/crystal-descent-defense.png",
     "playHref": "tower_defense/index.html",
     "genre": "Strategy",
@@ -18,7 +18,7 @@ const games = [
   {
     "id": "aurora-drift",
     "title": "オーロラ航路",
-    "href": "games/aurora-drift/index.html",
+    "href": "games/aurora-drift/",
     "thumb": "assets/thumbs/aurora-drift.png",
     "playHref": "aurora_drift/index.html",
     "genre": "Action",
@@ -34,7 +34,7 @@ const games = [
   {
     "id": "glyph-garden",
     "title": "紋章の庭",
-    "href": "games/glyph-garden/index.html",
+    "href": "games/glyph-garden/",
     "thumb": "assets/thumbs/glyph-garden.png",
     "playHref": "glyph_garden/index.html",
     "genre": "Puzzle",
@@ -50,7 +50,7 @@ const games = [
   {
     "id": "neon-courier",
     "title": "ネオン配達便",
-    "href": "games/neon-courier/index.html",
+    "href": "games/neon-courier/",
     "thumb": "assets/thumbs/neon-courier.png",
     "playHref": "neon_courier/index.html",
     "genre": "Action",
@@ -66,7 +66,7 @@ const games = [
   {
     "id": "tide-forge",
     "title": "潮汐の鍛冶場",
-    "href": "games/tide-forge/index.html",
+    "href": "games/tide-forge/",
     "thumb": "assets/thumbs/tide-forge.png",
     "playHref": "tide_forge/index.html",
     "genre": "Timing",
@@ -82,7 +82,7 @@ const games = [
   {
     "id": "aijingi",
     "title": "合陣戯",
-    "href": "games/aijingi/index.html",
+    "href": "games/aijingi/",
     "thumb": "assets/thumbs/aijingi.svg",
     "playHref": "aijingi/index.html",
     "genre": "Strategy",
@@ -99,7 +99,7 @@ const games = [
   {
     "id": "arcane-duel",
     "title": "Arcane Duel",
-    "href": "games/arcane-duel/index.html",
+    "href": "games/arcane-duel/",
     "thumb": "assets/thumbs/arcane-duel.png",
     "playHref": "arcane_duel/index.html",
     "genre": "Strategy",
@@ -116,7 +116,7 @@ const games = [
   {
     "id": "ten-link-campus",
     "title": "10リンク・キャンパス",
-    "href": "games/ten-link-campus/index.html",
+    "href": "games/ten-link-campus/",
     "thumb": "assets/thumbs/ten-link-campus.png",
     "playHref": "ten_link_campus/index.html",
     "genre": "Puzzle",
@@ -133,7 +133,7 @@ const games = [
   {
     "id": "parity-sort-lab",
     "title": "奇偶ソートラボ",
-    "href": "games/parity-sort-lab/index.html",
+    "href": "games/parity-sort-lab/",
     "thumb": "assets/thumbs/parity-sort-lab.png",
     "playHref": "parity_sort_lab/index.html",
     "genre": "Puzzle",
@@ -150,7 +150,7 @@ const games = [
   {
     "id": "after-school-beatline",
     "title": "放課後ビートライン",
-    "href": "games/after-school-beatline/index.html",
+    "href": "games/after-school-beatline/",
     "thumb": "assets/thumbs/after-school-beatline.png",
     "playHref": "after_school_beatline/index.html",
     "genre": "Timing",
@@ -168,7 +168,7 @@ const games = [
   {
     "id": "stardust-merge-cafe",
     "title": "星屑マージカフェ",
-    "href": "games/stardust-merge-cafe/index.html",
+    "href": "games/stardust-merge-cafe/",
     "thumb": "assets/thumbs/stardust-merge-cafe.png",
     "playHref": "stardust_merge_cafe/index.html",
     "genre": "Puzzle",
@@ -185,7 +185,7 @@ const games = [
   {
     "id": "mini-sudoku-lounge",
     "title": "ミニ数独ラウンジ",
-    "href": "games/mini-sudoku-lounge/index.html",
+    "href": "games/mini-sudoku-lounge/",
     "thumb": "assets/thumbs/mini-sudoku-lounge.png",
     "playHref": "mini_sudoku_lounge/index.html",
     "genre": "Puzzle",
@@ -202,7 +202,7 @@ const games = [
   {
     "id": "color-reflex-dojo",
     "title": "色彩反射道場",
-    "href": "games/color-reflex-dojo/index.html",
+    "href": "games/color-reflex-dojo/",
     "thumb": "assets/thumbs/color-reflex-dojo.png",
     "playHref": "color_reflex_dojo/index.html",
     "genre": "Brain Training",

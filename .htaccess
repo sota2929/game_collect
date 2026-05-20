@@ -1,5 +1,9 @@
 RewriteEngine On
 
+# index.html付きURLを末尾スラッシュの正規URLへ統一
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteRule ^(.*)index\.html$ https://game-collect.online/$1 [R=301,L]
+
 # URLを https://game-collect.online/ に統一
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\.game-collect\.online$ [NC]

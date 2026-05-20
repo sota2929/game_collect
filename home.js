@@ -198,6 +198,23 @@ const games = [
       "脳トレ",
       "スマホ対応"
     ]
+  },
+  {
+    "id": "color-reflex-dojo",
+    "title": "色彩反射道場",
+    "href": "games/color-reflex-dojo/index.html",
+    "thumb": "assets/thumbs/color-reflex-dojo.png",
+    "playHref": "color_reflex_dojo/index.html",
+    "genre": "Brain Training",
+    "popularity": 13,
+    "released": 13,
+    "description": "文字色・文字を読む・背景色を瞬時に見分ける45秒反射脳トレ。スマホでもPCでも遊べる短時間ミニゲーム。",
+    "meta": [
+      "反射神経",
+      "脳トレ",
+      "45秒",
+      "スマホ対応"
+    ]
   }
 ];
 

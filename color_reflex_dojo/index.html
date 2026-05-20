@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>色彩反射道場 | 無料で遊べる反射神経・脳トレブラウザゲーム | 無料ブラウザゲーム広場</title>
+    <meta name="description" content="色彩反射道場は、文字を読む・文字色・背景色を瞬時に見分ける無料ブラウザ反射神経ゲームです。スマホ・PC対応、45秒で遊べる脳トレミニゲームです。" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#101421" />
+    <link rel="canonical" href="https://game-collect.online/color_reflex_dojo/" />
+    <meta property="og:site_name" content="無料ブラウザゲーム広場" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content="色彩反射道場 | 無料反射神経・脳トレブラウザゲーム" />
+    <meta property="og:description" content="色名・文字色・背景色を瞬時に見分ける、45秒の無料ブラウザ反射神経ゲーム。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://game-collect.online/color_reflex_dojo/" />
+    <meta property="og:image" content="https://game-collect.online/assets/seo/color-reflex-dojo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="色彩反射道場 | 無料ブラウザゲーム広場" />
+    <meta name="twitter:description" content="スマホ・PC対応。45秒で遊べる反射神経・脳トレゲーム。" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "VideoGame",
+            "name": "色彩反射道場",
+            "url": "https://game-collect.online/color_reflex_dojo/",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Web browser",
+            "genre": ["反射神経", "脳トレ", "タイミング", "ミニゲーム"],
+            "inLanguage": "ja",
+            "isAccessibleForFree": true,
+            "description": "文字を読む・文字色・背景色を瞬時に見分ける無料ブラウザ反射神経ゲームです。",
+            "image": "https://game-collect.online/assets/seo/color-reflex-dojo.png"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ゲーム一覧", "item": "https://game-collect.online/" },
+              { "@type": "ListItem", "position": 2, "name": "色彩反射道場", "item": "https://game-collect.online/color_reflex_dojo/" }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="style.css?v=2026-05-20-1" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <main class="dojo-shell">
+      <header class="topbar">
+        <a class="back-link" href="../">ゲーム一覧へ戻る</a>
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">彩</span>
+          <div>
+            <p>45秒反射脳トレ</p>
+            <h1>色彩反射道場</h1>
+          </div>
+        </div>
+        <button id="soundToggle" class="tool-button" type="button" aria-pressed="true">Sound On</button>
+      </header>
+
+      <section class="game-panel" aria-label="ゲーム画面">
+        <div class="hud" aria-label="ゲーム状況">
+          <div><span>Score</span><strong id="scoreText">0</strong></div>
+          <div><span>Time</span><strong id="timeText">45</strong></div>
+          <div><span>Combo</span><strong id="comboText">0</strong></div>
+          <div><span>Life</span><strong id="lifeText">3</strong></div>
+        </div>
+
+        <div class="play-layout">
+          <section class="arena-card">
+            <div class="rule-strip">
+              <span>お題</span>
+              <strong id="ruleText">文字色を押す</strong>
+            </div>
+            <button id="targetCard" class="target-card" type="button" aria-label="出題カード">
+              <span id="targetWord">青</span>
+            </button>
+            <div class="time-bar" aria-hidden="true"><span id="timeBar"></span></div>
+            <p id="message" class="message">Startを押して、指定された色を素早く選びましょう。</p>
+          </section>
+
+          <aside class="control-card" aria-label="色ボタン">
+            <div class="status-note">
+              <span>Rule</span>
+              <strong>指定された情報だけを見る</strong>
+              <p>文字を読む・文字色・背景色のどれを見るかは毎問変わります。</p>
+            </div>
+            <div id="choices" class="choices" aria-label="回答ボタン"></div>
+            <button id="startButton" type="button">Start</button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="guide">
+        <article>
+          <h2>遊び方</h2>
+          <p>お題が「文字色」なら文字そのものの色、「文字を読む」なら書かれている色名、「背景色」ならカードの背景色を選びます。</p>
+        </article>
+        <article>
+          <h2>攻略のコツ</h2>
+          <p>文字を読もうとするクセに引っ張られます。お題を一瞬だけ確認し、見る場所を決めてから色ボタンを押しましょう。</p>
+        </article>
+      </section>
+    </main>
+
+    <section id="resultModal" class="modal" hidden>
+      <div class="result-card">
+        <p>Training Complete</p>
+        <h2 id="resultTitle">Result</h2>
+        <dl>
+          <div><dt>Score</dt><dd id="resultScore">0</dd></div>
+          <div><dt>Max Combo</dt><dd id="resultCombo">0</dd></div>
+        </dl>
+        <button id="retryButton" type="button">もう一度</button>
+        <a href="../games/color-reflex-dojo/index.html">詳細を見る</a>
+      </div>
+    </section>
+
+    <script src="../ugc.js?v=20260514-1" data-current-game="color-reflex-dojo"></script>
+    <script src="game.js?v=2026-05-20-1"></script>
+  </body>
+</html>

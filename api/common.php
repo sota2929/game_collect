@@ -16,6 +16,7 @@ const GAME_KEYS = [
     'after-school-beatline',
     'stardust-merge-cafe',
     'mini-sudoku-lounge',
+    'color-reflex-dojo',
 ];
 
 const GAME_CATALOG = [
@@ -31,6 +32,7 @@ const GAME_CATALOG = [
     'after-school-beatline' => ['title' => '放課後ビートライン', 'slug' => 'after-school-beatline', 'genre' => 'Timing'],
     'stardust-merge-cafe' => ['title' => '星屑マージカフェ', 'slug' => 'stardust-merge-cafe', 'genre' => 'Puzzle'],
     'mini-sudoku-lounge' => ['title' => 'ミニ数独ラウンジ', 'slug' => 'mini-sudoku-lounge', 'genre' => 'Puzzle'],
+    'color-reflex-dojo' => ['title' => '色彩反射道場', 'slug' => 'color-reflex-dojo', 'genre' => 'Brain Training'],
 ];
 
 function json_response(array $payload, int $status = 200): never

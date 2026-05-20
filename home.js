@@ -181,6 +181,23 @@ const games = [
       "75秒",
       "スマホ対応"
     ]
+  },
+  {
+    "id": "mini-sudoku-lounge",
+    "title": "ミニ数独ラウンジ",
+    "href": "games/mini-sudoku-lounge/index.html",
+    "thumb": "assets/thumbs/mini-sudoku-lounge.png",
+    "playHref": "mini_sudoku_lounge/index.html",
+    "genre": "Puzzle",
+    "popularity": 12,
+    "released": 12,
+    "description": "4x4盤面に1〜4を入れる短時間ミニ数独。スマホでもPCでも遊べる無料ブラウザ脳トレゲーム。",
+    "meta": [
+      "ミニ数独",
+      "数字パズル",
+      "脳トレ",
+      "スマホ対応"
+    ]
   }
 ];
 

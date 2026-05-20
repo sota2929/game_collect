@@ -15,6 +15,7 @@ const GAME_KEYS = [
     'parity-sort-lab',
     'after-school-beatline',
     'stardust-merge-cafe',
+    'mini-sudoku-lounge',
 ];
 
 const GAME_CATALOG = [
@@ -29,6 +30,7 @@ const GAME_CATALOG = [
     'parity-sort-lab' => ['title' => '奇偶ソートラボ', 'slug' => 'parity-sort-lab', 'genre' => 'Puzzle'],
     'after-school-beatline' => ['title' => '放課後ビートライン', 'slug' => 'after-school-beatline', 'genre' => 'Timing'],
     'stardust-merge-cafe' => ['title' => '星屑マージカフェ', 'slug' => 'stardust-merge-cafe', 'genre' => 'Puzzle'],
+    'mini-sudoku-lounge' => ['title' => 'ミニ数独ラウンジ', 'slug' => 'mini-sudoku-lounge', 'genre' => 'Puzzle'],
 ];
 
 function json_response(array $payload, int $status = 200): never

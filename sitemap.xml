@@ -85,6 +85,12 @@
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://game-collect.online/games/starlight-spotter/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://game-collect.online/category/one-minute-games/</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -261,6 +267,12 @@
   <url>
     <loc>https://game-collect.online/color_reflex_dojo/</loc>
     <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/starlight_spotter/</loc>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>

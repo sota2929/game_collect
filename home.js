@@ -215,6 +215,23 @@ const games = [
       "45秒",
       "スマホ対応"
     ]
+  },
+  {
+    "id": "starlight-spotter",
+    "title": "星灯りまちがい探し",
+    "href": "games/starlight-spotter/",
+    "thumb": "assets/thumbs/starlight-spotter.png",
+    "playHref": "starlight_spotter/",
+    "genre": "Puzzle",
+    "popularity": 14,
+    "released": 14,
+    "description": "左右の星空シーンから5つの違いを探す観察力パズル。スマホでもPCでも遊べる無料ブラウザ間違い探しゲーム。",
+    "meta": [
+      "間違い探し",
+      "脳トレ",
+      "観察力",
+      "スマホ対応"
+    ]
   }
 ];
 

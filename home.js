@@ -232,6 +232,23 @@ const games = [
       "観察力",
       "スマホ対応"
     ]
+  },
+  {
+    "id": "moonlit-memory-route",
+    "title": "月影メモリールート",
+    "href": "games/moonlit-memory-route/",
+    "thumb": "assets/thumbs/moonlit-memory-route.png",
+    "playHref": "moonlit_memory_route/",
+    "genre": "Brain Training",
+    "popularity": 15,
+    "released": 15,
+    "description": "月明かりで光った道順を覚えてなぞる記憶力ルートパズル。短時間で集中力を試せます。",
+    "meta": [
+      "記憶力",
+      "迷路",
+      "脳トレ",
+      "スマホ対応"
+    ]
   }
 ];
 

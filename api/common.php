@@ -18,6 +18,7 @@ const GAME_KEYS = [
     'mini-sudoku-lounge',
     'color-reflex-dojo',
     'starlight-spotter',
+    'moonlit-memory-route',
 ];
 
 const GAME_CATALOG = [
@@ -35,6 +36,7 @@ const GAME_CATALOG = [
     'mini-sudoku-lounge' => ['title' => 'ミニ数独ラウンジ', 'slug' => 'mini-sudoku-lounge', 'genre' => 'Puzzle'],
     'color-reflex-dojo' => ['title' => '色彩反射道場', 'slug' => 'color-reflex-dojo', 'genre' => 'Brain Training'],
     'starlight-spotter' => ['title' => '星灯りまちがい探し', 'slug' => 'starlight-spotter', 'genre' => 'Puzzle'],
+    'moonlit-memory-route' => ['title' => '月影メモリールート', 'slug' => 'moonlit-memory-route', 'genre' => 'Brain Training'],
 ];
 
 function json_response(array $payload, int $status = 200): never

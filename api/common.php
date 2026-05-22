@@ -19,6 +19,7 @@ const GAME_KEYS = [
     'color-reflex-dojo',
     'starlight-spotter',
     'moonlit-memory-route',
+    'lantern-slide-puzzle',
 ];
 
 const GAME_CATALOG = [
@@ -37,6 +38,7 @@ const GAME_CATALOG = [
     'color-reflex-dojo' => ['title' => '色彩反射道場', 'slug' => 'color-reflex-dojo', 'genre' => 'Brain Training'],
     'starlight-spotter' => ['title' => '星灯りまちがい探し', 'slug' => 'starlight-spotter', 'genre' => 'Puzzle'],
     'moonlit-memory-route' => ['title' => '月影メモリールート', 'slug' => 'moonlit-memory-route', 'genre' => 'Brain Training'],
+    'lantern-slide-puzzle' => ['title' => '灯籠スライドパズル', 'slug' => 'lantern-slide-puzzle', 'genre' => 'Puzzle'],
 ];
 
 function json_response(array $payload, int $status = 200): never

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>灯籠スライドパズル | 無料で遊べる脳トレ・スライドパズルゲーム | 無料ブラウザゲーム広場</title>
+    <meta name="description" content="灯籠スライドパズルは、夜祭りの絵柄をスライドして完成させる無料ブラウザ脳トレゲームです。インストール不要でスマホ・PCから短時間に遊べます。" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#18121f" />
+    <link rel="canonical" href="https://game-collect.online/lantern_slide_puzzle/" />
+    <meta property="og:site_name" content="無料ブラウザゲーム広場" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content="灯籠スライドパズル | 無料ブラウザスライドパズル" />
+    <meta property="og:description" content="夜祭りの絵柄をスライドして完成させる、短時間の無料ブラウザ脳トレゲーム。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://game-collect.online/lantern_slide_puzzle/" />
+    <meta property="og:image" content="https://game-collect.online/assets/seo/lantern-slide-puzzle.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="灯籠スライドパズル | 無料ブラウザゲーム広場" />
+    <meta name="twitter:description" content="スマホ・PC対応。夜祭りの絵柄を完成させる短時間スライドパズル。" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "VideoGame",
+            "name": "灯籠スライドパズル",
+            "url": "https://game-collect.online/lantern_slide_puzzle/",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Web browser",
+            "genre": ["スライドパズル", "パズル", "脳トレ", "ミニゲーム"],
+            "inLanguage": "ja",
+            "isAccessibleForFree": true,
+            "description": "夜祭りの絵柄をスライドして完成させる無料ブラウザ脳トレゲームです。",
+            "image": "https://game-collect.online/assets/seo/lantern-slide-puzzle.png"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ゲーム一覧", "item": "https://game-collect.online/" },
+              { "@type": "ListItem", "position": 2, "name": "灯籠スライドパズル", "item": "https://game-collect.online/lantern_slide_puzzle/" }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="style.css?v=20260522-2" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <main class="slide-shell">
+      <header class="topbar">
+        <a class="back-link" href="../">ゲーム一覧へ戻る</a>
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">灯</span>
+          <div>
+            <p>夜祭りスライドパズル</p>
+            <h1>灯籠スライドパズル</h1>
+          </div>
+        </div>
+        <button id="soundToggle" class="tool-button" type="button" aria-pressed="true">Sound On</button>
+      </header>
+
+      <section class="game-panel" aria-label="ゲーム画面">
+        <div class="hud" aria-label="ゲーム状況">
+          <div><span>Score</span><strong id="scoreText">0</strong></div>
+          <div><span>Time</span><strong id="timeText">90</strong></div>
+          <div><span>Moves</span><strong id="moveText">0</strong></div>
+          <div><span>Size</span><strong id="sizeText">3x3</strong></div>
+        </div>
+
+        <div class="play-layout">
+          <section class="board-card">
+            <div class="phase-line">
+              <span id="phaseText">Ready</span>
+              <strong id="goalText">絵柄を完成させよう</strong>
+            </div>
+            <div id="board" class="board board-3" aria-label="灯籠スライドパズルの盤面"></div>
+          </section>
+          <aside class="preview-card" aria-label="完成図">
+            <canvas id="previewCanvas" width="360" height="360"></canvas>
+            <p>完成図を見ながら、空きマスの隣だけをスライドできます。</p>
+          </aside>
+        </div>
+
+        <div class="command-row">
+          <button id="startButton" type="button">Start</button>
+          <button id="peekButton" type="button">Peek</button>
+          <button id="shuffleButton" type="button">Shuffle</button>
+        </div>
+        <p id="message" class="message">隣のピースをスライドして、夜祭りの灯籠絵を完成させましょう。</p>
+      </section>
+
+      <section class="guide">
+        <article>
+          <h2>遊び方</h2>
+          <p>空きマスの上下左右にあるピースだけ動かせます。絵柄と番号を手がかりに、完成図と同じ並びに戻してください。</p>
+        </article>
+        <article>
+          <h2>攻略のコツ</h2>
+          <p>上の段から順番にそろえると迷いにくくなります。Peekで完成図を大きく見られますが、スコアが少し減ります。</p>
+        </article>
+      </section>
+    </main>
+
+    <section id="resultModal" class="modal" hidden>
+      <div class="result-card">
+        <p>Festival Complete</p>
+        <h2 id="resultTitle">Result</h2>
+        <dl>
+          <div><dt>Score</dt><dd id="resultScore">0</dd></div>
+          <div><dt>Moves</dt><dd id="resultMoves">0</dd></div>
+        </dl>
+        <button id="retryButton" type="button">もう一度</button>
+        <a href="../games/lantern-slide-puzzle/">詳細を見る</a>
+      </div>
+    </section>
+
+    <script src="../ugc.js?v=20260514-1" data-current-game="lantern-slide-puzzle"></script>
+    <script src="game.js?v=20260522-2"></script>
+  </body>
+</html>

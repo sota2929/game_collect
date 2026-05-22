@@ -249,6 +249,23 @@ const games = [
       "脳トレ",
       "スマホ対応"
     ]
+  },
+  {
+    "id": "lantern-slide-puzzle",
+    "title": "灯籠スライドパズル",
+    "href": "games/lantern-slide-puzzle/",
+    "thumb": "assets/thumbs/lantern-slide-puzzle.png",
+    "playHref": "lantern_slide_puzzle/",
+    "genre": "Puzzle",
+    "popularity": 16,
+    "released": 16,
+    "description": "夜祭りの絵柄をスライドして完成させる脳トレパズル。スマホでもPCでも遊べる無料ブラウザゲーム。",
+    "meta": [
+      "スライドパズル",
+      "脳トレ",
+      "空間認識",
+      "スマホ対応"
+    ]
   }
 ];
 

@@ -21,6 +21,7 @@ const GAME_KEYS = [
     'moonlit-memory-route',
     'lantern-slide-puzzle',
     'last-train-number-hunt',
+    'galaxy-sushi-clicker',
 ];
 
 const GAME_CATALOG = [
@@ -41,6 +42,7 @@ const GAME_CATALOG = [
     'moonlit-memory-route' => ['title' => '月影メモリールート', 'slug' => 'moonlit-memory-route', 'genre' => 'Brain Training'],
     'lantern-slide-puzzle' => ['title' => '灯籠スライドパズル', 'slug' => 'lantern-slide-puzzle', 'genre' => 'Puzzle'],
     'last-train-number-hunt' => ['title' => '終電ナンバーサーチ', 'slug' => 'last-train-number-hunt', 'genre' => 'Brain Training'],
+    'galaxy-sushi-clicker' => ['title' => '銀河回転寿司クリッカー', 'slug' => 'galaxy-sushi-clicker', 'genre' => 'Casual'],
 ];
 
 function json_response(array $payload, int $status = 200): never

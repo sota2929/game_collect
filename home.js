@@ -283,6 +283,23 @@ const games = [
       "反射神経",
       "スマホ対応"
     ]
+  },
+  {
+    "id": "galaxy-sushi-clicker",
+    "title": "銀河回転寿司クリッカー",
+    "href": "games/galaxy-sushi-clicker/",
+    "thumb": "assets/thumbs/galaxy-sushi-clicker.png",
+    "playHref": "galaxy_sushi_clicker/",
+    "genre": "Casual",
+    "popularity": 18,
+    "released": 18,
+    "description": "宇宙回転寿司で皿をタップし、4種類のアップグレードで売上を伸ばす1分クリッカー。キーボード購入で手を止めずに遊べます。",
+    "meta": [
+      "クリッカー",
+      "アップグレード",
+      "1分プレイ",
+      "スマホ対応"
+    ]
   }
 ];
 

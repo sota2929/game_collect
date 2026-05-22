@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>銀河回転寿司クリッカー | 無料ブラウザゲーム広場</title>
+    <meta
+      name="description"
+      content="銀河回転寿司クリッカーは、宇宙回転寿司で皿を飛ばしてアップグレードする無料クリッカーゲームです。インストール不要で短時間の暇つぶしに遊べます。"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://game-collect.online/galaxy_sushi_clicker/" />
+    <link rel="stylesheet" href="style.css?v=20260522-2" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+  </head>
+  <body>
+    <div class="cosmos" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <header class="site-top">
+      <a href="/" class="back-link">ゲーム一覧へ</a>
+      <button id="soundToggle" class="sound-toggle" type="button" aria-pressed="true">Sound ON</button>
+    </header>
+
+    <main class="game-shell">
+      <section class="hero-panel" aria-labelledby="gameTitle">
+        <p class="eyebrow">1 minute cosmic clicker</p>
+        <h1 id="gameTitle">銀河回転寿司クリッカー</h1>
+        <p class="lead">
+          宇宙港の回転寿司レーンを満席にしよう。皿をタップして銀河客に届け、売上アップ・時間延長・金皿出現・自動タップを買いながら伸ばす短時間クリッカーです。
+        </p>
+        <div class="hero-actions">
+          <button id="startButton" class="primary-button" type="button">スタート</button>
+          <span class="key-hint">Enterでも開始</span>
+        </div>
+      </section>
+
+      <section class="score-strip" aria-label="スコア">
+        <div>
+          <span>売上皿</span>
+          <strong id="plates">0</strong>
+        </div>
+        <div>
+          <span>残り時間</span>
+          <strong id="time">60</strong>
+        </div>
+        <div>
+          <span>最高記録</span>
+          <strong id="best">0</strong>
+        </div>
+      </section>
+
+      <section class="play-area" aria-label="ゲームエリア">
+        <div class="belt-wrap">
+          <div class="station-sign">GALAXY SUSHI LINE 88</div>
+          <div id="bonusTarget" class="bonus-target" role="button" tabindex="0" aria-label="金の皿ボーナス">金皿</div>
+          <button id="sushiButton" class="sushi-button" type="button" aria-label="寿司を流す">
+            <span class="plate-glow"></span>
+            <span class="sushi">
+              <span class="rice"></span>
+              <span class="neta"></span>
+              <span class="shine"></span>
+            </span>
+            <span class="tap-label">TAP</span>
+          </button>
+          <div class="conveyor" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <aside class="upgrade-panel" aria-label="アップグレード">
+          <div class="shop-status">
+            <div>
+              <span>1タップ</span>
+              <b id="tapPowerLabel">1皿</b>
+            </div>
+            <div>
+              <span>金皿</span>
+              <b id="goldRateLabel">通常</b>
+            </div>
+            <p>クリックしながら <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> で購入できます。</p>
+          </div>
+
+          <button class="upgrade-card" type="button" data-upgrade="tap">
+            <span class="upgrade-key">1</span>
+            <span>
+              <b>握力アップ</b>
+              <small>タップ売上皿を +1</small>
+            </span>
+            <em id="tapCost">25皿</em>
+          </button>
+          <button class="upgrade-card" type="button" data-upgrade="time">
+            <span class="upgrade-key">2</span>
+            <span>
+              <b>終電延長</b>
+              <small>残り秒数を +5秒</small>
+            </span>
+            <em id="timeCost">70皿</em>
+          </button>
+          <button class="upgrade-card" type="button" data-upgrade="gold">
+            <span class="upgrade-key">3</span>
+            <span>
+              <b>金皿レーダー</b>
+              <small>金の皿の出現率アップ</small>
+            </span>
+            <em id="goldCost">90皿</em>
+          </button>
+          <button class="upgrade-card" type="button" data-upgrade="auto">
+            <span class="upgrade-key">4</span>
+            <span>
+              <b>板前オート</b>
+              <small>3秒に1回、自動タップ</small>
+            </span>
+            <em id="autoCost">120皿</em>
+          </button>
+        </aside>
+      </section>
+
+      <section class="info-grid" aria-label="遊び方">
+        <article>
+          <h2>遊び方</h2>
+          <p>寿司ボタンをクリックまたはタップして皿を稼ぎます。貯めた皿でアップグレードを買うと、短い制限時間でも一気に売上が伸びます。</p>
+        </article>
+        <article>
+          <h2>コツ</h2>
+          <p>最初は「握力アップ」でタップ単価を上げると安定します。連打中はキーボードの1〜4で購入すると、手を止めずに伸ばせます。</p>
+        </article>
+      </section>
+    </main>
+
+    <div id="resultModal" class="result-modal" hidden>
+      <div class="result-card">
+        <p class="eyebrow">Result</p>
+        <h2>本日の銀河売上</h2>
+        <strong id="resultScore">0皿</strong>
+        <p id="resultText">宇宙港の夕飯に間に合いました。</p>
+        <div class="result-actions">
+          <button id="retryButton" class="primary-button" type="button">もう一度</button>
+          <a href="/games/galaxy-sushi-clicker/">詳細を見る</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="/ugc.js?v=20260514-1"></script>
+    <script src="game.js?v=20260522-2"></script>
+  </body>
+</html>

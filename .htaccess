@@ -1,5 +1,7 @@
 RewriteEngine On
 
+ErrorDocument 404 /404.html
+
 # index.html付きURLを末尾スラッシュの正規URLへ統一
 RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
 RewriteRule ^(.*)index\.html$ https://game-collect.online/$1 [R=301,L]

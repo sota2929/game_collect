@@ -102,6 +102,60 @@ textarea {
   padding: 22px;
 }
 
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.hero-copy {
+  display: grid;
+  gap: 14px;
+  align-content: center;
+  min-height: 260px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 24px;
+}
+
+.hero-actions,
+.quick-game-stack,
+.section-head,
+.compact-card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-actions {
+  align-items: center;
+}
+
+.quick-game-stack {
+  display: grid;
+  align-content: stretch;
+}
+
+.quick-game {
+  display: grid;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 16px;
+}
+
+.quick-game img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--panel-2);
+}
+
 .eyebrow {
   margin: 0 0 8px;
   color: var(--accent);
@@ -323,6 +377,64 @@ h3 {
   padding: 20px;
 }
 
+.section-head {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-head p {
+  max-width: 680px;
+}
+
+.compact-card-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mini-game-card {
+  display: grid;
+  gap: 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+  padding: 12px;
+}
+
+.mini-game-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.mini-game-card p {
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 0.9rem;
+}
+
+.utility-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.utility-grid a {
+  display: grid;
+  gap: 6px;
+  min-height: 104px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+  padding: 14px;
+}
+
+.utility-grid span {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
 .content-card ul {
   margin: 0;
   padding-left: 1.2rem;
@@ -523,6 +635,21 @@ code {
   .form-actions {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .home-hero,
+  .compact-card-list,
+  .utility-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    min-height: auto;
+  }
+
+  .hero-actions .play-link,
+  .hero-actions .secondary-link {
+    width: 100%;
   }
 }
 

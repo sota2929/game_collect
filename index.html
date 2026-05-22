@@ -45,7 +45,7 @@
         }
 }
     </script>
-    <link rel="stylesheet" href="style.css?v=20260516-1" />
+    <link rel="stylesheet" href="style.css?v=20260522-1" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -56,7 +56,10 @@
     <header class="site-header">
       <a class="logo" href="/">ブラウザゲーム広場</a>
       <nav class="site-nav" aria-label="Site navigation">
-        <a href="/">ゲーム一覧</a>
+        <a href="/">トップ</a>
+        <a href="/games/">ゲーム一覧</a>
+        <a href="/genres/">ジャンル</a>
+        <a href="/guide/">遊び方</a>
         <a href="privacy.html">プライバシー</a>
         <a href="terms.html">利用規約</a>
         <a href="contact.html">お問い合わせ</a>
@@ -64,35 +67,123 @@
     </header>
 
     <main class="shell">
-      <section class="intro">
-        <p class="eyebrow">無料ブラウザゲーム</p>
-        <h1>無料で遊べる短時間ゲーム集</h1>
-        <p>
-          無料ブラウザゲーム広場では、インストール不要で遊べる無料ブラウザゲームを公開しています。<br />
-          アクション、パズル、戦略、タワーディフェンスなど、短時間で楽しめるWebゲームをすぐにプレイできます。
-        </p>
+      <section class="home-hero" aria-label="無料ブラウザゲーム広場の紹介">
+        <div class="hero-copy">
+          <p class="eyebrow">無料ブラウザゲーム</p>
+          <h1>インストール不要で、すぐ遊べる無料ゲーム集</h1>
+          <p>
+            無料ブラウザゲーム広場では、スマホ・PCから短時間で遊べるミニゲームを公開しています。暇つぶし、脳トレ、パズル、アクションなど、登録なしでそのままプレイできます。
+          </p>
+          <div class="hero-actions">
+            <a class="play-link" href="/last_train_number_hunt/" data-play-game-id="last-train-number-hunt" data-play-game-title="終電ナンバーサーチ">今すぐ遊ぶ</a>
+            <a class="secondary-link" href="/games/">ゲーム一覧を見る</a>
+            <a class="secondary-link" href="/genres/">ジャンルから探す</a>
+          </div>
+        </div>
+        <aside class="quick-game" aria-label="おすすめのすぐ遊べるゲーム">
+          <img src="assets/thumbs/last-train-number-hunt.png" alt="終電ナンバーサーチのゲーム画面" width="360" height="210" />
+          <h2>迷ったらこれ</h2>
+          <p>数字を1から順番に探す45秒脳トレ。スマホでもPCでもすぐ遊べます。</p>
+          <a class="play-link" href="/last_train_number_hunt/" data-play-game-id="last-train-number-hunt" data-play-game-title="終電ナンバーサーチ">終電ナンバーサーチを遊ぶ</a>
+        </aside>
       </section>
 
+      <section class="content-card" aria-label="人気ゲーム">
+        <div class="section-head">
+          <div>
+            <h2>人気ゲーム</h2>
+            <p>初めての人でも遊びやすい、短時間でスコア更新を狙える無料ブラウザゲームです。</p>
+          </div>
+          <a class="secondary-link" href="/games/">すべて見る</a>
+        </div>
+        <div class="compact-card-list">
+          <article class="mini-game-card">
+            <a href="/games/last-train-number-hunt/" data-game-card-id="last-train-number-hunt" data-game-card-title="終電ナンバーサーチ"><img src="assets/thumbs/last-train-number-hunt.png" alt="終電ナンバーサーチのサムネイル" width="360" height="210" /></a>
+            <h3><a href="/games/last-train-number-hunt/">終電ナンバーサーチ</a></h3>
+            <p>数字を1から順番に探す45秒脳トレ。</p>
+            <a class="play-link" href="/last_train_number_hunt/" data-play-game-id="last-train-number-hunt" data-play-game-title="終電ナンバーサーチ">遊ぶ</a>
+          </article>
+          <article class="mini-game-card">
+            <a href="/games/color-reflex-dojo/" data-game-card-id="color-reflex-dojo" data-game-card-title="色彩反射道場"><img src="assets/thumbs/color-reflex-dojo.png" alt="色彩反射道場のサムネイル" width="360" height="210" /></a>
+            <h3><a href="/games/color-reflex-dojo/">色彩反射道場</a></h3>
+            <p>色と文字を瞬時に見分ける反射脳トレ。</p>
+            <a class="play-link" href="/color_reflex_dojo/" data-play-game-id="color-reflex-dojo" data-play-game-title="色彩反射道場">遊ぶ</a>
+          </article>
+          <article class="mini-game-card">
+            <a href="/games/starlight-spotter/" data-game-card-id="starlight-spotter" data-game-card-title="星灯りまちがい探し"><img src="assets/thumbs/starlight-spotter.png" alt="星灯りまちがい探しのサムネイル" width="360" height="210" /></a>
+            <h3><a href="/games/starlight-spotter/">星灯りまちがい探し</a></h3>
+            <p>左右の違いを探す観察力パズル。</p>
+            <a class="play-link" href="/starlight_spotter/" data-play-game-id="starlight-spotter" data-play-game-title="星灯りまちがい探し">遊ぶ</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-card" aria-label="新着ゲーム">
+        <div class="section-head">
+          <div>
+            <h2>新着ゲーム</h2>
+            <p>最近追加した無料ブラウザゲームです。新しい入口ページにもつながるように、詳細ページを用意しています。</p>
+          </div>
+          <a class="secondary-link" href="/category/new-games/">新着一覧</a>
+        </div>
+        <div class="compact-card-list">
+          <article class="mini-game-card">
+            <a href="/games/last-train-number-hunt/" data-game-card-id="last-train-number-hunt" data-game-card-title="終電ナンバーサーチ"><img src="assets/thumbs/last-train-number-hunt.png" alt="終電ナンバーサーチのサムネイル" width="360" height="210" /></a>
+            <h3><a href="/games/last-train-number-hunt/">終電ナンバーサーチ</a></h3>
+            <p>駅の発車標をテーマにした数字タップゲーム。</p>
+            <a class="play-link" href="/last_train_number_hunt/" data-play-game-id="last-train-number-hunt" data-play-game-title="終電ナンバーサーチ">遊ぶ</a>
+          </article>
+          <article class="mini-game-card">
+            <a href="/games/lantern-slide-puzzle/" data-game-card-id="lantern-slide-puzzle" data-game-card-title="灯籠スライドパズル"><img src="assets/thumbs/lantern-slide-puzzle.png" alt="灯籠スライドパズルのサムネイル" width="360" height="210" /></a>
+            <h3><a href="/games/lantern-slide-puzzle/">灯籠スライドパズル</a></h3>
+            <p>夜祭りの絵柄を完成させるスライドパズル。</p>
+            <a class="play-link" href="/lantern_slide_puzzle/" data-play-game-id="lantern-slide-puzzle" data-play-game-title="灯籠スライドパズル">遊ぶ</a>
+          </article>
+          <article class="mini-game-card">
+            <a href="/games/moonlit-memory-route/" data-game-card-id="moonlit-memory-route" data-game-card-title="月影メモリールート"><img src="assets/thumbs/moonlit-memory-route.png" alt="月影メモリールートのサムネイル" width="360" height="210" /></a>
+            <h3><a href="/games/moonlit-memory-route/">月影メモリールート</a></h3>
+            <p>光った道順を覚えてなぞる記憶力ゲーム。</p>
+            <a class="play-link" href="/moonlit_memory_route/" data-play-game-id="moonlit-memory-route" data-play-game-title="月影メモリールート">遊ぶ</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-card" aria-label="おすすめゲーム">
+        <div class="section-head">
+          <div>
+            <h2>おすすめゲーム</h2>
+            <p>短時間で遊びやすい、初見でも分かりやすい、スマホ・PCで始めやすい、という編集基準で選んでいます。</p>
+          </div>
+          <a class="secondary-link" href="/category/recommended-games/">おすすめ一覧</a>
+        </div>
+        <div class="category-strip">
+          <a href="/games/last-train-number-hunt/">終電ナンバーサーチ</a>
+          <a href="/games/mini-sudoku-lounge/">ミニ数独ラウンジ</a>
+          <a href="/games/stardust-merge-cafe/">星屑マージカフェ</a>
+          <a href="/games/neon-courier/">ネオン配達便</a>
+          <a href="/games/after-school-beatline/">放課後ビートライン</a>
+        </div>
+      </section>
 
       <section class="content-card seo-links" aria-label="SEO navigation">
         <h2>ジャンルから探す</h2>
         <div class="category-strip">
-          <a href="category/one-minute-games/">1分ゲーム</a>
-          <a href="category/casual/">暇つぶし</a>
-          <a href="category/mobile-games/">スマホ対応</a>
-          <a href="category/rhythm-games/">音ゲー</a>
-          <a href="category/brain-training/">脳トレ</a>
-          <a href="category/no-install-games/">インストール不要</a>
-          <a href="category/short-minigames/">短時間ミニゲーム</a>
-          <a href="category/new-games/">新着ゲーム</a>
-          <a href="category/recommended-games/">おすすめゲーム</a>
-          <a href="category/pc-smartphone-games/">PC・スマホ対応</a>
-          <a href="category/break-time-games/">休み時間・スキマ時間</a>
-          <a href="category/action/">アクション</a>
-          <a href="category/puzzle/">パズル</a>
-          <a href="category/strategy/">戦略</a>
-          <a href="category/tower-defense/">タワーディフェンス</a>
-          <a href="category/pc-browser-games/">PCブラウザ</a>
+          <a href="/genres/puzzle/" data-genre="puzzle">パズル</a>
+          <a href="/genres/action/" data-genre="action">アクション</a>
+          <a href="/genres/casual/" data-genre="casual">暇つぶし・カジュアル</a>
+          <a href="category/one-minute-games/" data-genre="one-minute">1分ゲーム</a>
+          <a href="category/mobile-games/" data-genre="mobile">スマホ対応</a>
+          <a href="category/rhythm-games/" data-genre="rhythm">音ゲー</a>
+          <a href="category/brain-training/" data-genre="brain-training">脳トレ</a>
+          <a href="category/no-install-games/" data-genre="no-install">インストール不要</a>
+          <a href="category/short-minigames/" data-genre="short-minigames">短時間ミニゲーム</a>
+          <a href="category/new-games/" data-genre="new-games">新着ゲーム</a>
+          <a href="category/recommended-games/" data-genre="recommended">おすすめゲーム</a>
+          <a href="category/pc-smartphone-games/" data-genre="pc-smartphone">PC・スマホ対応</a>
+          <a href="category/break-time-games/" data-genre="break-time">休み時間・スキマ時間</a>
+          <a href="category/strategy/" data-genre="strategy">戦略</a>
+          <a href="category/tower-defense/" data-genre="tower-defense">タワーディフェンス</a>
+          <a href="category/pc-browser-games/" data-genre="pc-browser">PCブラウザ</a>
         </div>
       </section>
 
@@ -148,12 +239,16 @@
     <footer class="site-footer">
       <span>ブラウザゲーム広場</span>
       <nav aria-label="Footer navigation">
+        <a href="/games/">ゲーム一覧</a>
+        <a href="/genres/">ジャンル</a>
+        <a href="/guide/">遊び方</a>
         <a href="privacy.html">プライバシーポリシー</a>
         <a href="terms.html">利用規約</a>
         <a href="contact.html">お問い合わせ</a>
       </nav>
     </footer>
     <script src="ugc.js?v=20260511-1"></script>
-    <script src="home.js?v=20260522-3"></script>
+    <script src="analytics.js?v=20260522-2"></script>
+    <script src="home.js?v=20260522-4"></script>
   </body>
 </html>

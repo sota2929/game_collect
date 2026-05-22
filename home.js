@@ -359,13 +359,13 @@ function render() {
         ].filter(Boolean);
         return `
         <article class="game-card game-card-with-thumb">
-          <a class="game-thumb" href="${game.href}" aria-label="${game.title}の詳細を見る">
+          <a class="game-thumb" href="${game.href}" aria-label="${game.title}の詳細を見る" data-game-card-id="${game.id}" data-game-card-title="${game.title}">
             <img src="${game.thumb}" alt="${game.title}のプレイ中サムネイル" loading="lazy" width="360" height="210" />
           </a>
           <div>
             <div class="game-card-header">
               <span class="rank">${index + 1}</span>
-              <h2><a href="${game.href}">${game.title}</a></h2>
+              <h2><a href="${game.href}" data-game-card-id="${game.id}" data-game-card-title="${game.title}">${game.title}</a></h2>
               <span class="tag">${game.genre}</span>
             </div>
             <p class="game-description">${game.description}</p>

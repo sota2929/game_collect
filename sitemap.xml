@@ -103,6 +103,12 @@
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://game-collect.online/games/last-train-number-hunt/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://game-collect.online/category/one-minute-games/</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -296,6 +302,12 @@
   </url>
   <url>
     <loc>https://game-collect.online/lantern_slide_puzzle/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/last_train_number_hunt/</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>

@@ -266,6 +266,23 @@ const games = [
       "空間認識",
       "スマホ対応"
     ]
+  },
+  {
+    "id": "last-train-number-hunt",
+    "title": "終電ナンバーサーチ",
+    "href": "games/last-train-number-hunt/",
+    "thumb": "assets/thumbs/last-train-number-hunt.png",
+    "playHref": "last_train_number_hunt/",
+    "genre": "Brain Training",
+    "popularity": 17,
+    "released": 17,
+    "description": "駅の発車標に散らばった数字を1から順番に探す45秒脳トレ。反射神経と視線移動でスコア更新を狙えます。",
+    "meta": [
+      "数字タップ",
+      "脳トレ",
+      "反射神経",
+      "スマホ対応"
+    ]
   }
 ];
 

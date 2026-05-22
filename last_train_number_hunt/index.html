@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>終電ナンバーサーチ | 無料で遊べる数字タップ脳トレゲーム | 無料ブラウザゲーム広場</title>
+    <meta name="description" content="終電ナンバーサーチは、駅の発車標に散らばった数字を1から順番にタップする無料ブラウザ脳トレゲームです。インストール不要でスマホ・PCから短時間に遊べます。" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#071520" />
+    <link rel="canonical" href="https://game-collect.online/last_train_number_hunt/" />
+    <meta property="og:site_name" content="無料ブラウザゲーム広場" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content="終電ナンバーサーチ | 無料ブラウザ数字タップ脳トレ" />
+    <meta property="og:description" content="散らばった数字を1から順番に探す、短時間の無料ブラウザ脳トレ・反射神経ゲーム。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://game-collect.online/last_train_number_hunt/" />
+    <meta property="og:image" content="https://game-collect.online/assets/seo/last-train-number-hunt.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="終電ナンバーサーチ | 無料ブラウザゲーム広場" />
+    <meta name="twitter:description" content="スマホ・PC対応。数字を1から順番に探して押す短時間脳トレゲーム。" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "VideoGame",
+            "name": "終電ナンバーサーチ",
+            "url": "https://game-collect.online/last_train_number_hunt/",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Web browser",
+            "genre": ["数字タップ", "脳トレ", "反射神経", "ミニゲーム"],
+            "inLanguage": "ja",
+            "isAccessibleForFree": true,
+            "description": "駅の発車標に散らばった数字を1から順番に探す無料ブラウザ脳トレゲームです。",
+            "image": "https://game-collect.online/assets/seo/last-train-number-hunt.png"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ゲーム一覧", "item": "https://game-collect.online/" },
+              { "@type": "ListItem", "position": 2, "name": "終電ナンバーサーチ", "item": "https://game-collect.online/last_train_number_hunt/" }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="style.css?v=20260522-1" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <main class="station-shell">
+      <header class="topbar">
+        <a class="back-link" href="../">ゲーム一覧へ戻る</a>
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">終</span>
+          <div>
+            <p>数字タップ脳トレ</p>
+            <h1>終電ナンバーサーチ</h1>
+          </div>
+        </div>
+        <button id="soundToggle" class="tool-button" type="button" aria-pressed="true">Sound On</button>
+      </header>
+
+      <section class="game-panel" aria-label="ゲーム画面">
+        <div class="station-sign">
+          <span>Last Train</span>
+          <strong id="targetText">1</strong>
+          <span>を探す</span>
+        </div>
+
+        <div class="hud" aria-label="ゲーム状況">
+          <div><span>Score</span><strong id="scoreText">0</strong></div>
+          <div><span>Time</span><strong id="timeText">45</strong></div>
+          <div><span>Combo</span><strong id="comboText">0</strong></div>
+          <div><span>Stage</span><strong id="stageText">1</strong></div>
+        </div>
+
+        <div class="board-card">
+          <div class="platform-line">
+            <span id="phaseText">Ready</span>
+            <strong id="goalText">1 → 12</strong>
+          </div>
+          <div id="board" class="board" aria-label="終電ナンバーサーチの数字盤面"></div>
+        </div>
+
+        <div class="command-row">
+          <button id="startButton" type="button">Start</button>
+          <button id="shuffleButton" type="button">Shuffle</button>
+        </div>
+        <p id="message" class="message">発車標に散らばった数字を、1から順番に押していきましょう。</p>
+      </section>
+
+      <section class="guide">
+        <article>
+          <h2>遊び方</h2>
+          <p>盤面から次の数字を探してタップします。1、2、3……と最後まで押せたら次のステージへ進みます。</p>
+        </article>
+        <article>
+          <h2>攻略のコツ</h2>
+          <p>次の数字だけでなく、その次の数字の場所も見ておくとコンボが続きます。迷ったら視線を左上から横に流すと見つけやすいです。</p>
+        </article>
+      </section>
+    </main>
+
+    <section id="resultModal" class="modal" hidden>
+      <div class="result-card">
+        <p>Last Train Departed</p>
+        <h2 id="resultTitle">Result</h2>
+        <dl>
+          <div><dt>Score</dt><dd id="resultScore">0</dd></div>
+          <div><dt>Stage</dt><dd id="resultStage">1</dd></div>
+        </dl>
+        <button id="retryButton" type="button">もう一度</button>
+        <a href="../games/last-train-number-hunt/">詳細を見る</a>
+      </div>
+    </section>
+
+    <script src="../ugc.js?v=20260514-1" data-current-game="last-train-number-hunt"></script>
+    <script src="game.js?v=20260522-2"></script>
+  </body>
+</html>

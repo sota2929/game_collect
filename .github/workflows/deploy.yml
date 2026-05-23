@@ -40,13 +40,15 @@ jobs:
             exit 1
           fi
 
-          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" "$FTP_SERVER" <<EOF
+          for attempt in 1 2 3; do
+            echo "FTP deploy attempt ${attempt}/3"
+            if lftp -u "$FTP_USERNAME","$FTP_PASSWORD" "$FTP_SERVER" <<EOF
           set cmd:fail-exit yes
           set net:max-retries 5
           set net:reconnect-interval-base 8
           set net:reconnect-interval-multiplier 2
           set net:timeout 30
-          set ftp:ssl-allow true
+          set ftp:ssl-allow false
           set ftp:passive-mode true
           set ftp:sync-mode false
           mirror --reverse --delete --verbose --parallel=1 \
@@ -61,3 +63,11 @@ jobs:
             ./ "$FTP_SERVER_DIR"
           bye
           EOF
+            then
+              exit 0
+            fi
+            sleep $((attempt * 20))
+          done
+
+          echo "FTP deploy failed after 3 attempts."
+          exit 1

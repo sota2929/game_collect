@@ -300,6 +300,23 @@ const games = [
       "1分プレイ",
       "スマホ対応"
     ]
+  },
+  {
+    "id": "midnight-typing-proof",
+    "title": "深夜校正タイピング",
+    "href": "games/midnight-typing-proof/",
+    "thumb": "assets/thumbs/midnight-typing-proof.png",
+    "playHref": "midnight_typing_proof/",
+    "genre": "Brain Training",
+    "popularity": 19,
+    "released": 19,
+    "description": "深夜の校正室で浮かぶ誤字をローマ字入力で封印する60秒タイピングゲーム。PCブラウザで短時間に集中できます。",
+    "meta": [
+      "タイピング",
+      "ローマ字",
+      "脳トレ",
+      "PC推奨"
+    ]
   }
 ];
 

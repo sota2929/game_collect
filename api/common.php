@@ -22,6 +22,7 @@ const GAME_KEYS = [
     'lantern-slide-puzzle',
     'last-train-number-hunt',
     'galaxy-sushi-clicker',
+    'midnight-typing-proof',
 ];
 
 const GAME_CATALOG = [
@@ -43,6 +44,7 @@ const GAME_CATALOG = [
     'lantern-slide-puzzle' => ['title' => '灯籠スライドパズル', 'slug' => 'lantern-slide-puzzle', 'genre' => 'Puzzle'],
     'last-train-number-hunt' => ['title' => '終電ナンバーサーチ', 'slug' => 'last-train-number-hunt', 'genre' => 'Brain Training'],
     'galaxy-sushi-clicker' => ['title' => '銀河回転寿司クリッカー', 'slug' => 'galaxy-sushi-clicker', 'genre' => 'Casual'],
+    'midnight-typing-proof' => ['title' => '深夜校正タイピング', 'slug' => 'midnight-typing-proof', 'genre' => 'Brain Training'],
 ];
 
 function json_response(array $payload, int $status = 200): never

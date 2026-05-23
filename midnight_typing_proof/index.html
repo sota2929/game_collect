@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>深夜校正タイピング | 無料ブラウザゲーム広場</title>
+    <meta
+      name="description"
+      content="深夜校正タイピングは、誤字の幽霊をローマ字入力で退治する無料ブラウザタイピングゲームです。インストール不要でPCから短時間に遊べます。"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://game-collect.online/midnight_typing_proof/" />
+    <link rel="stylesheet" href="style.css?v=20260524-4" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+  </head>
+  <body>
+    <div class="desk-noise" aria-hidden="true"></div>
+    <header class="topbar">
+      <a href="/" class="back-link">ゲーム一覧へ</a>
+      <button id="soundToggle" class="sound-toggle" type="button" aria-pressed="true">Sound ON</button>
+    </header>
+
+    <main class="game-shell">
+      <section class="intro-panel" aria-labelledby="gameTitle">
+        <p class="eyebrow">midnight proof room</p>
+        <h1 id="gameTitle">深夜校正タイピング</h1>
+        <p class="lead">午前2時、原稿から誤字の幽霊が浮かび上がる。ローマ字を打って赤ペンで封印し、締切前に校了を目指す短時間タイピングゲームです。</p>
+        <div class="intro-actions">
+          <button id="startButton" class="primary-button" type="button">校正開始</button>
+          <span>Enterで開始 / 文字キーで入力 / クリックで対象変更</span>
+        </div>
+      </section>
+
+      <section class="status-strip" aria-label="スコア">
+        <div><span>校正点</span><strong id="score">0</strong></div>
+        <div><span>残り時間</span><strong id="time">60</strong></div>
+        <div><span>コンボ</span><strong id="combo">0</strong></div>
+        <div><span>最高記録</span><strong id="best">0</strong></div>
+      </section>
+
+      <section class="proof-layout" aria-label="ゲームエリア">
+        <div class="paper-stage">
+          <div class="paper-head">
+            <span>校閲室 第三机</span>
+            <b id="dangerLabel">静かな原稿</b>
+          </div>
+          <div id="targetLayer" class="target-layer" aria-live="polite"></div>
+          <div class="deadline-line" aria-hidden="true">締切線</div>
+        </div>
+
+        <aside class="side-panel">
+          <article class="active-card">
+            <span>現在の誤字</span>
+            <strong id="activeWord">---</strong>
+            <p id="activeKana">対象をクリックするか、出現順に入力します。</p>
+          </article>
+          <label class="mobile-input">
+            <span>スマホ入力用</span>
+            <input id="typingInput" autocomplete="off" autocapitalize="none" spellcheck="false" inputmode="latin" placeholder="ここをタップして入力" />
+          </label>
+          <article class="rule-card">
+            <h2>遊び方</h2>
+            <p>浮かぶ単語をローマ字で入力します。正しく打つほどコンボが伸び、誤入力や締切線到達で時間を失います。</p>
+          </article>
+          <article class="rule-card">
+            <h2>コツ</h2>
+            <p>長い単語より、まず締切線に近い誤字をクリックして処理しましょう。コンボ10以上で得点が大きく伸びます。</p>
+          </article>
+        </aside>
+      </section>
+    </main>
+
+    <div id="resultModal" class="result-modal" hidden>
+      <div class="result-card">
+        <p class="eyebrow">proof result</p>
+        <h2>本日の校了結果</h2>
+        <strong id="resultScore">0点</strong>
+        <p id="resultText">赤ペンのインクがまだ残っています。</p>
+        <div class="result-actions">
+          <button id="retryButton" class="primary-button" type="button">もう一度</button>
+          <a href="/games/midnight-typing-proof/">詳細を見る</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="/ugc.js?v=20260514-1"></script>
+    <script src="game.js?v=20260524-6"></script>
+  </body>
+</html>

@@ -317,6 +317,23 @@ const games = [
       "脳トレ",
       "PC推奨"
     ]
+  },
+  {
+    "id": "sky-post-one-stroke",
+    "title": "雲上ひとふで郵便",
+    "href": "games/sky-post-one-stroke/",
+    "thumb": "assets/thumbs/sky-post-one-stroke.png",
+    "playHref": "sky_post_one_stroke/",
+    "genre": "Puzzle",
+    "popularity": 20,
+    "released": 20,
+    "description": "雲の郵便局を一筆書きで巡る40秒脳トレパズル。スマホでもPCでも、なぞるだけで遊べる短時間ゲームです。",
+    "meta": [
+      "一筆書き",
+      "脳トレ",
+      "40秒",
+      "スマホ対応"
+    ]
   }
 ];
 

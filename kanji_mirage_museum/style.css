@@ -1,0 +1,435 @@
+:root {
+  color-scheme: light;
+  --ink: #211a16;
+  --muted: #76695f;
+  --paper: #fff8e9;
+  --paper-soft: rgba(255, 248, 233, 0.86);
+  --line: rgba(78, 49, 35, 0.16);
+  --red: #b83a2f;
+  --red-deep: #7b211b;
+  --gold: #c49743;
+  --green: #2b7a66;
+  --shadow: 0 22px 60px rgba(75, 46, 31, 0.18);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Yu Gothic", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 18% 14%, rgba(184, 58, 47, 0.14), transparent 24%),
+    radial-gradient(circle at 82% 8%, rgba(196, 151, 67, 0.18), transparent 22%),
+    linear-gradient(135deg, #fbf1da 0%, #fffaf0 48%, #efe1c4 100%);
+  overflow-x: hidden;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+.paper-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.36;
+  background-image:
+    linear-gradient(90deg, rgba(72, 45, 30, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(72, 45, 30, 0.04) 1px, transparent 1px);
+  background-size: 21px 21px;
+  mask-image: radial-gradient(circle at center, #000 0%, transparent 82%);
+}
+
+.museum-shell {
+  width: min(1120px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 18px 0 34px;
+}
+
+.topbar,
+.hero,
+.hud,
+.game-panel,
+.guide article,
+.result-card {
+  border: 1px solid rgba(92, 61, 42, 0.16);
+  background: var(--paper-soft);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.back-link,
+.tool-button,
+.start-button,
+.result-actions button,
+.result-actions a {
+  min-height: 44px;
+  border: 0;
+  border-radius: 4px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.back-link,
+.tool-button {
+  background: #fffdf7;
+  color: var(--red-deep);
+  box-shadow: inset 0 0 0 1px rgba(123, 33, 27, 0.14);
+}
+
+.hero {
+  position: relative;
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  gap: 24px;
+  align-items: center;
+  padding: clamp(24px, 4vw, 46px);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(123, 33, 27, 0.12);
+  pointer-events: none;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--red-deep);
+  font-family: "Inter", "Yu Gothic", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.7rem, 8vw, 6rem);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.hero p:last-child {
+  max-width: 720px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-weight: 700;
+  line-height: 1.85;
+}
+
+.seal-card {
+  position: relative;
+  aspect-ratio: 1 / 1.18;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  color: var(--red-deep);
+  background:
+    linear-gradient(45deg, transparent 48%, rgba(123, 33, 27, 0.06) 48% 52%, transparent 52%),
+    #fffdf7;
+  border: 2px solid rgba(123, 33, 27, 0.28);
+}
+
+.seal-card span,
+.seal-card small {
+  font-family: "Inter", "Yu Gothic", sans-serif;
+  font-weight: 900;
+}
+
+.seal-card strong {
+  font-size: 5.4rem;
+  line-height: 1;
+}
+
+.hud {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.hud div {
+  min-width: 0;
+  padding: 12px;
+  background: rgba(255, 253, 247, 0.82);
+  border-left: 4px solid rgba(184, 58, 47, 0.5);
+}
+
+.hud span {
+  display: block;
+  color: var(--muted);
+  font-family: "Inter", "Yu Gothic", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hud strong {
+  display: block;
+  margin-top: 4px;
+  font-size: clamp(1.3rem, 4vw, 2.1rem);
+}
+
+.game-panel {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.board-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.board-head span {
+  display: block;
+  color: var(--red);
+  font-family: "Inter", "Yu Gothic", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.board-head strong {
+  display: block;
+  margin-top: 4px;
+  font-size: clamp(1.1rem, 4vw, 1.8rem);
+}
+
+#targetText {
+  display: inline-grid;
+  min-width: 1.5em;
+  place-items: center;
+  margin-left: 4px;
+  color: var(--red-deep);
+  font-size: 1.28em;
+}
+
+#hintText {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.start-button,
+.result-actions button {
+  color: #fffdf7;
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  box-shadow: 0 12px 24px rgba(123, 33, 27, 0.22);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  min-height: 420px;
+  padding: clamp(12px, 3vw, 18px);
+  background:
+    linear-gradient(90deg, rgba(123, 33, 27, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(123, 33, 27, 0.08) 1px, transparent 1px),
+    #fffdf7;
+  background-size: 34px 34px;
+  border: 1px solid rgba(123, 33, 27, 0.18);
+}
+
+.kanji-card {
+  position: relative;
+  min-height: 92px;
+  border: 0;
+  border-radius: 3px;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 82% 16%, rgba(184, 58, 47, 0.12), transparent 20%),
+    #fff8e9;
+  box-shadow:
+    0 10px 22px rgba(76, 47, 31, 0.13),
+    inset 0 0 0 1px rgba(123, 33, 27, 0.11);
+  font-size: clamp(2.1rem, 8vw, 4.2rem);
+  font-weight: 800;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.kanji-card:hover,
+.kanji-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 28px rgba(76, 47, 31, 0.17),
+    inset 0 0 0 2px rgba(184, 58, 47, 0.26);
+  outline: none;
+}
+
+.kanji-card.correct {
+  color: #fffdf7;
+  background: linear-gradient(135deg, var(--green), #194b3f);
+}
+
+.kanji-card.wrong {
+  color: #fffdf7;
+  background: linear-gradient(135deg, var(--red), var(--red-deep));
+  animation: stamp 180ms ease-in-out 2;
+}
+
+@keyframes stamp {
+  50% {
+    transform: rotate(-1.5deg) scale(0.98);
+  }
+}
+
+.guide {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.guide article {
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.guide h2 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+}
+
+.guide p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+  font-weight: 700;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(44, 29, 21, 0.32);
+  backdrop-filter: blur(10px);
+  z-index: 20;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.result-card {
+  width: min(440px, 100%);
+  border-radius: 8px;
+  padding: 28px;
+  text-align: center;
+}
+
+.result-card p,
+.result-card span {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.result-card h2 {
+  margin: 6px 0;
+  font-size: 2rem;
+}
+
+.result-card strong {
+  display: block;
+  font-size: 3rem;
+  color: var(--red-deep);
+}
+
+.result-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.result-actions a {
+  background: #fffdf7;
+  color: var(--red-deep);
+  box-shadow: inset 0 0 0 1px rgba(123, 33, 27, 0.16);
+}
+
+@media (max-width: 760px) {
+  .museum-shell {
+    width: min(100% - 18px, 1120px);
+    padding-top: 10px;
+  }
+
+  .topbar,
+  .board-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .seal-card {
+    width: min(210px, 70vw);
+    justify-self: center;
+  }
+
+  .hud {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    min-height: 390px;
+  }
+
+  .kanji-card {
+    min-height: 74px;
+  }
+
+  .guide {
+    grid-template-columns: 1fr;
+  }
+}

@@ -334,6 +334,23 @@ const games = [
       "40秒",
       "スマホ対応"
     ]
+  },
+  {
+    "id": "kanji-mirage-museum",
+    "title": "幻字鑑定室",
+    "href": "games/kanji-mirage-museum/",
+    "thumb": "assets/thumbs/kanji-mirage-museum.png",
+    "playHref": "kanji_mirage_museum/",
+    "genre": "Brain Training",
+    "popularity": 21,
+    "released": 21,
+    "description": "似た漢字の中から本物を見抜く60秒の漢字まちがい探し脳トレ。スマホでもPCでも遊べる無料ブラウザゲームです。",
+    "meta": [
+      "漢字パズル",
+      "脳トレ",
+      "60秒",
+      "スマホ対応"
+    ]
   }
 ];
 

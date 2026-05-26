@@ -24,6 +24,7 @@ const GAME_KEYS = [
     'galaxy-sushi-clicker',
     'midnight-typing-proof',
     'sky-post-one-stroke',
+    'kanji-mirage-museum',
 ];
 
 const GAME_CATALOG = [
@@ -47,6 +48,7 @@ const GAME_CATALOG = [
     'galaxy-sushi-clicker' => ['title' => '銀河回転寿司クリッカー', 'slug' => 'galaxy-sushi-clicker', 'genre' => 'Casual'],
     'midnight-typing-proof' => ['title' => '深夜校正タイピング', 'slug' => 'midnight-typing-proof', 'genre' => 'Brain Training'],
     'sky-post-one-stroke' => ['title' => '雲上ひとふで郵便', 'slug' => 'sky-post-one-stroke', 'genre' => 'Puzzle'],
+    'kanji-mirage-museum' => ['title' => '幻字鑑定室', 'slug' => 'kanji-mirage-museum', 'genre' => 'Brain Training'],
 ];
 
 function json_response(array $payload, int $status = 200): never

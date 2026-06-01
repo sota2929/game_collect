@@ -25,6 +25,7 @@ const GAME_KEYS = [
     'midnight-typing-proof',
     'sky-post-one-stroke',
     'kanji-mirage-museum',
+    'lost-call-switchboard',
 ];
 
 const GAME_CATALOG = [
@@ -49,6 +50,7 @@ const GAME_CATALOG = [
     'midnight-typing-proof' => ['title' => '深夜校正タイピング', 'slug' => 'midnight-typing-proof', 'genre' => 'Brain Training'],
     'sky-post-one-stroke' => ['title' => '雲上ひとふで郵便', 'slug' => 'sky-post-one-stroke', 'genre' => 'Puzzle'],
     'kanji-mirage-museum' => ['title' => '幻字鑑定室', 'slug' => 'kanji-mirage-museum', 'genre' => 'Brain Training'],
+    'lost-call-switchboard' => ['title' => '迷子電話交換室', 'slug' => 'lost-call-switchboard', 'genre' => 'Puzzle'],
 ];
 
 function json_response(array $payload, int $status = 200): never

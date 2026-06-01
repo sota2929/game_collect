@@ -351,6 +351,23 @@ const games = [
       "60秒",
       "スマホ対応"
     ]
+  },
+  {
+    "id": "lost-call-switchboard",
+    "title": "迷子電話交換室",
+    "href": "games/lost-call-switchboard/",
+    "thumb": "assets/thumbs/lost-call-switchboard.png",
+    "playHref": "lost_call_switchboard/",
+    "genre": "Puzzle",
+    "popularity": 22,
+    "released": 22,
+    "description": "昭和レトロな電話交換台で迷子の通話を正しい相手へつなぐ70秒の線つなぎ脳トレパズル。",
+    "meta": [
+      "線つなぎ",
+      "脳トレ",
+      "70秒",
+      "スマホ対応"
+    ]
   }
 ];
 

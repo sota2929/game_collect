@@ -368,6 +368,23 @@ const games = [
       "70秒",
       "スマホ対応"
     ]
+  },
+  {
+    "id": "futon-flight",
+    "title": "ふとんがふっとんだ！",
+    "href": "games/futon-flight/",
+    "thumb": "assets/thumbs/futon-flight.png",
+    "playHref": "futon_flight/",
+    "genre": "Action",
+    "popularity": 23,
+    "released": 23,
+    "description": "屋上から布団を飛ばして着地距離を競う、短時間の物理アクション。長押しと空中タップだけで遊べます。",
+    "meta": [
+      "物理アクション",
+      "5投チャレンジ",
+      "スマホ対応",
+      "インストール不要"
+    ]
   }
 ];
 

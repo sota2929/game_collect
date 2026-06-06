@@ -269,3 +269,13 @@ newStage();
 playing = false;
 clearInterval(timer);
 updateHud();
+
+function handlePageAudioStop() {
+  stopMusic();
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) handlePageAudioStop();
+});
+window.addEventListener("pagehide", handlePageAudioStop);
+window.addEventListener("beforeunload", handlePageAudioStop);

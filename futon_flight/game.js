@@ -424,3 +424,13 @@ window.addEventListener("resize", resize);
 resize();
 resetThrow();
 draw();
+
+function handlePageAudioStop() {
+  stopMusic();
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) handlePageAudioStop();
+});
+window.addEventListener("pagehide", handlePageAudioStop);
+window.addEventListener("beforeunload", handlePageAudioStop);

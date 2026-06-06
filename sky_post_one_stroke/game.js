@@ -446,3 +446,13 @@ window.addEventListener("keydown", (event) => {
 });
 
 startGame();
+
+function handlePageAudioStop() {
+  stopBgm();
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) handlePageAudioStop();
+});
+window.addEventListener("pagehide", handlePageAudioStop);
+window.addEventListener("beforeunload", handlePageAudioStop);

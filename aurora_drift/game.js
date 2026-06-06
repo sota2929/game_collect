@@ -85,6 +85,14 @@ function ensureAudio() {
   }
 }
 
+function stopMusic() {
+  if (!audio) return;
+  if (audio.timer) window.clearInterval(audio.timer);
+  audio.timer = null;
+  audio.started = false;
+  audio.next = 0;
+}
+
 function tone(freq, start, dur, type = "sine", vol = 0.08) {
   if (!audio || audio.muted) return;
   const osc = audio.context.createOscillator();
@@ -138,6 +146,7 @@ function startGame() {
 
 function endGame() {
   state.over = true;
+  stopMusic();
   best = Math.max(best, state.score);
   localStorage.setItem(BEST_KEY, String(best));
   ui.overlayTitle.textContent = "Drift Complete";
@@ -526,6 +535,8 @@ ui.pause.addEventListener("click", () => {
   if (!state.started || state.over) return;
   state.paused = !state.paused;
   ui.pause.textContent = state.paused ? "Resume" : "Pause";
+  if (state.paused) stopMusic();
+  else ensureAudio();
   sync();
 });
 ui.sound.addEventListener("click", () => {
@@ -533,7 +544,19 @@ ui.sound.addEventListener("click", () => {
   if (!audio) return;
   audio.muted = !audio.muted;
   ui.sound.textContent = audio.muted ? "Sound Off" : "Sound On";
+  if (audio.muted) stopMusic();
+  else if (state.started && !state.paused && !state.over) ensureAudio();
 });
+
+function handlePageAudioStop() {
+  stopMusic();
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) handlePageAudioStop();
+});
+window.addEventListener("pagehide", handlePageAudioStop);
+window.addEventListener("beforeunload", handlePageAudioStop);
 
 function loop(now) {
   const dt = Math.min(0.033, (now - last) / 1000);

@@ -501,3 +501,13 @@ window.addEventListener("keydown", (event) => {
 scene = makeScene(stage);
 render();
 updateHud();
+
+function handlePageAudioStop() {
+  stopBgm();
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) handlePageAudioStop();
+});
+window.addEventListener("pagehide", handlePageAudioStop);
+window.addEventListener("beforeunload", handlePageAudioStop);

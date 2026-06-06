@@ -346,3 +346,13 @@ window.addEventListener("keydown", (event) => {
 makePuzzle();
 selected = values.findIndex((value) => !value);
 render();
+
+function handlePageAudioStop() {
+  stopBgm();
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) handlePageAudioStop();
+});
+window.addEventListener("pagehide", handlePageAudioStop);
+window.addEventListener("beforeunload", handlePageAudioStop);

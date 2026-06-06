@@ -393,3 +393,13 @@ size = 3;
 tiles = solvedTiles();
 emptyIndex = tiles.length - 1;
 render();
+
+function handlePageAudioStop() {
+  stopBgm();
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) handlePageAudioStop();
+});
+window.addEventListener("pagehide", handlePageAudioStop);
+window.addEventListener("beforeunload", handlePageAudioStop);

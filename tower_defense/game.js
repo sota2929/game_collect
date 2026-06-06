@@ -124,6 +124,14 @@ function startBgm() {
   scheduleBgm();
 }
 
+function stopBgm() {
+  if (!audio) return;
+  if (audio.bgmTimer) window.clearInterval(audio.bgmTimer);
+  audio.bgmTimer = null;
+  audio.started = false;
+  audio.nextBgmNote = 0;
+}
+
 function scheduleBgm() {
   if (!audio || audio.muted) return;
   const now = audio.context.currentTime;
@@ -201,6 +209,8 @@ function toggleSound() {
   audio.master.gain.cancelScheduledValues(audio.context.currentTime);
   audio.master.gain.setTargetAtTime(target, audio.context.currentTime, 0.035);
   ui.sound.textContent = audio.muted ? "Sound Off" : "Sound On";
+  if (audio.muted) stopBgm();
+  else if (!state.paused && !state.gameOver) ensureAudio();
 }
 
 function createBuildCells() {
@@ -812,6 +822,7 @@ function hitEnemy(shot) {
 function endGame(won) {
   state.gameOver = true;
   state.won = won;
+  stopBgm();
   ui.overlayTitle.textContent = won ? "Victory" : "Game Over";
   ui.overlayText.textContent = won
     ? `All ${FINAL_WAVE} waves were repelled.`
@@ -1414,6 +1425,8 @@ ui.startWave.addEventListener("click", startWave);
 ui.pause.addEventListener("click", () => {
   ensureAudio();
   state.paused = !state.paused;
+  if (state.paused) stopBgm();
+  else ensureAudio();
   syncUi();
 });
 ui.sound.addEventListener("click", toggleSound);
@@ -1431,6 +1444,16 @@ canvas.addEventListener("pointercancel", () => {
   state.dragging = null;
 });
 canvas.addEventListener("click", placeTower);
+
+function handlePageAudioStop() {
+  stopBgm();
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) handlePageAudioStop();
+});
+window.addEventListener("pagehide", handlePageAudioStop);
+window.addEventListener("beforeunload", handlePageAudioStop);
 
 resetGame();
 requestAnimationFrame(loop);

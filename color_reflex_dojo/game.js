@@ -296,3 +296,13 @@ targetWord.textContent = question.word.label;
 targetWord.style.color = question.ink.value;
 targetCard.style.background = `linear-gradient(145deg, ${question.bg.value}, #171d2b 78%)`;
 updateHud();
+
+function handlePageAudioStop() {
+  stopBgm();
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) handlePageAudioStop();
+});
+window.addEventListener("pagehide", handlePageAudioStop);
+window.addEventListener("beforeunload", handlePageAudioStop);

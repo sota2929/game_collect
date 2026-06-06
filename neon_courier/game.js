@@ -76,6 +76,7 @@ function startGame() {
 
 function endGame() {
   state.over = true;
+  stopMusic();
   best = Math.max(best, state.score);
   localStorage.setItem(BEST_KEY, String(best));
   ui.overlayTitle.textContent = "Delivery Complete";
@@ -429,6 +430,14 @@ function ensureAudio() {
   }
 }
 
+function stopMusic() {
+  if (!audio) return;
+  if (audio.timer) window.clearInterval(audio.timer);
+  audio.timer = null;
+  audio.started = false;
+  audio.next = 0;
+}
+
 function tone(freq, start, dur, type, dest, vol) {
   if (!audio || audio.muted) return;
   const osc = audio.context.createOscillator();
@@ -484,6 +493,8 @@ function toggleSound() {
   audio.master.gain.cancelScheduledValues(audio.context.currentTime);
   audio.master.gain.setTargetAtTime(target, audio.context.currentTime, 0.035);
   ui.sound.textContent = audio.muted ? "Sound Off" : "Sound On";
+  if (audio.muted) stopMusic();
+  else if (state.started && !state.paused && !state.over) ensureAudio();
 }
 
 function sync() {
@@ -530,8 +541,20 @@ ui.pause.addEventListener("click", () => {
   if (!state.started || state.over) return;
   state.paused = !state.paused;
   ui.pause.textContent = state.paused ? "Resume" : "Pause";
+  if (state.paused) stopMusic();
+  else ensureAudio();
   sync();
 });
+
+function handlePageAudioStop() {
+  stopMusic();
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) handlePageAudioStop();
+});
+window.addEventListener("pagehide", handlePageAudioStop);
+window.addEventListener("beforeunload", handlePageAudioStop);
 
 canvas.addEventListener("pointerdown", (event) => {
   if (!state.started || state.paused || state.over) return;

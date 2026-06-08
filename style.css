@@ -380,6 +380,19 @@ h3 {
   color: var(--accent);
 }
 
+.mood-inline {
+  margin-top: 8px;
+}
+
+.mood-inline span {
+  border-radius: 999px;
+  background: #f5faff;
+  padding: 4px 8px;
+  color: #41627d;
+  font-size: 0.76rem;
+  font-weight: 850;
+}
+
 .play-link {
   display: inline-grid;
   place-items: center;
@@ -395,6 +408,10 @@ h3 {
 .play-link:focus-visible,
 .tab:hover,
 .tab:focus-visible,
+.mood-tag-button:hover,
+.mood-tag-button:focus-visible,
+.favorite-toggle:hover,
+.favorite-toggle:focus-visible,
 .search input:focus-visible,
 .library-links a:hover,
 .library-links a:focus-visible {
@@ -419,6 +436,103 @@ h3 {
   display: grid;
   gap: 14px;
   padding: 20px;
+}
+
+.challenge-hero {
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.7fr);
+  align-items: center;
+  gap: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(18, 181, 203, 0.2), transparent 26rem),
+    linear-gradient(145deg, #0c1524, #15263f 48%, #0d4c78 100%);
+  color: #f7fbff;
+  box-shadow: 0 18px 36px rgba(6, 32, 69, 0.16);
+}
+
+.challenge-copy {
+  display: grid;
+  gap: 14px;
+}
+
+.challenge-copy .eyebrow,
+.challenge-copy h2,
+.challenge-copy strong,
+.challenge-copy .secondary-link,
+.challenge-copy .favorite-toggle {
+  color: inherit;
+}
+
+.challenge-copy h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.challenge-lead {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: rgba(244, 249, 255, 0.92);
+}
+
+.challenge-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.challenge-stats span,
+.player-stats-grid article {
+  display: grid;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 12px;
+}
+
+.challenge-stats strong,
+.player-stats-grid strong {
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.challenge-stats small,
+.player-stats-grid span {
+  color: rgba(231, 241, 251, 0.78);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.challenge-status {
+  color: rgba(231, 241, 251, 0.78);
+}
+
+.challenge-preview {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 14px;
+}
+
+.challenge-preview img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.challenge-preview-copy {
+  display: grid;
+  gap: 4px;
+}
+
+.challenge-preview-copy span,
+.challenge-preview-copy p {
+  color: rgba(231, 241, 251, 0.76);
 }
 
 .section-head {
@@ -463,6 +577,103 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
+}
+
+.top-utility-grid {
+  align-items: start;
+}
+
+.player-chip {
+  display: inline-grid;
+  place-items: center;
+  min-height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 0 12px;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.player-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.player-badges {
+  display: grid;
+  gap: 8px;
+}
+
+.player-badges h3 {
+  font-size: 0.95rem;
+}
+
+.player-badges ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.player-badges li {
+  min-height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f9fcff;
+  padding: 6px 12px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.mood-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mood-tag-button,
+.favorite-toggle {
+  min-height: 38px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0 14px;
+  font-weight: 850;
+}
+
+.mood-tag-button.active,
+.favorite-toggle.active {
+  border-color: rgba(8, 119, 216, 0.44);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.mood-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.mood-result-card {
+  display: grid;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+  padding: 14px;
+}
+
+.mood-result-card span {
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .utility-grid a {
@@ -683,9 +894,13 @@ code {
     flex-direction: column;
   }
 
+  .challenge-hero,
   .home-hero,
   .compact-card-list,
-  .utility-grid {
+  .utility-grid,
+  .mood-results,
+  .player-stats-grid,
+  .challenge-stats {
     grid-template-columns: 1fr;
   }
 
@@ -694,7 +909,9 @@ code {
   }
 
   .hero-actions .play-link,
-  .hero-actions .secondary-link {
+  .hero-actions .secondary-link,
+  .hero-actions .favorite-toggle,
+  .mood-tag-button {
     width: 100%;
   }
 }
@@ -952,7 +1169,8 @@ code {
 }
 
 .game-actions.compact .play-link,
-.game-actions.compact .secondary-link {
+.game-actions.compact .secondary-link,
+.game-actions.compact .favorite-toggle {
   min-width: 88px;
 }
 

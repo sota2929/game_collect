@@ -74,7 +74,13 @@ button {
 .tool-button,
 #startButton,
 #shuffleButton,
-#retryButton {
+#retryButton,
+#quickStartButton,
+.ghost-button,
+#copyResultButton,
+#shareResultButton,
+#xShareButton,
+.ghost-link {
   min-height: 42px;
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -86,6 +92,15 @@ button {
 }
 
 .back-link {
+  display: inline-grid;
+  place-items: center;
+}
+
+.ghost-button,
+.ghost-link,
+#copyResultButton,
+#shareResultButton,
+#xShareButton {
   display: inline-grid;
   place-items: center;
 }
@@ -133,6 +148,42 @@ button {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035));
   box-shadow: var(--shadow);
   padding: 16px;
+}
+
+.quick-start-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 14px;
+  border: 1px solid rgba(94, 231, 255, 0.24);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(3, 11, 19, 0.9), rgba(8, 26, 36, 0.84));
+  padding: 16px;
+}
+
+.quick-start-card h2,
+.quick-start-card p {
+  margin: 0;
+}
+
+.mini-label {
+  margin-bottom: 6px;
+  color: var(--cyan);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.quick-start-card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.quick-start-actions {
+  display: grid;
+  gap: 10px;
 }
 
 .station-sign {
@@ -296,6 +347,13 @@ button {
   background: linear-gradient(145deg, rgba(182, 255, 108, 0.18), rgba(94, 231, 255, 0.12));
 }
 
+#quickStartButton,
+#retryButton,
+#shareResultButton {
+  border-color: rgba(182, 255, 108, 0.58);
+  background: linear-gradient(145deg, rgba(182, 255, 108, 0.18), rgba(94, 231, 255, 0.12));
+}
+
 .message {
   min-height: 24px;
   color: var(--muted);
@@ -372,6 +430,18 @@ button {
   font-size: 2rem;
 }
 
+.result-badge {
+  display: inline-grid;
+  place-items: center;
+  min-height: 36px;
+  margin-top: 12px;
+  border: 1px solid rgba(182, 255, 108, 0.34);
+  border-radius: 999px;
+  background: rgba(182, 255, 108, 0.12);
+  padding: 0 16px;
+  color: var(--lime);
+}
+
 .result-card dl {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -390,13 +460,42 @@ button {
   font-weight: 950;
 }
 
-.result-card a {
-  display: inline-grid;
-  place-items: center;
-  min-height: 42px;
-  margin-left: 8px;
+.result-note {
+  margin-top: 4px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.result-actions,
+.share-actions,
+.related-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.ghost-link,
+.related-actions a {
   color: var(--cyan);
   font-weight: 850;
+}
+
+.share-actions > *,
+.result-actions > * {
+  min-width: 130px;
+}
+
+.related-actions {
+  margin-top: 14px;
+}
+
+.related-actions a {
+  min-height: 38px;
+  border: 1px solid rgba(94, 231, 255, 0.2);
+  border-radius: 999px;
+  padding: 8px 14px;
 }
 
 @keyframes shake {
@@ -419,8 +518,16 @@ button {
     grid-template-columns: 1fr;
   }
 
+  .quick-start-card {
+    grid-template-columns: 1fr;
+  }
+
   .back-link,
-  .tool-button {
+  .tool-button,
+  .quick-start-actions > *,
+  .share-actions > *,
+  .result-actions > *,
+  .related-actions > * {
     width: 100%;
   }
 

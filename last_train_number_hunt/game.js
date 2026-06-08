@@ -1,5 +1,40 @@
+const GAME_ID = "last-train-number-hunt";
+const GAME_TITLE = "終電ナンバーサーチ";
 const duration = 45;
 const storageKey = "lastTrainNumberHunt.best.v1";
+const tutorialKey = "lastTrainNumberHunt.tutorial.v2";
+const challengePool = [
+  "last-train-number-hunt",
+  "galaxy-sushi-clicker",
+  "kanji-mirage-museum",
+  "color-reflex-dojo",
+  "stardust-merge-cafe",
+  "moonlit-curio-sorter",
+  "futon-flight",
+  "lost-call-switchboard",
+];
+const rankTitles = [
+  "終電前の見習い",
+  "改札口ウォッチャー",
+  "ホーム端の探偵",
+  "行先表示の読破者",
+  "深夜線の見張り役",
+  "発車標の追跡者",
+  "乗換案内の助っ人",
+  "終着ホームの記録係",
+  "ラストダイヤの速読者",
+  "駅灯の観測士",
+  "時刻表の目利き",
+  "ホームベルの案内人",
+  "夜更けの発車監督",
+  "最終列車の誘導員",
+  "深夜改札の司令塔",
+  "終電表示の修復士",
+  "列番読解マスター",
+  "深夜ホームの番人",
+  "ラストダイヤの支配人",
+  "深夜の発車標マスター",
+];
 
 const board = document.querySelector("#board");
 const scoreText = document.querySelector("#scoreText");
@@ -18,8 +53,20 @@ const retryButton = document.querySelector("#retryButton");
 const resultTitle = document.querySelector("#resultTitle");
 const resultScore = document.querySelector("#resultScore");
 const resultStage = document.querySelector("#resultStage");
+const resultBest = document.querySelector("#resultBest");
+const resultTime = document.querySelector("#resultTime");
+const resultBadge = document.querySelector("#resultBadge");
+const resultNote = document.querySelector("#resultNote");
+const quickStart = document.querySelector("#quickStart");
+const quickStartButton = document.querySelector("#quickStartButton");
+const dismissGuideButton = document.querySelector("#dismissGuideButton");
+const shareCardCanvas = document.querySelector("#shareCardCanvas");
+const copyResultButton = document.querySelector("#copyResultButton");
+const shareResultButton = document.querySelector("#shareResultButton");
+const xShareButton = document.querySelector("#xShareButton");
 
 let running = false;
+let hasStarted = false;
 let timerId = 0;
 let timeLeft = duration;
 let score = 0;
@@ -34,13 +81,34 @@ let bgmGain;
 let bgmTimer = 0;
 let bgmStep = 0;
 let soundOn = true;
+let sharePayload = { text: "", url: "", title: "", imageUrl: "" };
 
 function bestScore() {
-  return Number(localStorage.getItem(storageKey) || "0");
+  const storeBest = Number(window.CollectPlayer?.getGameRecord?.(GAME_ID)?.bestScore || "0");
+  const legacyBest = Number(localStorage.getItem(storageKey) || "0");
+  return Math.max(storeBest, legacyBest);
 }
 
 function setBest(value) {
-  if (value > bestScore()) localStorage.setItem(storageKey, String(value));
+  if (value > bestScore()) {
+    localStorage.setItem(storageKey, String(value));
+  }
+}
+
+function localDateKey(date = new Date()) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function hashString(value) {
+  return [...value].reduce((acc, char) => (acc * 33 + char.charCodeAt(0)) % 2147483647, 7);
+}
+
+function isTodayChallengeGame() {
+  const todayGameId = challengePool[hashString(localDateKey()) % challengePool.length];
+  return todayGameId === GAME_ID;
 }
 
 function setupAudio() {
@@ -135,6 +203,20 @@ function makeTiles() {
   }));
 }
 
+function rankForScore(value) {
+  const index = Math.max(0, Math.min(rankTitles.length - 1, Math.floor(value / 900)));
+  return rankTitles[index];
+}
+
+function tutorialSeen() {
+  return localStorage.getItem(tutorialKey) === "1";
+}
+
+function setTutorialSeen() {
+  localStorage.setItem(tutorialKey, "1");
+  quickStart.hidden = true;
+}
+
 function updateHud() {
   scoreText.textContent = score.toLocaleString();
   timeText.textContent = Math.max(0, Math.ceil(timeLeft));
@@ -154,6 +236,7 @@ function render() {
     button.dataset.line = `Line ${tile.line}`;
     button.textContent = tile.value;
     if (tile.cleared) button.classList.add("cleared");
+    if (tile.value === nextNumber && !tile.cleared) button.classList.add("next");
     button.addEventListener("click", () => chooseTile(tile, button));
     board.append(button);
   });
@@ -171,7 +254,7 @@ function newStage() {
 
 function chooseTile(tile, element) {
   if (!running) {
-    startGame();
+    beginRun({ sourceArea: "board_click" });
     return;
   }
   if (tile.cleared) {
@@ -222,10 +305,14 @@ function clearStage() {
   }, 760);
 }
 
-function startGame() {
+function beginRun({ restart = false, sourceArea = "game_screen" } = {}) {
   setupAudio();
   if (audio.state === "suspended") audio.resume();
+  if (restart) {
+    window.CollectPlayer?.recordRestart?.(GAME_ID, sourceArea);
+  }
   running = true;
+  hasStarted = true;
   timeLeft = duration;
   score = 0;
   combo = 0;
@@ -236,7 +323,94 @@ function startGame() {
   timerId = window.setInterval(tick, 1000);
   startBgm();
   newStage();
-  window.CollectUGC?.recordPlay?.("last-train-number-hunt");
+  setTutorialSeen();
+  if (isTodayChallengeGame()) {
+    window.CollectPlayer?.markDailyChallengeStart?.(GAME_ID);
+  }
+  window.CollectAnalytics?.sendHumanInteraction?.("play_start");
+  window.CollectPlayer?.recordPlay?.(GAME_ID, GAME_TITLE, "/last_train_number_hunt/");
+}
+
+function buildShareText(finalScore, badgeTitle) {
+  return `${GAME_TITLE}で ${finalScore.toLocaleString()} 点！\n称号：${badgeTitle}\n\n無料ブラウザゲーム広場で遊びました。\nhttps://game-collect.online/last_train_number_hunt/\n#ブラウザゲーム #ミニゲーム`;
+}
+
+function buildShareCard(finalScore, badgeTitle) {
+  const ctx = shareCardCanvas.getContext("2d");
+  const gradient = ctx.createLinearGradient(0, 0, 1200, 630);
+  gradient.addColorStop(0, "#071520");
+  gradient.addColorStop(0.55, "#133b59");
+  gradient.addColorStop(1, "#0b759e");
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, 1200, 630);
+
+  ctx.fillStyle = "rgba(94, 231, 255, 0.14)";
+  ctx.fillRect(70, 72, 1060, 486);
+  ctx.strokeStyle = "rgba(182, 255, 108, 0.5)";
+  ctx.lineWidth = 4;
+  ctx.strokeRect(70, 72, 1060, 486);
+
+  ctx.fillStyle = "#b6ff6c";
+  ctx.font = "900 34px Inter, sans-serif";
+  ctx.fillText("無料ブラウザゲーム広場", 110, 138);
+
+  ctx.fillStyle = "#eefcff";
+  ctx.font = "900 78px Inter, sans-serif";
+  ctx.fillText(GAME_TITLE, 110, 238);
+
+  ctx.fillStyle = "#a8bdc8";
+  ctx.font = "700 32px Inter, sans-serif";
+  ctx.fillText("Last Train Report", 110, 294);
+
+  ctx.fillStyle = "#eefcff";
+  ctx.font = "900 120px Inter, sans-serif";
+  ctx.fillText(`${finalScore.toLocaleString()} pt`, 110, 430);
+
+  ctx.fillStyle = "#5ee7ff";
+  ctx.font = "800 42px Inter, sans-serif";
+  ctx.fillText(`称号: ${badgeTitle}`, 110, 500);
+
+  ctx.fillStyle = "rgba(238, 252, 255, 0.85)";
+  ctx.font = "700 28px Inter, sans-serif";
+  ctx.fillText("https://game-collect.online/last_train_number_hunt/", 110, 548);
+
+  sharePayload = {
+    title: `${GAME_TITLE}の結果`,
+    text: buildShareText(finalScore, badgeTitle),
+    url: "https://game-collect.online/last_train_number_hunt/",
+    imageUrl: shareCardCanvas.toDataURL("image/png"),
+  };
+  xShareButton.href = `https://x.com/intent/tweet?text=${encodeURIComponent(sharePayload.text)}`;
+}
+
+async function copyResult() {
+  if (!sharePayload.text) return;
+  try {
+    await navigator.clipboard.writeText(sharePayload.text);
+    window.CollectPlayer?.noteShare?.(GAME_ID);
+    resultNote.textContent = "結果をコピーしました。";
+  } catch {
+    resultNote.textContent = "コピーできなかったため、共有文を長押しでコピーしてください。";
+  }
+}
+
+async function shareResult() {
+  if (!sharePayload.text) return;
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: sharePayload.title,
+        text: sharePayload.text,
+        url: sharePayload.url,
+      });
+      window.CollectPlayer?.noteShare?.(GAME_ID);
+      resultNote.textContent = "共有メニューを開きました。";
+      return;
+    } catch {
+      // ignore cancellation and fall through
+    }
+  }
+  await copyResult();
 }
 
 function endGame(title) {
@@ -244,13 +418,33 @@ function endGame(title) {
   running = false;
   window.clearInterval(timerId);
   stopBgm();
+  const previousBest = bestScore();
+  const playTime = duration - timeLeft;
+  const badgeTitle = rankForScore(score);
+  const nextBest = Math.max(previousBest, score);
   setBest(score);
+  const completionSummary = window.CollectPlayer?.recordCompletion?.(GAME_ID, {
+    score,
+    playTime,
+    stage,
+    sourceArea: "result_screen",
+    dailyCompleted: isTodayChallengeGame(),
+  }) || { bestUpdated: score > previousBest, bestScore: Math.max(previousBest, score) };
+
   resultTitle.textContent = title;
   resultScore.textContent = score.toLocaleString();
   resultStage.textContent = stage;
+  resultBest.textContent = Number(completionSummary.bestScore || nextBest).toLocaleString();
+  resultTime.textContent = `${playTime}秒`;
+  resultBadge.textContent = badgeTitle;
+  resultNote.textContent =
+    completionSummary.bestUpdated
+      ? "自己ベスト更新です。結果を共有して次も伸ばしましょう。"
+      : "次は視線を先読みして、もっと奥のホームまで駆け抜けましょう。";
   modal.hidden = false;
   startButton.textContent = "Start";
-  message.textContent = `Best ${bestScore().toLocaleString()} 点。次は終電までにもっと多く確認しましょう。`;
+  message.textContent = `Best ${nextBest.toLocaleString()} 点。次は終電までにもっと多く確認しましょう。`;
+  buildShareCard(score, badgeTitle);
   updateHud();
 }
 
@@ -266,11 +460,14 @@ function tick() {
   updateHud();
 }
 
-startButton.addEventListener("click", startGame);
-retryButton.addEventListener("click", startGame);
+startButton.addEventListener("click", () => beginRun({ restart: hasStarted, sourceArea: "game_screen" }));
+retryButton.addEventListener("click", () => beginRun({ restart: true, sourceArea: "result_screen" }));
+quickStartButton.addEventListener("click", () => beginRun({ restart: false, sourceArea: "tutorial" }));
+dismissGuideButton.addEventListener("click", setTutorialSeen);
+
 shuffleButton.addEventListener("click", () => {
   if (!running) {
-    startGame();
+    beginRun({ sourceArea: "game_screen" });
     return;
   }
   score = Math.max(0, score - 80);
@@ -279,6 +476,13 @@ shuffleButton.addEventListener("click", () => {
   tone(360, 120, "triangle", 0.03);
   render();
 });
+
+copyResultButton.addEventListener("click", copyResult);
+shareResultButton.addEventListener("click", shareResult);
+xShareButton.addEventListener("click", () => {
+  window.CollectPlayer?.noteShare?.(GAME_ID);
+});
+
 soundToggle.addEventListener("click", () => {
   soundOn = !soundOn;
   soundToggle.textContent = soundOn ? "Sound On" : "Sound Off";
@@ -293,15 +497,21 @@ soundToggle.addEventListener("click", () => {
 });
 
 window.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") startGame();
+  if (event.key === "Enter") {
+    beginRun({ restart: hasStarted && !running, sourceArea: "keyboard" });
+  }
 });
-
-makeTiles();
-render();
 
 function handlePageAudioStop() {
   stopBgm();
 }
+
+if (tutorialSeen()) {
+  quickStart.hidden = true;
+}
+
+makeTiles();
+render();
 
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) handlePageAudioStop();

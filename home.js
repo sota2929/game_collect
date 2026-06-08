@@ -405,15 +405,250 @@ const games = [
   }
 ];
 
+const moodTagsById = {
+  "crystal-descent-defense": ["頭を使う", "じっくり遊ぶ", "PCで腰を据える"],
+  "aurora-drift": ["反射神経", "スコア更新したい", "1分だけ遊ぶ"],
+  "glyph-garden": ["頭を使う", "のんびり遊ぶ", "スマホで片手"],
+  "neon-courier": ["反射神経", "スコア更新したい", "集中したい"],
+  "tide-forge": ["音なしで遊べる", "集中したい", "タイミング勝負"],
+  aijingi: ["頭を使う", "PCで腰を据える", "じっくり遊ぶ"],
+  "arcane-duel": ["頭を使う", "PCで腰を据える", "じっくり遊ぶ"],
+  "ten-link-campus": ["1分だけ遊ぶ", "頭を使う", "スマホで片手"],
+  "parity-sort-lab": ["1分だけ遊ぶ", "頭を使う", "スマホで片手"],
+  "after-school-beatline": ["反射神経", "音ゲー気分", "スコア更新したい"],
+  "stardust-merge-cafe": ["のんびり遊ぶ", "頭を使う", "スマホで片手"],
+  "mini-sudoku-lounge": ["頭を使う", "音なしで遊べる", "のんびり遊ぶ"],
+  "color-reflex-dojo": ["反射神経", "集中したい", "1分だけ遊ぶ"],
+  "starlight-spotter": ["のんびり遊ぶ", "頭を使う", "音なしで遊べる"],
+  "moonlit-memory-route": ["集中したい", "頭を使う", "スマホで片手"],
+  "lantern-slide-puzzle": ["頭を使う", "音なしで遊べる", "のんびり遊ぶ"],
+  "last-train-number-hunt": ["1分だけ遊ぶ", "頭を使う", "スコア更新したい"],
+  "galaxy-sushi-clicker": ["のんびり遊ぶ", "スコア更新したい", "スマホで片手"],
+  "midnight-typing-proof": ["タイピング", "集中したい", "PCで腰を据える"],
+  "sky-post-one-stroke": ["頭を使う", "音なしで遊べる", "スマホで片手"],
+  "kanji-mirage-museum": ["頭を使う", "集中したい", "1分だけ遊ぶ"],
+  "lost-call-switchboard": ["頭を使う", "のんびり遊ぶ", "スマホで片手"],
+  "futon-flight": ["今日の運試し", "反射神経", "スコア更新したい"],
+  "moonlit-curio-sorter": ["スマホで片手", "反射神経", "集中したい"],
+};
+
+games.forEach((game) => {
+  game.moodTags = moodTagsById[game.id] || ["1分だけ遊ぶ", "インストール不要", "気軽に遊ぶ"];
+});
+
+window.CollectGameCatalog = games;
+
 const list = document.querySelector("#gameList");
 const personalLibrary = document.querySelector("#personalLibrary");
 const tabs = document.querySelectorAll(".tab");
 const search = document.querySelector("#search");
+const challengeRoot = document.querySelector("#dailyChallenge");
+const playerSnapshot = document.querySelector("#playerSnapshot");
+const moodExplorer = document.querySelector("#moodExplorer");
 let sort = "popular";
+let activeMood = "";
 
 const initialQuery = new URLSearchParams(window.location.search).get("q");
 if (initialQuery) {
   search.value = initialQuery;
+}
+
+function localDateKey(date = new Date()) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function hashString(value) {
+  return [...value].reduce((acc, char) => (acc * 33 + char.charCodeAt(0)) % 2147483647, 7);
+}
+
+const challengePool = [
+  "last-train-number-hunt",
+  "galaxy-sushi-clicker",
+  "kanji-mirage-museum",
+  "color-reflex-dojo",
+  "stardust-merge-cafe",
+  "moonlit-curio-sorter",
+  "futon-flight",
+  "lost-call-switchboard",
+];
+
+const moodLeadCopy = {
+  "1分だけ遊ぶ": "短時間で区切りやすいゲームだけを集めました。まず1本遊びたいときの入口です。",
+  "頭を使う": "考える気分の日に向いた、脳トレやパズル中心のラインです。",
+  "反射神経": "テンポよく判断したい日に。短時間でも手応えが出やすいゲームを並べています。",
+  "スマホで片手": "通学中や休憩中でも触りやすい、片手操作に向いたゲームです。",
+  "音なしで遊べる": "静かな場所でも遊びやすい、視覚中心のミニゲームを選べます。",
+  タイピング: "キーボードで遊びたい日に。PC向けの集中系ゲームをまとめています。",
+  "今日の運試し": "勢いで一発伸ばしたい気分向け。結果を共有したくなるスコア系です。",
+  "スコア更新したい": "ハイスコアを詰める楽しさが強いゲームを集めています。",
+  "のんびり遊ぶ": "急がず遊びたい日に。落ち着いたテンポのゲームを選べます。",
+  "集中したい": "短時間で頭を切り替えたい時向け。静かに没頭しやすいゲームです。",
+  "PCで腰を据える": "大きい画面でじっくり遊ぶ、PC向けのゲームをまとめています。",
+  "音ゲー気分": "リズム感やテンポを楽しみたい日にちょうどいい入口です。",
+  "タイミング勝負": "押す瞬間の気持ちよさで遊びたい日に向いています。",
+};
+
+function getChallengeGame() {
+  const key = localDateKey();
+  const gameId = challengePool[hashString(key) % challengePool.length];
+  return games.find((game) => game.id === gameId) || games[0];
+}
+
+function challengeLabel(game) {
+  const labels = {
+    "last-train-number-hunt": "今日の10秒集中チャレンジ",
+    "galaxy-sushi-clicker": "今日の売上チャレンジ",
+    "kanji-mirage-museum": "今日の見抜きチャレンジ",
+    "color-reflex-dojo": "今日の反射チャレンジ",
+    "stardust-merge-cafe": "今日の連鎖チャレンジ",
+    "moonlit-curio-sorter": "今日の仕分けチャレンジ",
+    "futon-flight": "今日の一投チャレンジ",
+    "lost-call-switchboard": "今日の接続チャレンジ",
+  };
+  return labels[game.id] || "今日のチャレンジ";
+}
+
+function favoriteButton(game) {
+  const summary = window.CollectUGC.summaryFor(game.id);
+  return `
+    <button
+      class="favorite-toggle${summary.favorite ? " active" : ""}"
+      type="button"
+      data-favorite-toggle="${game.id}"
+      aria-pressed="${summary.favorite ? "true" : "false"}"
+      aria-label="${game.title}をお気に入りに保存"
+    >
+      ${summary.favorite ? "お気に入り済み" : "お気に入り"}
+    </button>
+  `;
+}
+
+function renderDailyChallenge() {
+  const game = getChallengeGame();
+  const state = window.CollectPlayer.getTodayChallengeState(game.id);
+  const profile = window.CollectPlayer.getProfileSummary();
+  const record = window.CollectPlayer.getGameRecord(game.id);
+  const isToday = state.dateKey === localDateKey();
+  const alreadyStarted = isToday && state.gameId === game.id && state.started;
+  const completed = isToday && state.gameId === game.id && state.completed;
+  const bestLabel = record.bestScore ? `${record.bestScore.toLocaleString()} 点` : "未挑戦";
+  const actionLabel = completed ? "記録を更新する" : alreadyStarted ? "続けて挑戦" : "今すぐ挑戦";
+  const statusLabel = completed
+    ? "今日は挑戦済みです。自己ベスト更新を狙えます。"
+    : alreadyStarted
+      ? "今日はすでに遊んでいます。もう一度伸ばせます。"
+      : "今日はこの1本から始めるのがおすすめです。";
+
+  challengeRoot.innerHTML = `
+    <div class="challenge-copy">
+      <p class="eyebrow">Daily Challenge</p>
+      <h2>${challengeLabel(game)}</h2>
+      <p class="challenge-lead">今日のお題は <strong>${game.title}</strong>。${game.description}</p>
+      <div class="challenge-stats">
+        <span><strong>${bestLabel}</strong><small>自己ベスト</small></span>
+        <span><strong>${profile.streakDays}日</strong><small>連続挑戦</small></span>
+        <span><strong>${profile.totalPlays}回</strong><small>総プレイ回数</small></span>
+      </div>
+      <p class="challenge-status">${statusLabel}</p>
+      <div class="hero-actions">
+        <a
+          class="play-link challenge-link"
+          href="/${game.playHref}"
+          data-play-game-id="${game.id}"
+          data-play-game-title="${game.title}"
+          data-source-area="daily_challenge"
+        >${actionLabel}</a>
+        <a class="secondary-link" href="/${game.href}" data-game-card-id="${game.id}" data-game-card-title="${game.title}" data-source-area="daily_challenge">記録を見る</a>
+        ${favoriteButton(game)}
+      </div>
+    </div>
+    <aside class="challenge-preview">
+      <img src="${game.thumb}" alt="${game.title}のサムネイル" width="360" height="210" loading="lazy" />
+      <div class="challenge-preview-copy">
+        <strong>${game.title}</strong>
+        <span>${game.genre}</span>
+        <p>${game.moodTags.join(" / ")}</p>
+      </div>
+    </aside>
+  `;
+}
+
+function renderPlayerSnapshot() {
+  const profile = window.CollectPlayer.getProfileSummary();
+  const badgeItems = profile.badges.length
+    ? profile.badges
+        .slice(-4)
+        .reverse()
+        .map((badge) => `<li>${badge.label}</li>`)
+        .join("")
+    : "<li>まだバッジはありません</li>";
+
+  playerSnapshot.innerHTML = `
+    <div class="section-head">
+      <div>
+        <h2>あなたの記録</h2>
+        <p>記録はこの端末に保存されます。少しずつ遊ぶほど、続きが育っていきます。</p>
+      </div>
+      <span class="player-chip">${profile.isReturningLike ? "再訪ユーザー" : "はじめての記録"}</span>
+    </div>
+    <div class="player-stats-grid">
+      <article><strong>${profile.totalPlays}回</strong><span>総プレイ回数</span></article>
+      <article><strong>${profile.gamesPlayedToday}本</strong><span>今日遊んだゲーム</span></article>
+      <article><strong>${profile.bestUpdates}回</strong><span>自己ベスト更新</span></article>
+      <article><strong>${profile.streakDays}日</strong><span>連続挑戦</span></article>
+    </div>
+    <div class="player-badges">
+      <h3>最近のバッジ</h3>
+      <ul>${badgeItems}</ul>
+    </div>
+  `;
+}
+
+function renderMoodExplorer() {
+  const allMoodTags = [...new Set(games.flatMap((game) => game.moodTags))];
+  const visibleGames = activeMood ? games.filter((game) => game.moodTags.includes(activeMood)).slice(0, 4) : games.slice(0, 4);
+  const intro = activeMood
+    ? moodLeadCopy[activeMood] || `${activeMood}の気分に合うゲームをまとめています。`
+    : "ジャンルではなく、その時の気分からゲームを選べます。1タップで絞り込める入口です。";
+
+  moodExplorer.innerHTML = `
+    <div class="section-head">
+      <div>
+        <h2>気分で選ぶ</h2>
+        <p>${intro}</p>
+      </div>
+      ${activeMood ? '<button class="secondary-link mood-reset" type="button">絞り込みを外す</button>' : ""}
+    </div>
+    <div class="mood-tag-list">
+      ${allMoodTags
+        .map(
+          (tag) => `
+            <button
+              class="mood-tag-button${tag === activeMood ? " active" : ""}"
+              type="button"
+              data-mood-tag="${tag}"
+              aria-pressed="${tag === activeMood ? "true" : "false"}"
+            >${tag}</button>
+          `,
+        )
+        .join("")}
+    </div>
+    <div class="mood-results">
+      ${visibleGames
+        .map(
+          (game) => `
+            <a href="/${game.href}" class="mood-result-card" data-game-card-id="${game.id}" data-game-card-title="${game.title}" data-source-area="mood_section">
+              <strong>${game.title}</strong>
+              <span>${game.description}</span>
+            </a>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
 }
 
 function renderPersonalLibrary() {
@@ -443,7 +678,7 @@ function renderPersonalLibrary() {
           ${
             items.length
               ? `<div class="library-links">${items
-                  .map((game) => `<a href="${game.href}">${game.title}</a>`)
+                  .map((game) => `<a href="/${game.href}" data-game-card-id="${game.id}" data-game-card-title="${game.title}">${game.title}</a>`)
                   .join("")}</div>`
               : `<p>まだありません。</p>`
           }
@@ -453,42 +688,52 @@ function renderPersonalLibrary() {
     .join("");
 }
 
-function render() {
-  renderPersonalLibrary();
+function filteredGames() {
   const query = search.value.trim().toLowerCase();
-  const sorted = [...games]
+  return [...games]
     .filter((game) => {
-      const text = `${game.title} ${game.genre} ${game.description} ${game.meta.join(" ")}`.toLowerCase();
-      return text.includes(query);
+      const text = `${game.title} ${game.genre} ${game.description} ${game.meta.join(" ")} ${game.moodTags.join(" ")}`.toLowerCase();
+      const matchesQuery = text.includes(query);
+      const matchesMood = !activeMood || game.moodTags.includes(activeMood);
+      return matchesQuery && matchesMood;
     })
     .sort((a, b) => {
       if (sort === "new") return b.released - a.released;
-      if (sort === "title") return a.title.localeCompare(b.title);
+      if (sort === "title") return a.title.localeCompare(b.title, "ja");
       return window.CollectUGC.popularityScoreFor(b) - window.CollectUGC.popularityScoreFor(a);
     });
+}
 
+function renderList() {
+  const sorted = filteredGames();
   list.innerHTML = sorted
-    .map(
-      (game, index) => {
-        const summary = window.CollectUGC.summaryFor(game.id);
-        const rating = summary.ratingCount ? `${summary.averageRating.toFixed(1)} / 5` : "未評価";
-        const rankLabel = sort === "popular" ? `人気ランキング ${index + 1}位` : `表示順 ${index + 1}番目`;
-        const saved = [
-          summary.favorite ? "お気に入り" : "",
-        ].filter(Boolean);
-        return `
+    .map((game, index) => {
+      const summary = window.CollectUGC.summaryFor(game.id);
+      const rating = summary.ratingCount ? `${summary.averageRating.toFixed(1)} / 5` : "未評価";
+      const rankLabel = sort === "popular" ? `人気ランキング ${index + 1}位` : `表示順 ${index + 1}番目`;
+      const saved = [summary.favorite ? "お気に入り" : ""].filter(Boolean);
+
+      return `
         <article class="game-card game-card-with-thumb">
-          <a class="game-thumb" href="${game.href}" aria-label="${game.title}の詳細を見る" data-game-card-id="${game.id}" data-game-card-title="${game.title}">
+          <a
+            class="game-thumb"
+            href="/${game.href}"
+            aria-label="${game.title}の詳細を見る"
+            data-game-card-id="${game.id}"
+            data-game-card-title="${game.title}"
+            data-source-area="game_grid"
+          >
             <img src="${game.thumb}" alt="${game.title}のプレイ中サムネイル" loading="lazy" width="360" height="210" />
           </a>
           <div>
             <div class="game-card-header">
               <span class="rank">${index + 1}</span>
-              <h2><a href="${game.href}" data-game-card-id="${game.id}" data-game-card-title="${game.title}">${game.title}</a></h2>
+              <h2><a href="/${game.href}" data-game-card-id="${game.id}" data-game-card-title="${game.title}" data-source-area="game_grid">${game.title}</a></h2>
               <span class="tag">${game.genre}</span>
             </div>
             <p class="game-description">${game.description}</p>
             <div class="game-meta">${game.meta.map((item) => `<span>${item}</span>`).join("")}</div>
+            <div class="game-meta mood-inline">${game.moodTags.map((item) => `<span>${item}</span>`).join("")}</div>
             <div class="ugc-mini" aria-label="${game.title}のローカル評価">
               <span>全体評価 ${rating}</span>
               <span>${rankLabel}</span>
@@ -498,24 +743,59 @@ function render() {
             </div>
           </div>
           <div class="game-actions compact">
-            <a class="secondary-link" href="${game.href}">詳細</a>
-            <a class="play-link" href="${game.playHref}" data-play-game-id="${game.id}" data-play-game-title="${game.title}">遊ぶ</a>
+            ${favoriteButton(game)}
+            <a class="secondary-link" href="/${game.href}" data-game-card-id="${game.id}" data-game-card-title="${game.title}" data-source-area="game_grid">詳細</a>
+            <a class="play-link" href="/${game.playHref}" data-play-game-id="${game.id}" data-play-game-title="${game.title}" data-source-area="game_grid">遊ぶ</a>
           </div>
         </article>
       `;
-      },
-    )
+    })
     .join("");
+}
+
+function render() {
+  renderDailyChallenge();
+  renderPlayerSnapshot();
+  renderMoodExplorer();
+  renderPersonalLibrary();
+  renderList();
 }
 
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     sort = tab.dataset.sort;
     tabs.forEach((item) => item.classList.toggle("selected", item === tab));
-    render();
+    renderList();
   });
 });
 
-search.addEventListener("input", render);
+search.addEventListener("input", renderList);
+
+document.addEventListener("click", (event) => {
+  const favorite = event.target.closest("[data-favorite-toggle]");
+  if (favorite) {
+    const gameId = favorite.dataset.favoriteToggle;
+    const summary = window.CollectUGC.summaryFor(gameId);
+    window.CollectPlayer.noteFavorite(gameId, !summary.favorite);
+    render();
+    return;
+  }
+
+  const moodButton = event.target.closest("[data-mood-tag]");
+  if (moodButton) {
+    activeMood = moodButton.dataset.moodTag;
+    window.CollectPlayer.noteMoodTag(activeMood);
+    renderMoodExplorer();
+    renderList();
+    return;
+  }
+
+  if (event.target.closest(".mood-reset")) {
+    activeMood = "";
+    renderMoodExplorer();
+    renderList();
+  }
+});
+
 window.addEventListener("collect:ugc-updated", render);
 render();

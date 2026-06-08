@@ -14,21 +14,21 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>無料ブラウザゲーム広場 | インストール不要で遊べるWebゲーム集</title>
-    <meta name="description" content="無料ブラウザゲーム広場は、インストール不要で短時間プレイできる無料ブラウザゲーム集です。アクション、パズル、戦略、タワーディフェンス、タイミングゲームをスマホやPCですぐに遊べます。" />
+    <title>無料ブラウザゲーム広場 | 今日のチャレンジで遊べる無料Webゲーム集</title>
+    <meta name="description" content="無料ブラウザゲーム広場は、今日のチャレンジからすぐ遊べる無料ブラウザゲーム集です。インストール不要で、スマホ・PCから短時間でスコア更新や記録集めを楽しめます。" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#111827" />
     <link rel="canonical" href="https://game-collect.online/" />
 
     <meta property="og:site_name" content="無料ブラウザゲーム広場" />
     <meta property="og:locale" content="ja_JP" />
-    <meta property="og:title" content="無料ブラウザゲーム広場 | インストール不要で遊べるWebゲーム集" />
-    <meta property="og:description" content="短時間で遊べる無料ブラウザゲームを集めたサイトです。PCでもスマホでも、すぐにプレイできます。" />
+    <meta property="og:title" content="無料ブラウザゲーム広場 | 今日のチャレンジで遊べるWebゲーム集" />
+    <meta property="og:description" content="今日のチャレンジからすぐ遊べる、短時間向けの無料ブラウザゲーム集です。PCでもスマホでも、そのままプレイできます。" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://game-collect.online/" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="無料ブラウザゲーム広場 | インストール不要で遊べるWebゲーム集" />
-    <meta name="twitter:description" content="短時間で遊べる無料ブラウザゲーム集。アクション、パズル、戦略、防衛ゲームをすぐにプレイできます。" />
+    <meta name="twitter:title" content="無料ブラウザゲーム広場 | 今日のチャレンジで遊べるWebゲーム集" />
+    <meta name="twitter:description" content="今日遊ぶゲームがすぐ分かる無料ブラウザゲーム集。短時間でスコア更新や記録集めを楽しめます。" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -37,7 +37,7 @@
         "name": "無料ブラウザゲーム広場",
         "url": "https://game-collect.online/",
         "inLanguage": "ja",
-        "description": "インストール不要で短時間プレイできる無料ブラウザゲーム集です。",
+        "description": "今日のチャレンジからすぐ遊べる、インストール不要の無料ブラウザゲーム集です。",
         "potentialAction": {
                 "@type": "SearchAction",
                 "target": "https://game-collect.online/?q={search_term_string}",
@@ -45,7 +45,7 @@
         }
 }
     </script>
-    <link rel="stylesheet" href="style.css?v=20260524-1" />
+    <link rel="stylesheet" href="style.css?v=20260608-1" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -67,7 +67,9 @@
     </header>
 
     <main class="shell">
-      <section class="home-hero" aria-label="無料ブラウザゲーム広場の紹介">
+      <section id="dailyChallenge" class="challenge-hero content-card" aria-label="今日のチャレンジ" data-source-area="daily_challenge"></section>
+
+      <section class="home-hero" aria-label="無料ブラウザゲーム広場の紹介" data-source-area="hero">
         <div class="hero-copy">
           <p class="eyebrow">無料ブラウザゲーム</p>
           <h1>インストール不要で、すぐ遊べる無料ゲーム集</h1>
@@ -88,7 +90,12 @@
         </aside>
       </section>
 
-      <section class="content-card" aria-label="人気ゲーム">
+      <section class="utility-grid top-utility-grid">
+        <article id="playerSnapshot" class="content-card" aria-label="あなたの記録" data-source-area="player_snapshot"></article>
+        <article id="moodExplorer" class="content-card" aria-label="気分で選ぶ" data-source-area="mood_section"></article>
+      </section>
+
+      <section class="content-card" aria-label="人気ゲーム" data-source-area="popular_section">
         <div class="section-head">
           <div>
             <h2>人気ゲーム</h2>
@@ -124,7 +131,7 @@
         </div>
       </section>
 
-      <section class="content-card" aria-label="新着ゲーム">
+      <section class="content-card" aria-label="新着ゲーム" data-source-area="new_section">
         <div class="section-head">
           <div>
             <h2>新着ゲーム</h2>
@@ -190,7 +197,7 @@
         </div>
       </section>
 
-      <section class="content-card" aria-label="おすすめゲーム">
+      <section class="content-card" aria-label="おすすめゲーム" data-source-area="recommended_section">
         <div class="section-head">
           <div>
             <h2>おすすめゲーム</h2>
@@ -295,8 +302,8 @@
         <a href="/contact.html">お問い合わせ</a>
       </nav>
     </footer>
-    <script src="ugc.js?v=20260511-1"></script>
-    <script src="analytics.js?v=20260522-2"></script>
-    <script src="home.js?v=20260605-1"></script>
+    <script src="ugc.js?v=20260608-1"></script>
+    <script src="analytics.js?v=20260608-1"></script>
+    <script src="home.js?v=20260608-1"></script>
   </body>
 </html>

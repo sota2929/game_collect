@@ -24,7 +24,7 @@
         "description": "ゲームの不具合報告、改善要望、掲載内容に関する連絡をフォームから送信できます。"
       }
     </script>
-    <link rel="stylesheet" href="style.css?v=20260608-1" />
+    <link rel="stylesheet" href="style.css?v=20260609-1" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -33,9 +33,10 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="logo" href="//">ブラウザゲーム広場</a>
+      <a class="logo" href="/">ブラウザゲーム広場</a>
       <nav class="site-nav" aria-label="Site navigation">
-        <a href="//">ゲーム一覧</a>
+        <a href="/">ゲーム一覧</a>
+        <a href="/about/">運営者情報</a>
         <a href="/privacy.html">プライバシー</a>
         <a href="/terms.html">利用規約</a>
         <a href="/contact.html">お問い合わせ</a>
@@ -45,7 +46,7 @@
       <section class="content-card">
         <p class="eyebrow">Contact</p>
         <h1>お問い合わせ</h1>
-        <p>ゲームの不具合、改善要望、掲載内容について送信できます。運営者のメールアドレスはページ上には公開していません。</p>
+        <p>ゲームの不具合、改善要望、権利関係の連絡、掲載内容の修正依頼を送信できます。運営者のメールアドレスはページ上には公開していません。</p>
 
         <form class="contact-form" id="contactForm" action="https://formspree.io/f/xzdozwer" method="POST">
           <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
@@ -102,10 +103,22 @@
 
         <section class="setup-note" aria-label="Form setup note">
           <h2>送信について</h2>
-          <p>送信内容はFormspreeを通じて運営者へ通知されます。運営者のメールアドレスはこのページには表示していません。</p>
+          <p>送信内容はFormspreeを通じて運営者へ通知されます。個人情報や秘密情報は必要最小限に留め、ゲーム名、利用端末、ブラウザ名、起きた現象を書いていただくと確認しやすくなります。</p>
         </section>
       </section>
     </main>
+    <footer class="site-footer">
+      <span>ブラウザゲーム広場</span>
+      <nav aria-label="Footer navigation">
+        <a href="/about/">運営者情報</a>
+        <a href="/guide/">遊び方ガイド</a>
+        <a href="/updates/">更新履歴</a>
+        <a href="/contact.html">お問い合わせ</a>
+        <a href="/privacy.html">プライバシーポリシー</a>
+        <a href="/terms.html">利用規約</a>
+      </nav>
+    </footer>
     <script src="contact.js"></script>
+    <script src="/analytics.js?v=20260608-1"></script>
   </body>
 </html>

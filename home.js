@@ -553,6 +553,7 @@ function renderDailyChallenge() {
         <span><strong>${profile.totalPlays}回</strong><small>総プレイ回数</small></span>
       </div>
       <p class="challenge-status">${statusLabel}</p>
+      <p class="challenge-note">今日のチャレンジは、毎日1本のゲームをおすすめする機能です。自己ベストや連続挑戦の記録は、このブラウザ内に主に保存されます。</p>
       <div class="hero-actions">
         <a
           class="play-link challenge-link"
@@ -710,7 +711,7 @@ function renderList() {
     .map((game, index) => {
       const summary = window.CollectUGC.summaryFor(game.id);
       const rating = summary.ratingCount ? `${summary.averageRating.toFixed(1)} / 5` : "未評価";
-      const rankLabel = sort === "popular" ? `人気ランキング ${index + 1}位` : `表示順 ${index + 1}番目`;
+      const rankLabel = sort === "popular" ? `おすすめ順 ${index + 1}番目` : `表示順 ${index + 1}番目`;
       const saved = [summary.favorite ? "お気に入り" : ""].filter(Boolean);
 
       return `

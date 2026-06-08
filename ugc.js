@@ -737,16 +737,15 @@
     });
     actions.append(favorite);
 
-    const reviewForm = make("form", "ugc-form");
-    reviewForm.append(make("h3", "", "レビュー"));
-    const reviewInput = make("textarea");
-    reviewInput.name = "review";
-    reviewInput.maxLength = 500;
-    reviewInput.rows = 3;
-    reviewInput.placeholder = "良かった点やおすすめポイントを500字以内で書く";
-    const reviewButton = make("button", "", "レビューを投稿");
-    reviewButton.type = "submit";
-    reviewForm.append(reviewInput, reviewButton);
+    const reviewPolicy = make("div", "ugc-form");
+    reviewPolicy.append(make("h3", "", "レビューについて"));
+    reviewPolicy.append(
+      make(
+        "p",
+        "ugc-empty",
+        "現在、レビュー本文の新規投稿は一時停止しています。AdSense 審査と運営体制の見直しに合わせて、個人情報やスパムを防ぎやすい形へ整えてから再開予定です。5段階評価とプレイ記録は継続して利用できます。",
+      ),
+    );
 
     const lists = make("div", "ugc-lists");
     const reviewList = make("div", "ugc-list");
@@ -762,19 +761,7 @@
     renderList(reviewItems, reviews, "まだレビューはありません。");
     renderHistoryList(historyItems, localRecentPlays(gameId));
 
-    reviewForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const text = clampText(reviewInput.value, 500);
-      if (!text) return;
-      reviewButton.disabled = true;
-      try {
-        await postReview(gameId, text);
-      } finally {
-        renderPanel(panel);
-      }
-    });
-
-    panel.append(head, stars, actions, reviewForm, lists);
+    panel.append(head, stars, actions, reviewPolicy, lists);
   };
 
   const bindPlayLinks = () => {

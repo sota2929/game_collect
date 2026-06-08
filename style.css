@@ -687,6 +687,17 @@ h3 {
   box-shadow: 0 4px 12px rgba(17, 37, 62, 0.04);
 }
 
+.compact-info {
+  display: grid;
+  gap: 8px;
+  min-height: 104px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+  padding: 14px;
+  box-shadow: 0 4px 12px rgba(17, 37, 62, 0.04);
+}
+
 .utility-grid span {
   color: var(--muted);
   line-height: 1.55;

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>骨董仕分けナイト | 無料仕分けアクションゲーム | 無料ブラウザゲーム広場</title>
+    <meta name="description" content="骨董仕分けナイトは、夜の骨董百貨店で珍品を正しい引き出しへすばやく仕分ける無料ブラウザゲームです。インストール不要で、スマホ・PCから短時間に遊べます。" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#f3ead8" />
+    <link rel="canonical" href="https://game-collect.online/moonlit_curio_sorter/" />
+    <meta property="og:site_name" content="無料ブラウザゲーム広場" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content="骨董仕分けナイト | 無料仕分けアクションゲーム" />
+    <meta property="og:description" content="珍品の紋章を見て、正しい引き出しへ仕分ける短時間の無料ブラウザゲーム。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://game-collect.online/moonlit_curio_sorter/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="骨董仕分けナイト | 無料ブラウザゲーム広場" />
+    <meta name="twitter:description" content="夜の骨董百貨店で珍品を即仕分けする、短時間の無料ブラウザ仕分けアクション。" />
+    <link rel="stylesheet" href="style.css?v=20260608-3" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <main class="cabinet-shell">
+      <a class="back-link" href="/">← ゲーム一覧へ戻る</a>
+      <section class="hero-bar" aria-label="骨董仕分けナイトの情報">
+        <div class="hero-copy">
+          <p class="eyebrow">SORTING ACTION / COZY ODDITIES</p>
+          <h1>骨董仕分けナイト</h1>
+          <p>閉店後の骨董百貨店で、珍品を正しい引き出しへ即仕分けする夜勤シフト。見極めて、切り替えて、その場で流し込もう。</p>
+        </div>
+        <div class="hero-stats">
+          <span><b id="score">0</b> Score</span>
+          <span><b id="combo">x1</b> Combo</span>
+          <span><b id="best">0</b> Best</span>
+        </div>
+      </section>
+
+      <section class="play-layout">
+        <div class="board-panel">
+          <canvas id="game" width="720" height="960" aria-label="骨董仕分けナイトのゲーム盤面"></canvas>
+          <div class="overlay" id="overlay">
+            <div class="overlay-card">
+              <p class="eyebrow">NIGHT SHIFT</p>
+              <h2 id="overlayTitle">骨董仕分けナイト</h2>
+              <p id="overlayText">珍品の紋章を見て、正しい引き出しを選んだらその場で流し込もう。A S D F または 1 2 3 4 でも操作できます。</p>
+              <button id="startButton" type="button">Start Shift</button>
+            </div>
+          </div>
+          <div class="floating-note" id="floatingNote" aria-live="polite"></div>
+        </div>
+
+        <aside class="control-panel" aria-label="操作とステータス">
+          <div class="meter-card">
+            <div class="meter-head"><span>Shift</span><b id="time">60.0s</b></div>
+            <div class="meter-track"><span id="timeFill"></span></div>
+          </div>
+          <div class="meter-card">
+            <div class="meter-head"><span>Mistakes</span><b id="lives">0 / 3</b></div>
+            <div class="meter-track mistakes"><span id="livesFill"></span></div>
+          </div>
+
+          <div class="status-strip">
+            <span id="speed">Flow 1.0</span>
+            <span id="sorted">Sorted 0</span>
+            <span id="state">Ready</span>
+          </div>
+
+          <section class="queue-card" aria-label="次に来る珍品">
+            <div class="queue-head">
+              <h2>Next Queue</h2>
+              <p>次の3件</p>
+            </div>
+            <div class="queue-list" id="queueList"></div>
+          </section>
+
+          <section class="drawer-controls" aria-label="仕分け先の引き出し">
+            <button class="drawer-button active" type="button" data-index="0"><span class="keycap">A / 1</span><strong>星章</strong></button>
+            <button class="drawer-button" type="button" data-index="1"><span class="keycap">S / 2</span><strong>鍵印</strong></button>
+            <button class="drawer-button" type="button" data-index="2"><span class="keycap">D / 3</span><strong>貝飾</strong></button>
+            <button class="drawer-button" type="button" data-index="3"><span class="keycap">F / 4</span><strong>花札</strong></button>
+          </section>
+
+          <div class="tool-row">
+            <button id="pauseButton" type="button">Pause</button>
+            <button id="soundToggle" type="button" aria-pressed="true">Sound ON</button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="info-grid" aria-label="ゲーム説明">
+        <article>
+          <h2>遊び方</h2>
+            <p>上から流れてくる珍品の紋章を見て、4つの引き出しのどれへ送るかを決めます。選んだ瞬間にその引き出しへ送り込めるので、見極めと即判断が大事です。</p>
+        </article>
+        <article>
+          <h2>操作方法</h2>
+          <p>スマホは引き出しボタンをタップ。PCは A S D F または 1 2 3 4 で引き出しを切り替え、そのまま発送できます。Enterで開始、Pで一時停止できます。</p>
+        </article>
+        <article>
+          <h2>ルール</h2>
+          <p>制限時間は60秒、ミスは3回まで。正しく仕分けるたびに流れが少し速くなり、コンボが伸びるほど得点も大きくなります。</p>
+        </article>
+        <article>
+          <h2>攻略のコツ</h2>
+          <p>次の3件を見ながら先回りして引き出しを選ぶと安定します。金の封蝋が付いた珍品は高得点なので、コンボを切らさずに取りたいところです。</p>
+        </article>
+      </section>
+    </main>
+    <script src="game.js?v=20260608-2"></script>
+  </body>
+</html>

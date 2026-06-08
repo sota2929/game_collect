@@ -385,6 +385,23 @@ const games = [
       "スマホ対応",
       "インストール不要"
     ]
+  },
+  {
+    "id": "moonlit-curio-sorter",
+    "title": "骨董仕分けナイト",
+    "href": "games/moonlit-curio-sorter/",
+    "thumb": "assets/thumbs/moonlit-curio-sorter.svg",
+    "playHref": "moonlit_curio_sorter/",
+    "genre": "Casual",
+    "popularity": 24,
+    "released": 24,
+    "description": "閉店後の骨董百貨店で流れてくる珍品をその場で正しい引き出しへ送る、60秒の仕分けアクション。",
+    "meta": [
+      "仕分けアクション",
+      "60秒シフト",
+      "スマホ対応",
+      "インストール不要"
+    ]
   }
 ];
 

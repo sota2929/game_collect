@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">骨董仕分けナイト SEO画像</title>
+  <desc id="desc">夜の骨董百貨店で珍品を4つの引き出しへ仕分けるゲーム画面のイメージ</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f8f0de"/>
+      <stop offset="100%" stop-color="#ead7b3"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" x2="1">
+      <stop offset="0%" stop-color="#fffaf1"/>
+      <stop offset="100%" stop-color="#f3e0bd"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#271b17" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <g opacity=".16" stroke="#271b17" stroke-width="1">
+    <path d="M0 42h1200M0 92h1200M0 142h1200M0 192h1200M0 242h1200M0 292h1200M0 342h1200M0 392h1200M0 442h1200M0 492h1200M0 542h1200M0 592h1200"/>
+    <path d="M52 0v675M102 0v675M152 0v675M202 0v675M252 0v675M302 0v675M352 0v675M402 0v675M452 0v675M502 0v675M552 0v675M602 0v675M652 0v675M702 0v675M752 0v675M802 0v675M852 0v675M902 0v675M952 0v675M1002 0v675M1052 0v675M1102 0v675M1152 0v675"/>
+  </g>
+  <rect x="44" y="44" width="1112" height="587" rx="28" fill="url(#panel)" filter="url(#shadow)"/>
+  <text x="90" y="112" fill="#7d5f45" font-family="Avenir Next, Hiragino Sans, sans-serif" font-size="18" letter-spacing="6">SORTING ACTION / COZY ODDITIES</text>
+  <text x="90" y="168" fill="#271b17" font-family="Yu Mincho, Hiragino Mincho ProN, serif" font-size="52" font-weight="700">骨董仕分けナイト</text>
+  <text x="92" y="214" fill="#5d4a3b" font-family="Avenir Next, Hiragino Sans, sans-serif" font-size="24">閉店後の骨董百貨店で、珍品を正しい引き出しへ流し込む夜勤シフト。</text>
+  <g transform="translate(92 258)">
+    <rect width="710" height="318" rx="26" fill="#d9bb87"/>
+    <rect x="18" y="18" width="674" height="282" rx="22" fill="#fbf7ef"/>
+    <rect x="250" y="34" width="208" height="180" rx="24" fill="#28415a"/>
+    <rect x="274" y="58" width="160" height="132" rx="18" fill="#f6eedc"/>
+    <path d="M354 54v184" stroke="#b88746" stroke-width="7"/>
+    <rect x="244" y="195" width="220" height="34" rx="16" fill="#b88746"/>
+    <rect x="321" y="84" width="66" height="46" rx="12" fill="#28415a"/>
+    <text x="354" y="113" text-anchor="middle" fill="#f7efde" font-family="Avenir Next, Hiragino Sans, sans-serif" font-size="17" font-weight="700">SORTER</text>
+    <g transform="translate(354 162)">
+      <rect x="-38" y="-46" width="76" height="92" rx="16" fill="#54725d"/>
+      <rect x="-28" y="-36" width="56" height="72" rx="14" fill="#fff8ea" stroke="#271b17" stroke-width="3"/>
+      <g fill="#54725d">
+        <circle cx="-8" cy="-10" r="8"/>
+        <rect x="-3" y="-10" width="24" height="5"/>
+        <rect x="12" y="-10" width="4" height="18"/>
+        <rect x="22" y="-10" width="4" height="12"/>
+      </g>
+      <circle cx="18" cy="-22" r="9" fill="#b88746"/>
+      <text x="18" y="-18" text-anchor="middle" fill="#fff8ea" font-family="Avenir Next, Hiragino Sans, sans-serif" font-size="11" font-weight="700">封</text>
+    </g>
+    <g transform="translate(88 84)">
+      <rect width="84" height="136" rx="18" fill="#7b5e44"/>
+      <rect x="10" y="10" width="64" height="116" rx="14" fill="#fbf7ef"/>
+      <text x="42" y="30" text-anchor="middle" fill="#271b17" font-family="Avenir Next, Hiragino Sans, sans-serif" font-size="14" font-weight="700">QUEUE</text>
+      <rect x="16" y="46" width="52" height="22" rx="11" fill="#c65b2f"/>
+      <path d="M42 50l5.6 17.2H29.2L42.8 55 31.2 55z" fill="#f4d37d"/>
+      <rect x="16" y="78" width="52" height="22" rx="11" fill="#35607e"/>
+      <path d="M26 95c10-20 32-20 42 0H26z" fill="#d8edf3"/>
+      <rect x="16" y="110" width="52" height="22" rx="11" fill="#7d4f63"/>
+      <g fill="#f0dae4" transform="translate(42 121)">
+        <ellipse rx="9" ry="5"/>
+        <ellipse rx="9" ry="5" transform="rotate(60)"/>
+        <ellipse rx="9" ry="5" transform="rotate(120)"/>
+      </g>
+    </g>
+    <g font-family="Yu Mincho, Hiragino Mincho ProN, serif" font-size="18" font-weight="700">
+      <g transform="translate(126 252)">
+        <rect x="-56" y="-18" width="112" height="64" rx="15" fill="#c65b2f"/>
+        <rect x="-44" y="-8" width="88" height="42" rx="12" fill="#f4d37d"/>
+        <path d="M0 -2l9 26H-19l11-16-12-1z" fill="#271b17"/>
+        <text x="0" y="28" text-anchor="middle" fill="#271b17">星章</text>
+      </g>
+      <g transform="translate(286 252)">
+        <rect x="-56" y="-18" width="112" height="64" rx="15" fill="#54725d"/>
+        <rect x="-44" y="-8" width="88" height="42" rx="12" fill="#dce6d8"/>
+        <g fill="#271b17">
+          <circle cx="-6" cy="2" r="8"/>
+          <rect x="-1" y="0" width="24" height="5"/>
+          <rect x="14" y="0" width="4" height="18"/>
+          <rect x="24" y="0" width="4" height="12"/>
+        </g>
+        <text x="0" y="28" text-anchor="middle" fill="#271b17">鍵印</text>
+      </g>
+      <g transform="translate(446 252)">
+        <rect x="-56" y="-18" width="112" height="64" rx="15" fill="#35607e"/>
+        <rect x="-44" y="-8" width="88" height="42" rx="12" fill="#d8edf3"/>
+        <path d="M-14 10c10-22 32-22 42 0H-14z" fill="#271b17"/>
+        <text x="0" y="28" text-anchor="middle" fill="#271b17">貝飾</text>
+      </g>
+      <g transform="translate(606 252)">
+        <rect x="-62" y="-24" width="124" height="76" rx="18" fill="none" stroke="#b88746" stroke-width="4"/>
+        <rect x="-56" y="-18" width="112" height="64" rx="15" fill="#7d4f63"/>
+        <rect x="-44" y="-8" width="88" height="42" rx="12" fill="#f0dae4"/>
+        <g fill="#271b17" transform="translate(0 6)">
+          <ellipse rx="9" ry="5"/>
+          <ellipse rx="9" ry="5" transform="rotate(60)"/>
+          <ellipse rx="9" ry="5" transform="rotate(120)"/>
+        </g>
+        <text x="0" y="28" text-anchor="middle" fill="#271b17">花札</text>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(836 246)">
+    <rect width="272" height="328" rx="24" fill="#fffaf1" stroke="#271b17" stroke-opacity=".08"/>
+    <text x="24" y="42" fill="#271b17" font-family="Yu Mincho, Hiragino Mincho ProN, serif" font-size="32" font-weight="700">Next Queue</text>
+    <text x="24" y="72" fill="#6b5846" font-family="Avenir Next, Hiragino Sans, sans-serif" font-size="18">次の3件を先読み</text>
+    <g transform="translate(24 102)">
+      <rect width="224" height="62" rx="18" fill="#fff" stroke="#271b17" stroke-opacity=".08"/>
+      <circle cx="32" cy="31" r="20" fill="#c65b2f"/>
+      <path d="M32 16l5 15h-16l10-10-10 1z" fill="#f4d37d"/>
+      <text x="70" y="30" fill="#271b17" font-family="Yu Gothic, Hiragino Sans, sans-serif" font-size="22" font-weight="700">星章</text>
+      <text x="70" y="50" fill="#6b5846" font-family="Avenir Next, Hiragino Sans, sans-serif" font-size="16">通常品</text>
+    </g>
+    <g transform="translate(24 178)">
+      <rect width="224" height="62" rx="18" fill="#fff" stroke="#271b17" stroke-opacity=".08"/>
+      <circle cx="32" cy="31" r="20" fill="#54725d"/>
+      <g fill="#dce6d8" transform="translate(32 31)">
+        <circle cx="-6" cy="-4" r="8"/>
+        <rect x="-1" y="-4" width="22" height="5"/>
+        <rect x="13" y="-4" width="4" height="16"/>
+      </g>
+      <text x="70" y="30" fill="#271b17" font-family="Yu Gothic, Hiragino Sans, sans-serif" font-size="22" font-weight="700">鍵印</text>
+      <text x="70" y="50" fill="#6b5846" font-family="Avenir Next, Hiragino Sans, sans-serif" font-size="16">高価査定</text>
+    </g>
+    <g transform="translate(24 254)">
+      <rect width="224" height="62" rx="18" fill="#fff" stroke="#271b17" stroke-opacity=".08"/>
+      <circle cx="32" cy="31" r="20" fill="#35607e"/>
+      <path d="M18 38c8-18 28-18 28 0H18z" fill="#d8edf3"/>
+      <text x="70" y="30" fill="#271b17" font-family="Yu Gothic, Hiragino Sans, sans-serif" font-size="22" font-weight="700">貝飾</text>
+      <text x="70" y="50" fill="#6b5846" font-family="Avenir Next, Hiragino Sans, sans-serif" font-size="16">急送</text>
+    </g>
+  </g>
+</svg>

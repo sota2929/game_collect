@@ -169,6 +169,18 @@
     <priority>0.72</priority>
   </url>
   <url>
+    <loc>https://game-collect.online/games/moonlit-curio-sorter/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://game-collect.online/moonlit_curio_sorter/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.72</priority>
+  </url>
+  <url>
     <loc>https://game-collect.online/category/one-minute-games/</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
